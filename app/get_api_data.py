@@ -34,3 +34,24 @@ def get_ids_deputados(file_path):
     ids = [deputado['id'] for deputado in deputados]
     return ids
 
+
+def fetch_all_data(base_url, params=None):
+    """Fetch all data across paginated API responses."""
+    all_data = []
+    url = base_url
+    
+    while url:
+        data = fetch_data(url, params)
+        if data:
+            all_data.extend(data['dados'])
+            url = None
+            for link in data['links']:
+                if link['rel'] == 'next':
+                    url = link['href']
+                    break
+            # Reset params after the first request to follow the next URLs directly
+            params = None
+        else:
+            break
+    
+    return all_data
