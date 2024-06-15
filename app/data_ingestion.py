@@ -26,7 +26,11 @@ def download_data():
         file_path_despesas = f'data/landing_zone/despesas/{id}_despesas.json'
         save_to_raw(data_despesas, file_path_despesas)
 
-def save_in_postgresql()
+def save_json_to_db():
+    """
+    Função que itera sobre arquivos de uma pasta, valida com pydantic e caso esteja O.K. salva em um banco postgresql
+    """
+    pass
 
 if __name__ == "__main__":
     download_data()

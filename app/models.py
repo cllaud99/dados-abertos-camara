@@ -1,23 +1,23 @@
-from pydantic import BaseModel, HttpUrl, EmailStr
-from typing import List
 
-class Deputado(BaseModel):
-    id: int
-    uri: HttpUrl
-    nome: str
-    siglaPartido: str
-    uriPartido: HttpUrl
-    siglaUf: str
-    idLegislatura: int
-    urlFoto: HttpUrl
-    email: EmailStr
-
-class Deputados(BaseModel):
-    dados: List[Deputado]
+from pydantic import BaseModel, HttpUrl
+from typing import Optional
+from datetime import date
 
 class Despesa(BaseModel):
-    # Defina os campos com base na estrutura JSON da despesa
-    pass
-
-class Despesas(BaseModel):
-    dados: List[Despesa]
+    ano: int
+    mes: int
+    tipoDespesa: str
+    codDocumento: int
+    tipoDocumento: str
+    codTipoDocumento: int
+    dataDocumento: date
+    numDocumento: str
+    valorDocumento: float
+    urlDocumento: Optional[HttpUrl]
+    nomeFornecedor: str
+    cnpjCpfFornecedor: str
+    valorLiquido: float
+    valorGlosa: float
+    numRessarcimento: str
+    codLote: int
+    parcela: int
