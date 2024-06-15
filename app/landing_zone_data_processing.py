@@ -84,17 +84,14 @@ def build_external_database_url(env_path='.env'):
     Returns:
         str: URL do banco de dados externo PostgreSQL.
     """
-    # Carrega as variáveis de ambiente do arquivo .env
+
     load_dotenv(env_path)
 
-    # Obtém as variáveis de ambiente necessárias
     hostname = os.getenv('HOSTNAME')
     port = os.getenv('PORT')
     database = os.getenv('DATABASE')
     username = os.getenv('USERNAME')
     password = os.getenv('PASSWORD')
-
-    # Monta a URL do banco de dados externo PostgreSQL
     external_database_url = f"postgresql://{username}:{password}@{hostname}:{port}/{database}"
 
     return external_database_url
@@ -110,7 +107,6 @@ def validate_postgresql_connection(engine):
         bool: True se a conexão for bem-sucedida, False caso contrário.
     """
     try:
-        # Tenta obter uma conexão com o PostgreSQL
         with engine.connect():
             print("Conexão com o PostgreSQL bem-sucedida!")
             return True
@@ -118,13 +114,33 @@ def validate_postgresql_connection(engine):
         print(f"Erro na conexão com o PostgreSQL: {e}")
         return False
 
-if __name__ == "__main__":
+
+
+
+
+if __name__ == "__tome__":
     # Exemplo de utilização:
     env_path = '.env'  # Caminho para o arquivo .env
     external_database_url = build_external_database_url(env_path)
     
     # Cria a engine SQLAlchemy
     engine = create_engine(external_database_url)
-    
+
     # Valida a conexão com o PostgreSQL
     validate_postgresql_connection(engine)
+
+if __name__ == "__jorge__":
+    json_folder = Path('data/landing_zone/despesas')
+    for file_path in json_folder.glob('*.json'):
+        validated_items = read_and_validate_json(file_path, Despesa)
+        if validated_items:
+            df = pd.DataFrame([item.dict() for item in validated_items])
+            print(f"Dados válidos no arquivo {file_path}:")
+            print(df.head())  # Exemplo de como imprimir o DataFrame
+            
+            # Insere os dados validados no PostgreSQL usando pandas e sqlalchemy
+            table_name = 'despesas'  # Nome da tabela no PostgreSQL
+            insert_data_to_postgres(df, table_name)
+            
+        else:
+            print(f"Dados inválidos no arquivo {file_path}")
