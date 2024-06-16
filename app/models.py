@@ -14,7 +14,7 @@ class Despesa(BaseModel):
     dataDocumento: date
     numDocumento: str
     valorDocumento: float
-    urlDocumento: Optional[HttpUrl]
+    urlDocumento: Optional[str]
     nomeFornecedor: str
     cnpjCpfFornecedor: str
     valorLiquido: float

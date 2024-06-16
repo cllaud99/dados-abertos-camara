@@ -51,32 +51,34 @@ def validate_postgresql_connection(engine):
         return False
 
 
-def insert_data_to_postgres(dataframe, table_name, env_path=".env"):
+def insert_data_to_postgres(dataframe, table_name, engine):
     """
     Insere dados de um DataFrame em uma tabela no PostgreSQL usando pandas e sqlalchemy.
 
     Args:
         dataframe (pd.DataFrame): DataFrame contendo os dados a serem inseridos.
         table_name (str): Nome da tabela onde os dados serão inseridos.
-        env_path (str): Caminho para o arquivo .env. Default é '.env'.
+        engine (sqlalchemy.engine.Engine): Objeto Engine do SQLAlchemy.
     """
     try:
-
-        external_database_url = build_external_database_url(env_path)
-
-        engine = create_engine(external_database_url)
-
-        if validate_postgresql_connection(engine):
-            dataframe.to_sql(table_name, con=engine, if_exists="replace", index=False)
-            print(f"Dados inseridos com sucesso na tabela {table_name}")
-        else:
-            print("Falha na validação da conexão com o PostgreSQL.")
-
+        dataframe.to_sql(table_name, con=engine, if_exists="append", index=False)
+        print(f"Dados inseridos com sucesso na tabela {table_name}")
     except Exception as e:
         print("Erro ao inserir dados no PostgreSQL:", e)
 
 
 if __name__ == "__main__":
-    # Exemplo de uso:
+
     dataframe = pd.DataFrame({"col1": [1, 2], "col2": [3, 4]})
-    insert_data_to_postgres(dataframe, "nome_da_tabela")
+    env_path = ".env"
+    
+    external_database_url = build_external_database_url(env_path)
+
+    # Criar o engine fora do loop
+    engine = create_engine(external_database_url)
+
+    # Validar a conexão uma vez
+    if validate_postgresql_connection(engine):
+        insert_data_to_postgres(dataframe, "nome_da_tabela", engine)
+    else:
+        print("Falha na validação da conexão com o PostgreSQL.")

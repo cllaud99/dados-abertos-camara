@@ -59,7 +59,7 @@ if __name__ == "__main__":
     for file_path in json_folder.glob("*.json"):
         validated_items = read_and_validate_json(file_path, Despesa)
         if validated_items:
-            df = pd.DataFrame([item.dict() for item in validated_items])
+            df = pd.DataFrame([item.model_dump() for item in validated_items])
             print(f"Dados válidos no arquivo {file_path}:")
             print(df.head())  # Exemplo de como imprimir o DataFrame
 
