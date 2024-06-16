@@ -1,8 +1,7 @@
 from datetime import date
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import BaseModel, HttpUrl
-
 
 class Despesa(BaseModel):
     ano: int
@@ -22,3 +21,14 @@ class Despesa(BaseModel):
     numRessarcimento: str
     codLote: int
     parcela: int
+
+class Deputado(BaseModel):
+    id: int
+    uri: str
+    nome: str
+    siglaPartido: str
+    uriPartido: str
+    siglaUf: str
+    idLegislatura: int
+    urlFoto: str
+    email: str

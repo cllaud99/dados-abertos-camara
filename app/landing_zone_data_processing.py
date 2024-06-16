@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List, Optional, Type
 
 import pandas as pd
-from models import Despesa
+from models import Despesa, Deputado
 from pydantic import BaseModel, ValidationError
 
 
@@ -23,12 +23,24 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
     """
     with open(file_path, "r", encoding="utf-8") as file:
         json_data = json.load(file)
-        try:
-            items = [model(**item) for item in json_data]
-            return items
-        except ValidationError as e:
-            print(f"Erro de validação no arquivo {file_path}: {e}")
+        if isinstance(json_data, list):  # Caso 1: Lista de objetos diretos
+            try:
+                items = [model(**item) for item in json_data]
+                return items
+            except ValidationError as e:
+                print(f"Erro de validação no arquivo {file_path}: {e}")
+                return None
+        elif isinstance(json_data.get('dados'), list):  # Caso 2: Objeto com chave 'dados' contendo lista
+            try:
+                items = [model(**item) for item in json_data['dados']]
+                return items
+            except ValidationError as e:
+                print(f"Erro de validação no arquivo {file_path}: {e}")
+                return None
+        else:
+            print(f"Estrutura JSON não reconhecida no arquivo {file_path}")
             return None
+
 
 
 def read_normalize_json(file_path):
@@ -54,17 +66,27 @@ def read_normalize_json(file_path):
     return df
 
 
-if __name__ == "__main__":
+if __name__ == "__mainn__":
     json_folder = Path("data/landing_zone/despesas")
     for file_path in json_folder.glob("*.json"):
+        print()
         validated_items = read_and_validate_json(file_path, Despesa)
         if validated_items:
             df = pd.DataFrame([item.model_dump() for item in validated_items])
             print(f"Dados válidos no arquivo {file_path}:")
-            print(df.head())  # Exemplo de como imprimir o DataFrame
+            print(df.head())  
+        else:
+            print(f"Dados inválidos no arquivo {file_path}")
 
-            # Insere os dados validados no PostgreSQL usando pandas e sqlalchemy
-            table_name = "despesas"  # Nome da tabela no PostgreSQL
 
+if __name__ == "__main__":
+    json_folder = Path("data/landing_zone")
+    for file_path in json_folder.glob("*.json"):
+        print()
+        validated_items = read_and_validate_json(file_path, Deputado)
+        if validated_items:
+            df = pd.DataFrame([item.model_dump() for item in validated_items])
+            print(f"Dados válidos no arquivo {file_path}:")
+            print(df.head())  
         else:
             print(f"Dados inválidos no arquivo {file_path}")
