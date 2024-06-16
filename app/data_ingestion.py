@@ -35,19 +35,19 @@ def download_data():
         save_to_raw(data_despesas, file_path_despesas)
 
 
-def normalize_and_save(folder_path, model, table_name):
-    json_folder = Path(folder_path)
+def normalize_and_save():
+    json_folder = Path("data/landing_zone/despesas")
     external_database_url = build_external_database_url()
     engine = create_engine(external_database_url)
     if validate_postgresql_connection(engine):
         for file_path in json_folder.glob("*.json"):
             try:
-                validated_items = read_and_validate_json(file_path, model)
+                validated_items = read_and_validate_json(file_path, Despesa)
                 if validated_items:
                     df = pd.DataFrame([item.model_dump() for item in validated_items])
                     print(f"Dados válidos no arquivo {file_path}:")
                     
-                    insert_data_to_postgres(df, table_name, engine)
+                    insert_data_to_postgres(df, 'raw_despesas', engine)
                     
                     print(f"Dados do arquivo {file_path} foram inseridos com sucesso na tabela 'raw_despesas'.")
                 else:
@@ -57,7 +57,4 @@ def normalize_and_save(folder_path, model, table_name):
 
 
 if __name__ == "__main__":
-    folder_path = "data/landing_zone/despesas"
-    table_name = 'raw_despesas'
-    model = Despesa
-    normalize_and_save(folder_path, table_name, model)
+    normalize_and_save()
