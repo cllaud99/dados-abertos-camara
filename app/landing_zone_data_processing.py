@@ -21,25 +21,41 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
     """
     with open(file_path, "r", encoding="utf-8") as file:
         json_data = json.load(file)
-        if isinstance(json_data, list):  # Caso 1: Lista de objetos diretos
+        
+        # Caso 1: JSON é uma lista de objetos
+        if isinstance(json_data, list):
             try:
                 items = [model(**item) for item in json_data]
                 return items
             except ValidationError as e:
                 print(f"Erro de validação no arquivo {file_path}: {e}")
                 return None
-        elif isinstance(
-            json_data.get("dados"), list
-        ):  # Caso 2: Objeto com chave 'dados' contendo lista
+
+        # Caso 2: Objeto com chave 'dados' contendo lista
+        elif isinstance(json_data.get("dados"), list):
             try:
                 items = [model(**item) for item in json_data["dados"]]
                 return items
             except ValidationError as e:
                 print(f"Erro de validação no arquivo {file_path}: {e}")
                 return None
-        else:
-            print(f"Estrutura JSON não reconhecida no arquivo {file_path}")
-            return None
+        
+        # Caso 3: Objeto com chave 'dados' que não é lista
+        elif isinstance(json_data.get("dados"), dict):
+            try:
+                # Vamos imprimir a estrutura do JSON e o tipo de 'dados' para debug
+                print(f"JSON data: {json_data}")
+                print(f"Tipo de 'dados': {type(json_data.get('dados'))}")
+                
+                item = model(**json_data["dados"])
+                print(item)
+                return item
+            except ValidationError as e:
+                print(f"Erro de validação no arquivo {file_path}: {e}")
+                return None
+            except Exception as e:
+                print(f"Ocorreu um erro ao processar o arquivo {file_path}: {e}")
+                return None
 
 
 def read_normalize_json(file_path):
