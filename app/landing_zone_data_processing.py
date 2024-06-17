@@ -67,6 +67,8 @@ def read_normalize_json(file_path):
 
     df["file_name"] = Path(file_path).name
 
+    print(df)
+
     return df
 
 

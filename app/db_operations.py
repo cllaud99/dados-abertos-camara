@@ -17,25 +17,24 @@ def drop_all_tables_in_schema(engine, schema):
     """
     try:
         with engine.connect() as connection:
-            connection.execute(text(f"SET session_replication_role = 'replica';"))
 
-            result = connection.execute(
-                text(
-                    f"""
-                SELECT tablename FROM pg_tables
-                WHERE schemaname = :schema
-            """
-                ),
-                {"schema": schema},
-            )
+            with connection.begin():
+                result = connection.execute(
+                    text(
+                        f"""
+                        SELECT tablename FROM pg_tables
+                        WHERE schemaname = :schema
+                        """
+                    ),
+                    {"schema": schema},
+                )
 
-            tables = result.fetchall()
+                tables = result.fetchall()
 
-            for table in tables:
-                connection.execute(text(f'DROP TABLE "{schema}"."{table[0]}" CASCADE;'))
-
-            # Habilita restrições de chave estrangeira novamente
-            connection.execute(text(f"SET session_replication_role = 'origin';"))
+                for table in tables:
+                    connection.execute(
+                        text(f'DROP TABLE IF EXISTS "{schema}"."{table[0]}" CASCADE;')
+                    )
 
             print(f"Todas as tabelas no esquema {schema} foram apagadas com sucesso.")
     except Exception as e:
