@@ -72,6 +72,4 @@ if __name__ == "__main__":
     download_data()
     normalize_and_save(Path("data/landing_zone"), Deputado, "raw_deputados")
     normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas")
-    normalize_and_save(
-        Path("data/landing_zone/infos"), DadosDeputado, "raw_infos_extras"
-    )
+    # normalize_and_save(Path("data/landing_zone/infos"), DadosDeputado, "raw_infos_extras")
