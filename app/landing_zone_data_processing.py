@@ -19,43 +19,50 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
         List[BaseModel] or None: Uma lista de instâncias do modelo Pydantic, se a validação for bem-sucedida.
         Retorna None se houver um erro de validação, exibindo uma mensagem de erro detalhada.
     """
-    with open(file_path, "r", encoding="utf-8") as file:
-        json_data = json.load(file)
-        
-        # Caso 1: JSON é uma lista de objetos
-        if isinstance(json_data, list):
-            try:
-                items = [model(**item) for item in json_data]
-                return items
-            except ValidationError as e:
-                print(f"Erro de validação no arquivo {file_path}: {e}")
-                return None
+    try:
+        with open(str(file_path), "r", encoding="utf-8") as file:
+            json_data = json.load(file)
 
-        # Caso 2: Objeto com chave 'dados' contendo lista
-        elif isinstance(json_data.get("dados"), list):
-            try:
-                items = [model(**item) for item in json_data["dados"]]
-                return items
-            except ValidationError as e:
-                print(f"Erro de validação no arquivo {file_path}: {e}")
-                return None
-        
-        # Caso 3: Objeto com chave 'dados' que não é lista
-        elif isinstance(json_data.get("dados"), dict):
-            try:
-                # Vamos imprimir a estrutura do JSON e o tipo de 'dados' para debug
-                print(f"JSON data: {json_data}")
-                print(f"Tipo de 'dados': {type(json_data.get('dados'))}")
-                
-                item = model(**json_data["dados"])
-                print(item)
-                return item
-            except ValidationError as e:
-                print(f"Erro de validação no arquivo {file_path}: {e}")
-                return None
-            except Exception as e:
-                print(f"Ocorreu um erro ao processar o arquivo {file_path}: {e}")
-                return None
+            # Caso 1: JSON é uma lista de objetos
+            if isinstance(json_data, list):
+                try:
+                    items = [model(**item) for item in json_data]
+                    return items
+                except ValidationError as e:
+                    print(f"Erro de validação no arquivo {file_path}: {e}")
+                    return None
+
+            # Caso 2: Objeto com chave 'dados' contendo lista
+            elif isinstance(json_data.get("dados"), list):
+                try:
+                    items = [model(**item) for item in json_data["dados"]]
+                    return items
+                except ValidationError as e:
+                    print(f"Erro de validação no arquivo {file_path}: {e}")
+                    return None
+
+            # Caso 3: Objeto com chave 'dados' que não é lista
+            elif isinstance(json_data.get("dados"), dict):
+                try:
+                    # Criar uma lista com um único objeto do modelo Pydantic
+                    items = [model(**json_data["dados"])]
+                    return items
+                except ValidationError as e:
+                    print(f"Erro de validação no arquivo {file_path}: {e}")
+                    return None
+        print(f"Estrutura inválida no arquivo {file_path}.")
+        return None
+
+    except FileNotFoundError:
+        print(f"Arquivo '{file_path}' não encontrado.")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"Erro ao decodificar JSON: {e}")
+        return None
+    except ValidationError as e:
+        print("Erro de validação:")
+        print(e.json())
+        return None
 
 
 def read_normalize_json(file_path):
@@ -84,17 +91,3 @@ def read_normalize_json(file_path):
     print(df)
 
     return df
-
-
-if __name__ == "__main__":
-    json_folder = Path("data/landing_zone/despesas")
-    for file_path in json_folder.glob("*.json"):
-        print()
-        validated_items = read_and_validate_json(file_path, Despesa)
-        if validated_items:
-            df = pd.DataFrame([item.model_dump() for item in validated_items])
-            print(f"Dados válidos no arquivo {file_path}:")
-            print(df.head())
-        else:
-            print(f"Dados inválidos no arquivo {file_path}")
-

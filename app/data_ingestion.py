@@ -1,6 +1,6 @@
+from pathlib import Path
 
 import pandas as pd
-from pathlib import Path
 from db_operations import (
     build_external_database_url,
     drop_all_tables_in_schema,
@@ -9,9 +9,9 @@ from db_operations import (
 )
 from get_api_data import fetch_all_data, fetch_data, get_ids_deputados, save_to_raw
 from landing_zone_data_processing import read_and_validate_json
+from models import DadosDeputado, Deputado, Despesa
 from sqlalchemy import create_engine
 from tqdm import tqdm
-from models import Deputado, Despesa, InfosModel, Dados
 
 external_database_url = build_external_database_url()
 engine = create_engine(external_database_url)
@@ -62,14 +62,16 @@ def normalize_and_save(json_folder, model, table_name):
                         f"Dados do arquivo {file_path} foram inseridos com sucesso na tabela {table_name}."
                     )
                 else:
-                    print(f"Dados inválidos no arquivo {file_path}")
+                    print(f"Show {file_path}")
             except Exception as e:
                 print(f"Ocorreu um erro ao processar o arquivo {file_path}: {e}")
 
 
 if __name__ == "__main__":
-    # drop_all_tables_in_schema(engine, "landing_zone")
-    # download_data()
-    # normalize_and_save(Path("data/landing_zone"), Deputado, "raw_deputados")
-    # normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas")
-    normalize_and_save(Path("data/landing_zone/infos"), Dados, "raw_infos_extras")
+    drop_all_tables_in_schema(engine, "landing_zone")
+    download_data()
+    normalize_and_save(Path("data/landing_zone"), Deputado, "raw_deputados")
+    normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas")
+    normalize_and_save(
+        Path("data/landing_zone/infos"), DadosDeputado, "raw_infos_extras"
+    )

@@ -35,6 +35,16 @@ class Deputado(BaseModel):
     urlFoto: str
     email: str
 
+
+class Gabinete(BaseModel):
+    nome: str
+    predio: str
+    sala: str
+    andar: str
+    telefone: str
+    email: str
+
+
 class UltimoStatus(BaseModel):
     id: int
     uri: str
@@ -47,10 +57,11 @@ class UltimoStatus(BaseModel):
     email: str
     data: str
     nomeEleitoral: str
-    gabinete: dict
+    gabinete: Gabinete
     situacao: str
     condicaoEleitoral: str
     descricaoStatus: Optional[str]
+
 
 class Dados(BaseModel):
     id: int
@@ -67,10 +78,12 @@ class Dados(BaseModel):
     municipioNascimento: str
     escolaridade: str
 
-class Link(BaseModel):
+
+class Links(BaseModel):
     rel: str
     href: str
 
-class InfosModel(BaseModel):
+
+class DadosDeputado(BaseModel):
     dados: Dados
-    links: List[Link]
+    links: List[Links]
