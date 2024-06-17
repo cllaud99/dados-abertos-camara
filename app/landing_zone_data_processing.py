@@ -1,11 +1,9 @@
 import json
-import os
-from datetime import datetime
 from pathlib import Path
-from typing import List, Optional, Type
+from typing import Type
 
 import pandas as pd
-from models import Deputado, Despesa
+from models import Despesa
 from pydantic import BaseModel, ValidationError
 
 
@@ -72,7 +70,7 @@ def read_normalize_json(file_path):
     return df
 
 
-if __name__ == "__mainn__":
+if __name__ == "__main__":
     json_folder = Path("data/landing_zone/despesas")
     for file_path in json_folder.glob("*.json"):
         print()
@@ -84,15 +82,3 @@ if __name__ == "__mainn__":
         else:
             print(f"Dados inválidos no arquivo {file_path}")
 
-
-if __name__ == "__main__":
-    json_folder = Path("data/landing_zone")
-    for file_path in json_folder.glob("*.json"):
-        print()
-        validated_items = read_and_validate_json(file_path, Deputado)
-        if validated_items:
-            df = pd.DataFrame([item.model_dump() for item in validated_items])
-            print(f"Dados válidos no arquivo {file_path}:")
-            print(df.head())
-        else:
-            print(f"Dados inválidos no arquivo {file_path}")

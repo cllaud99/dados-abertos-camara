@@ -1,6 +1,6 @@
-from pathlib import Path
 
 import pandas as pd
+from pathlib import Path
 from db_operations import (
     build_external_database_url,
     drop_all_tables_in_schema,
@@ -8,10 +8,10 @@ from db_operations import (
     validate_postgresql_connection,
 )
 from get_api_data import fetch_all_data, fetch_data, get_ids_deputados, save_to_raw
-from landing_zone_data_processing import read_and_validate_json, read_normalize_json
-from models import Deputado, Despesa
+from landing_zone_data_processing import read_and_validate_json
 from sqlalchemy import create_engine
 from tqdm import tqdm
+from models import Deputado, Despesa
 
 external_database_url = build_external_database_url()
 engine = create_engine(external_database_url)
@@ -52,6 +52,8 @@ def normalize_and_save(json_folder, model, table_name):
                 validated_items = read_and_validate_json(file_path, model)
                 if validated_items:
                     df = pd.DataFrame([item.model_dump() for item in validated_items])
+
+                    df["file_name"] = Path(file_path).name
                     print(f"Dados válidos no arquivo {file_path}:")
 
                     insert_data_to_postgres(df, table_name, engine)
@@ -68,5 +70,5 @@ def normalize_and_save(json_folder, model, table_name):
 if __name__ == "__main__":
     drop_all_tables_in_schema(engine, "landing_zone")
     # download_data()
-    # normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas")
-    # normalize_and_save(Path("data/landing_zone"), Deputado, "raw_deputados")
+    normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas")
+    normalize_and_save(Path("data/landing_zone"), Deputado, "raw_deputados")
