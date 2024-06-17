@@ -2,9 +2,44 @@ import os
 
 import pandas as pd
 from dotenv import load_dotenv
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 
 load_dotenv()
+
+
+def drop_all_tables_in_schema(engine, schema):
+    """
+    Apaga todas as tabelas de um esquema específico no PostgreSQL.
+
+    Args:
+        engine (sqlalchemy.engine.Engine): Objeto Engine do SQLAlchemy.
+        schema (str): Nome do esquema cujas tabelas serão apagadas.
+    """
+    try:
+        with engine.connect() as connection:
+            connection.execute(text(f"SET session_replication_role = 'replica';"))
+
+            result = connection.execute(
+                text(
+                    f"""
+                SELECT tablename FROM pg_tables
+                WHERE schemaname = :schema
+            """
+                ),
+                {"schema": schema},
+            )
+
+            tables = result.fetchall()
+
+            for table in tables:
+                connection.execute(text(f'DROP TABLE "{schema}"."{table[0]}" CASCADE;'))
+
+            # Habilita restrições de chave estrangeira novamente
+            connection.execute(text(f"SET session_replication_role = 'origin';"))
+
+            print(f"Todas as tabelas no esquema {schema} foram apagadas com sucesso.")
+    except Exception as e:
+        print("Erro ao apagar as tabelas do esquema:", e)
 
 
 def build_external_database_url(env_path=".env"):
@@ -51,7 +86,20 @@ def validate_postgresql_connection(engine):
         return False
 
 
-def insert_data_to_postgres(dataframe, table_name, engine):
+def create_postgres_schema(engine, schema):
+    """
+    Cria um esquema no PostgreSQL se ele não existir.
+
+    Args:
+        engine (sqlalchemy.engine.Engine): Objeto Engine do SQLAlchemy.
+        schema (str): Nome do esquema a ser criado.
+    """
+    with engine.connect() as connection:
+        # Usar a conexão para executar diretamente a criação do esquema
+        connection.execute(f"CREATE SCHEMA IF NOT EXISTS {schema}")
+
+
+def insert_data_to_postgres(dataframe, table_name, engine, schema="landing_zone"):
     """
     Insere dados de um DataFrame em uma tabela no PostgreSQL usando pandas e sqlalchemy.
 
@@ -59,10 +107,13 @@ def insert_data_to_postgres(dataframe, table_name, engine):
         dataframe (pd.DataFrame): DataFrame contendo os dados a serem inseridos.
         table_name (str): Nome da tabela onde os dados serão inseridos.
         engine (sqlalchemy.engine.Engine): Objeto Engine do SQLAlchemy.
+        schema (str): Nome do esquema onde a tabela está localizada.
     """
     try:
-        dataframe.to_sql(table_name, con=engine, if_exists="append", index=False)
-        print(f"Dados inseridos com sucesso na tabela {table_name}")
+        dataframe.to_sql(
+            table_name, con=engine, schema=schema, if_exists="append", index=False
+        )
+        print(f"Dados inseridos com sucesso na tabela {schema}.{table_name}")
     except Exception as e:
         print("Erro ao inserir dados no PostgreSQL:", e)
 
@@ -71,7 +122,7 @@ if __name__ == "__main__":
 
     dataframe = pd.DataFrame({"col1": [1, 2], "col2": [3, 4]})
     env_path = ".env"
-    
+
     external_database_url = build_external_database_url(env_path)
 
     # Criar o engine fora do loop

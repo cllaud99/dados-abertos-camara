@@ -1,11 +1,20 @@
+from pathlib import Path
+
+import pandas as pd
+from db_operations import (
+    build_external_database_url,
+    drop_all_tables_in_schema,
+    insert_data_to_postgres,
+    validate_postgresql_connection,
+)
 from get_api_data import fetch_all_data, fetch_data, get_ids_deputados, save_to_raw
 from landing_zone_data_processing import read_and_validate_json, read_normalize_json
-from db_operations import insert_data_to_postgres, build_external_database_url, validate_postgresql_connection
-from models import Despesa, Deputado
+from models import Deputado, Despesa
 from sqlalchemy import create_engine
-from pathlib import Path
-import pandas as pd
 from tqdm import tqdm
+
+external_database_url = build_external_database_url()
+engine = create_engine(external_database_url)
 
 
 def download_data():
@@ -36,8 +45,7 @@ def download_data():
 
 
 def normalize_and_save(json_folder, model, table_name):
-    external_database_url = build_external_database_url()
-    engine = create_engine(external_database_url)
+
     if validate_postgresql_connection(engine):
         for file_path in json_folder.glob("*.json"):
             try:
@@ -45,10 +53,12 @@ def normalize_and_save(json_folder, model, table_name):
                 if validated_items:
                     df = pd.DataFrame([item.model_dump() for item in validated_items])
                     print(f"Dados válidos no arquivo {file_path}:")
-                                        
+
                     insert_data_to_postgres(df, table_name, engine)
-                    
-                    print(f"Dados do arquivo {file_path} foram inseridos com sucesso na tabela {table_name}.")
+
+                    print(
+                        f"Dados do arquivo {file_path} foram inseridos com sucesso na tabela {table_name}."
+                    )
                 else:
                     print(f"Dados inválidos no arquivo {file_path}")
             except Exception as e:
@@ -56,6 +66,7 @@ def normalize_and_save(json_folder, model, table_name):
 
 
 if __name__ == "__main__":
-    download_data()
-    normalize_and_save(Path("data/landing_zone/despesas"), Despesa, 'raw_despesas')
-    normalize_and_save(Path("data/landing_zone"), Deputado, 'raw_deputados')
+    drop_all_tables_in_schema(engine, "landing_zone")
+    # download_data()
+    normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas")
+    normalize_and_save(Path("data/landing_zone"), Deputado, "raw_deputados")

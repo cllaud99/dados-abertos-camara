@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List, Optional, Type
 
 import pandas as pd
-from models import Despesa, Deputado
+from models import Deputado, Despesa
 from pydantic import BaseModel, ValidationError
 
 
@@ -30,9 +30,11 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
             except ValidationError as e:
                 print(f"Erro de validação no arquivo {file_path}: {e}")
                 return None
-        elif isinstance(json_data.get('dados'), list):  # Caso 2: Objeto com chave 'dados' contendo lista
+        elif isinstance(
+            json_data.get("dados"), list
+        ):  # Caso 2: Objeto com chave 'dados' contendo lista
             try:
-                items = [model(**item) for item in json_data['dados']]
+                items = [model(**item) for item in json_data["dados"]]
                 return items
             except ValidationError as e:
                 print(f"Erro de validação no arquivo {file_path}: {e}")
@@ -40,7 +42,6 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
         else:
             print(f"Estrutura JSON não reconhecida no arquivo {file_path}")
             return None
-
 
 
 def read_normalize_json(file_path):
@@ -63,6 +64,9 @@ def read_normalize_json(file_path):
         raise TypeError(
             "Formato JSON não suportado. Deve ser uma lista ou um objeto JSON."
         )
+
+    df["file_name"] = Path(file_path).name
+
     return df
 
 
@@ -74,7 +78,7 @@ if __name__ == "__mainn__":
         if validated_items:
             df = pd.DataFrame([item.model_dump() for item in validated_items])
             print(f"Dados válidos no arquivo {file_path}:")
-            print(df.head())  
+            print(df.head())
         else:
             print(f"Dados inválidos no arquivo {file_path}")
 
@@ -87,6 +91,6 @@ if __name__ == "__main__":
         if validated_items:
             df = pd.DataFrame([item.model_dump() for item in validated_items])
             print(f"Dados válidos no arquivo {file_path}:")
-            print(df.head())  
+            print(df.head())
         else:
             print(f"Dados inválidos no arquivo {file_path}")
