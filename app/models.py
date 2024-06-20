@@ -62,8 +62,10 @@ class UltimoStatus(BaseModel):
     condicaoEleitoral: str
     descricaoStatus: Optional[str]
 
+    def to_dict(self):
+        return self.dict()
 
-class Dados(BaseModel):
+class DadosDeputado(BaseModel):
     id: int
     uri: str
     nomeCivil: str
@@ -84,6 +86,4 @@ class Links(BaseModel):
     href: str
 
 
-class DadosDeputado(BaseModel):
-    dados: Dados
-    links: List[Links]
+

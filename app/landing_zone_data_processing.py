@@ -45,6 +45,7 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
             elif isinstance(json_data.get("dados"), dict):
                 try:
                     # Criar uma lista com um único objeto do modelo Pydantic
+                    print(json_data.get("dados"))
                     items = [model(**json_data["dados"])]
                     return items
                 except ValidationError as e:
@@ -65,29 +66,18 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
         return None
 
 
-def read_normalize_json(file_path):
-    """
-    Função que recebe um arquivo JSON e normaliza se necessário.
-    Args:
-        file_path (str ou Path): Caminho do arquivo JSON.
-    Returns:
-        pd.DataFrame: DataFrame com os dados do arquivo JSON.
-    """
-    if not Path(file_path).is_file():
-        raise FileNotFoundError(f"Arquivo não encontrado: {file_path}")
-    with open(file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    if isinstance(data, list):
-        df = pd.json_normalize(data)
-    elif isinstance(data, dict):
-        df = pd.DataFrame([data])
-    else:
-        raise TypeError(
-            "Formato JSON não suportado. Deve ser uma lista ou um objeto JSON."
-        )
-
-    df["file_name"] = Path(file_path).name
-
-    print(df)
-
+def normalize_columns_with_json(df):
+    for column in df.columns:
+        try:
+            # Tentar carregar o conteúdo da coluna como JSON
+            df[column] = df[column].apply(json.loads)
+            
+            # Normalizar apenas se o conteúdo for um dicionário
+            if df[column].apply(type).eq(dict).all():
+                df_normalized = pd.json_normalize(df[column])
+                df = pd.concat([df.drop(columns=[column]), df_normalized], axis=1)
+        except (json.JSONDecodeError, ValueError):
+            # Ignorar a coluna se não puder ser carregada como JSON
+            pass
+    
     return df

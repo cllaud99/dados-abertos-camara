@@ -1,8 +1,9 @@
 import os
 
 import pandas as pd
+from sqlalchemy.ext.declarative import declarative_base
 from dotenv import load_dotenv
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, Column, Integer, String, JSON, ARRAY
 
 load_dotenv()
 
@@ -117,6 +118,7 @@ def insert_data_to_postgres(dataframe, table_name, engine, schema="landing_zone"
         print("Erro ao inserir dados no PostgreSQL:", e)
 
 
+
 if __name__ == "__main__":
 
     dataframe = pd.DataFrame({"col1": [1, 2], "col2": [3, 4]})
@@ -126,6 +128,25 @@ if __name__ == "__main__":
 
     # Criar o engine fora do loop
     engine = create_engine(external_database_url)
+    Base = declarative_base(bind=engine)
+
+    class DadosDeputado(Base):
+        __tablename__ = 'infos_deputados'
+
+        id = Column(Integer, primary_key=True)
+        uri = Column(String)
+        nomeCivil = Column(String)
+        ultimoStatus = Column(JSON)  # Armazenará o JSON inteiro do campo 'ultimoStatus'
+        cpf = Column(String)
+        sexo = Column(String)
+        urlWebsite = Column(String, nullable=True)
+        redeSocial = Column(ARRAY(String))
+        dataNascimento = Column(String)
+        dataFalecimento = Column(String, nullable=True)
+        ufNascimento = Column(String)
+        municipioNascimento = Column(String)
+        escolaridade = Column(String)
+    
 
     # Validar a conexão uma vez
     if validate_postgresql_connection(engine):
