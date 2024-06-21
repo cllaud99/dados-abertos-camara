@@ -42,7 +42,7 @@ class Gabinete(BaseModel):
     sala: str
     andar: str
     telefone: str
-    email: str
+    email: Optional[str]
 
 
 class UltimoStatus(BaseModel):
