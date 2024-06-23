@@ -101,3 +101,6 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 ---
 
 **Autores**: [Seu Nome] (seu_email@example.com)
+
+
+/home/devenv/.dbt/profiles.yml
