@@ -74,11 +74,11 @@ class DadosDeputado(BaseModel):
     sexo: str
     urlWebsite: Optional[str]
     redeSocial: List[str]
-    dataNascimento: str
+    dataNascimento: date
     dataFalecimento: Optional[str]
     ufNascimento: str
     municipioNascimento: str
-    escolaridade: str
+    escolaridade: Optional[str]
 
 
 class Links(BaseModel):
