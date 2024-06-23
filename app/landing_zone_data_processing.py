@@ -44,8 +44,6 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]):
             # Caso 3: Objeto com chave 'dados' que não é lista
             elif isinstance(json_data.get("dados"), dict):
                 try:
-                    # Criar uma lista com um único objeto do modelo Pydantic
-                    print(json_data.get("dados"))
                     items = [model(**json_data["dados"])]
                     return items
                 except ValidationError as e:

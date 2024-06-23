@@ -77,10 +77,10 @@ def normalize_and_save(json_folder, model, table_name, engine):
 
 
 if __name__ == "__main__":
-    #drop_all_tables_in_schema(engine, "landing_zone")
+    drop_all_tables_in_schema(engine, "landing_zone")
     #download_data()
     normalize_and_save(Path("data/landing_zone"), Deputado, "raw_deputados", engine)
-    #normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas", engine)
-    #normalize_and_save(Path("data/landing_zone/infos"), DadosDeputado, "raw_infos_extras", engine)
+    normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "raw_despesas", engine)
+    normalize_and_save(Path("data/landing_zone/infos"), DadosDeputado, "raw_infos_extras", engine)
 
 

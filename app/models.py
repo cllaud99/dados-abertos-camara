@@ -37,11 +37,11 @@ class Deputado(BaseModel):
 
 
 class Gabinete(BaseModel):
-    nome: str
-    predio: str
-    sala: str
-    andar: str
-    telefone: str
+    nome: Optional[str]
+    predio: Optional[str]
+    sala: Optional[str]
+    andar: Optional[str]
+    telefone: Optional[str]
     email: Optional[str]
 
 
@@ -63,7 +63,7 @@ class UltimoStatus(BaseModel):
     descricaoStatus: Optional[str]
 
     def to_dict(self):
-        return self.dict()
+        return self.model_dump()
 
 class DadosDeputado(BaseModel):
     id: int
