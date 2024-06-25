@@ -8,6 +8,6 @@ with
 	    "municipioNascimento" AS naturalidade,
 	    COALESCE(escolaridade,'Não informada') AS escolaridade
     FROM
-	    {{ref('raw_landing_zone__infos_extras')}}
+	    {{ref('raw__infos_extras')}} infos
     )
 SELECT * FROM renamed
