@@ -1,0 +1,12 @@
+dbt_dados_abertos_camara:
+  outputs:
+    dev:
+      dbname: "{{env_var('DATABASE')}}"
+      host: "{{env_var('HOSTNAME')}}"
+      pass: "{{env_var('PASSWORD')}}"
+      port: "{{env_var('PORT') | int}}"
+      schema: "{{env_var('SCHEMA')}}"
+      threads: "{{env_var('TREADS') | int}}"
+      type: "{{env_var('TYPE')}}"
+      user: "{{env_var('USERNAME')}}"
+  target: "{{env_var('TARGET')}}"
