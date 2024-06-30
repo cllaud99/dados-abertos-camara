@@ -1,0 +1,69 @@
+version: 2
+
+sources:
+  - name: dados_abertos
+    schema: landing_zone
+    tables:
+      - name: lz_deputados
+        description: "Tabela com informações sobre os deputados"
+        columns:
+          - name: id
+            description: "Identificador único do deputado"
+          - name: uri
+            description: "URI do deputado"
+          - name: nome
+            description: "Nome do deputado"
+          - name: siglaPartido
+            description: "Sigla do partido do deputado"
+          - name: uriPartido
+            description: "URI do partido do deputado"
+          - name: siglaUf
+            description: "Sigla da unidade federativa do deputado"
+          - name: idLegislatura
+            description: "Identificador único da legislatura"
+          - name: uriFoto
+            description: "URI da foto do deputado"
+          - name: email
+            description: "Email do deputado"
+          - name: file_name
+            description: "Nome do arquivo"
+
+      - name: lz_despesas
+        description: "Tabela com informações sobre as despesas dos deputados"
+        columns:
+          - name: ano
+            description: "Ano da despesa"
+          - name: mes
+            description: "Mês da despesa"
+          - name: tipoDespesa
+            description: "Tipo de despesa"
+          - name: codDocumento
+            description: "Código do documento"
+          - name: tipoDocumento
+            description: "Tipo do documento"
+          - name: codTipoDocumento
+            description: "Código do tipo do documento"
+          - name: dataDocumento
+            description: "Data do documento"
+          - name: numDocumento
+            description: "Número do documento"
+          - name: valorDocumento
+            description: "Valor do documento"
+          - name: urlDocumento
+            description: "URL do documento"
+          - name: nomeFornecedor
+            description: "Nome do fornecedor"
+          - name: cnpjCpfFornecedor
+            description: "CNPJ/CPF do fornecedor"
+          - name: valorLiquido
+            description: "Valor líquido"
+          - name: valorGlosa
+            description: "Valor da glosa"
+          - name: numRessarcimento
+            description: "Número do ressarcimento"
+          - name: codLote
+            description: "Código do lote"
+          - name: parcela
+            description: "Parcela"
+          - name: file_name
+            description: "Nome do arquivo"
