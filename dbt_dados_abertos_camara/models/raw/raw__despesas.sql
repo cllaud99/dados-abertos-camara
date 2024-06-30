@@ -1,1 +1,0 @@
-SELECT * FROM landing_zone.lz_despesas

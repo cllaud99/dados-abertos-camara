@@ -1,8 +1,11 @@
-WITH renamed AS
+with source as (
+    select * from {{ ref('raw__tipo_documentos') }}
+),
+renamed AS
 (
 SELECT
 	id,
 	initcap(descricao) AS tipo_documento
 FROM
-	{{ref("raw__tipo_documentos")}} rtd
+	source rtd
 ) SELECT * FROM renamed

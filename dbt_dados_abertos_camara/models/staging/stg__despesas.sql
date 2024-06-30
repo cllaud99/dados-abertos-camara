@@ -1,4 +1,7 @@
-WITH renamed AS
+with source as (
+      select * from {{ source('dados_abertos', 'lz_despesas') }}
+),
+renamed AS
 (
 SELECT
 	substring(file_name FROM '^[^_]+') AS id_deputado,
@@ -11,6 +14,6 @@ SELECT
 	"valorDocumento" AS vlr_documento,
 	"valorGlosa" AS vlr_glosa
 FROM
-	{{ref('raw__despesas')}} rd
+	source rd
 )
 SELECT * FROM renamed

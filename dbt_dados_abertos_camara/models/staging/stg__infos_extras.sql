@@ -1,4 +1,7 @@
-with
+with source as (
+      select * from {{ source('dados_abertos', 'lz_infos_extras') }}
+)
+,
     renamed as (
     SELECT
 	    id AS id_deputado,
@@ -8,6 +11,6 @@ with
 	    "municipioNascimento" AS naturalidade,
 	    COALESCE(escolaridade,'Não informada') AS escolaridade
     FROM
-	    {{ref('raw__infos_extras')}} infos
+	    source infos
     )
 SELECT * FROM renamed

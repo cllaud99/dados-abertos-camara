@@ -71,36 +71,6 @@ DADOS-ABERTOS-CAMARA
 - **Transformações**: As transformações são realizadas usando DBT, gerando as camadas `silver` e `gold`.
 - **Visualização**: Os dados transformados são utilizados para gerar visualizações em um dashboard.
 
-## Documentação
-
-A documentação do projeto é gerada usando MkDocs. Para gerar a documentação, execute:
-
-```bash
-mkdocs build
-```
-
-Para visualizar a documentação localmente, execute:
-
-```bash
-mkdocs serve
-```
-
-## Futuro do Projeto
-
-- **Análises Avançadas**: Implementação da biblioteca LangChain para análises avançadas com LangChain e OpenAI.
-- **Melhorias no Dashboard**: Adicionar novas visualizações e filtros para melhor análise dos dados.
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
-
-**Autores**: [Seu Nome] (seu_email@example.com)
 
 
 /home/devenv/.dbt/profiles.yml

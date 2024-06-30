@@ -27,7 +27,6 @@ sources:
             description: "Email do deputado"
           - name: file_name
             description: "Nome do arquivo"
-
       - name: lz_despesas
         description: "Tabela com informações sobre as despesas dos deputados"
         columns:
@@ -65,5 +64,36 @@ sources:
             description: "Código do lote"
           - name: parcela
             description: "Parcela"
+          - name: file_name
+            description: "Nome do arquivo"
+      - name: lz_infos_extras
+        description: "Tabela com informações extras sobre os deputados"
+        columns:
+          - name: id
+            description: "Identificador único do deputado"
+          - name: uri
+            description: "URI do deputado"
+          - name: nomeCivil
+            description: "Nome civil do deputado"
+          - name: ultimoStatus
+            description: "Último status do deputado"
+          - name: cpf
+            description: "CPF do deputado"
+          - name: sexo
+            description: "Sexo do deputado"
+          - name: urlWebsite
+            description: "URL do website do deputado"
+          - name: redeSocial
+            description: "Rede social do deputado"
+          - name: dataNascimento
+            description: "Data de nascimento do deputado"
+          - name: dataFalecimento
+            description: "Data de falecimento do deputado"
+          - name: ufNascimento
+            description: "Unidade federativa de nascimento do deputado"
+          - name: municipioNascimento
+            description: "Município de nascimento do deputado"
+          - name: escolaridade
+            description: "Escolaridade do deputado"
           - name: file_name
             description: "Nome do arquivo"
