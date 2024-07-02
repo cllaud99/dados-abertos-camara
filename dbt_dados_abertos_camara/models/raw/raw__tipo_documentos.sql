@@ -1,1 +1,0 @@
-SELECT * FROM dbt.tipos_documentos td 

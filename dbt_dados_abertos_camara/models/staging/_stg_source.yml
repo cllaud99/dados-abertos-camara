@@ -97,3 +97,13 @@ sources:
             description: "Escolaridade do deputado"
           - name: file_name
             description: "Nome do arquivo"
+  - name: seeds
+    schema: dbt
+    tables:
+      - name: tipos_documentos
+        description: "Tabela com informações sobre os tipos de documentos"
+        columns:
+          - name: id
+            description: "Identificador único do tipo"
+          - name: descricao
+            description: "Tipo do documento"
