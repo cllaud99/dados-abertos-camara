@@ -8,7 +8,7 @@ Este projeto visa realizar a extração, carga e transformação de dados aberto
 
 1. **Coleta de Dados**: Consumo dos dados da API pública da Câmara dos Deputados sobre despesas parlamentares.
 2. **Ingestão e Armazenamento Inicial**: Inserção dos dados brutos na camada `landing_zone` em formato JSON.
-3. **Armazenamento em Banco de Dados**: Carga dos dados para um banco de dados PostgreSQL na camada `bronze`.
+3. **Armazenamento em Banco de Dados**: Carga dos dados para um banco de dados PostgreSQL.
 4. **Transformações**: Transformação dos dados usando DBT (Data Build Tool) até atingir a camada `gold`.
 5. **Visualização**: Desenvolvimento de um dashboard que apresente os gastos por partido e por deputado, além de características como idade, sexo e escolaridade dos deputados.
 
@@ -48,7 +48,7 @@ A imagem abaixo descreve a arquitetura escolhida para o projeto:
 - **Poetry**: Gerenciamento de dependências
 - **Pydantic**: Validação de dados
 - **DBT (Data Build Tool)**: Transformações de dados
-- **PostgreSQL**: Armazenamento de dados na camada `bronze`
+- **PostgreSQL**: Armazenamento de dados
 - **MkDocs**: Documentação
 
 ## Configuração do Ambiente
