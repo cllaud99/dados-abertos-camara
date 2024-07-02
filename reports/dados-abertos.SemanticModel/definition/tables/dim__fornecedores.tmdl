@@ -1,0 +1,71 @@
+table dim__fornecedores
+	lineageTag: 19ddf1c6-5c0d-43e7-864c-ff48bb8d6a3f
+
+	column cnpj_fornecedor
+		dataType: string
+		lineageTag: 7b0f8f9f-5670-447e-8f34-79d794b3bb12
+		summarizeBy: none
+		sourceColumn: cnpj_fornecedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_fornecedor
+		dataType: string
+		lineageTag: 80115b18-8fb0-4cb2-a442-d1c32c88717a
+		summarizeBy: none
+		sourceColumn: nome_fornecedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column qtd_referencias
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b6bc7a6-8f87-4df0-bfe9-3f18f9870df8
+		summarizeBy: none
+		sourceColumn: qtd_referencias
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_liquido
+		dataType: double
+		lineageTag: 83e2f5f0-5108-4c76-a017-86018e6d36bf
+		summarizeBy: none
+		sourceColumn: total_liquido
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_glosa
+		dataType: double
+		lineageTag: a9635100-1eca-42de-87d5-81ec13593225
+		summarizeBy: none
+		sourceColumn: total_glosa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_documento
+		dataType: double
+		lineageTag: b8b0c03d-cb97-49c0-929b-ad3dbaa335b1
+		summarizeBy: none
+		sourceColumn: total_documento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim__fornecedores-68695ac4-2fca-463c-879b-899a8822b2d5 = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("dpg-cpmrvpg8fa8c73anins0-a.oregon-postgres.render.com", "dados_abertos"),
+				    dbt_gold_dim__fornecedores = Fonte{[Schema="dbt_gold",Item="dim__fornecedores"]}[Data]
+				in
+				    dbt_gold_dim__fornecedores
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

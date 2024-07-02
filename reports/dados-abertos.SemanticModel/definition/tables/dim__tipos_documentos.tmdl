@@ -1,0 +1,33 @@
+table dim__tipos_documentos
+	lineageTag: 3393fcaf-5562-489b-a372-109ad3e640c4
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 56debc8e-1cce-4fb5-8509-01d4e0a843f8
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_documento
+		dataType: string
+		lineageTag: f14092ae-5e6a-4b48-996a-6e5cbe2f5c81
+		summarizeBy: none
+		sourceColumn: tipo_documento
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim__tipos_documentos-dc74360b-5d8a-4450-a5a3-9efb0aca49ca = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("dpg-cpmrvpg8fa8c73anins0-a.oregon-postgres.render.com", "dados_abertos"),
+				    dbt_gold_dim__tipos_documentos = Fonte{[Schema="dbt_gold",Item="dim__tipos_documentos"]}[Data]
+				in
+				    dbt_gold_dim__tipos_documentos
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "dados-abertos"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "79feeaf4-8b80-4129-88bf-e99c86b25120"
+  }
+}

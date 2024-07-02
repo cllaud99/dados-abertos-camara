@@ -1,0 +1,48 @@
+table Medidas
+	lineageTag: 229ef1b3-f370-49c1-8534-71260fa10b92
+
+	measure 'Total Liquido' =
+			
+			SUM(fato__despesas[vlr_liquido])
+		lineageTag: 5a0cacaf-4b7f-45f6-b38a-e8244d554c2b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Deputados =
+			
+			COUNTROWS(dim__deputados)
+		formatString: 0
+		lineageTag: 8cd32498-c9d9-4d05-b3af-a864f5b0890d
+
+	measure 'Média Despesas por Deputado' =
+			
+			DIVIDE( [Total Liquido] , [Deputados] )
+		lineageTag: 59980e2f-7388-4ee8-b173-da582366872a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Partidos = DISTINCTCOUNT( dim__deputados[sigla_partido] )
+		formatString: 0
+		lineageTag: 8534ad06-8658-46ea-93d6-75da00e430b3
+
+	column 'Coluna 1'
+		dataType: string
+		isHidden
+		lineageTag: 69bf4b61-6054-4664-8544-f736ebaaa5f3
+		summarizeBy: none
+		sourceColumn: Coluna 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Medidas-63ff680f-fab3-4499-9d8e-d63ef7bdb292 = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t])
+				in
+				    Fonte
+
+	annotation PBI_ResultType = Table
+

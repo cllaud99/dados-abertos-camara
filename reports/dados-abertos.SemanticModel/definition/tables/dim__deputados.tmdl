@@ -1,0 +1,91 @@
+table dim__deputados
+	lineageTag: 88c12aeb-7a75-4043-91bb-eccf3e6b1059
+
+	column id_deputado
+		dataType: int64
+		formatString: 0
+		lineageTag: 23c653e3-c7d6-4ea0-a160-3c7445a0ee1b
+		summarizeBy: none
+		sourceColumn: id_deputado
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome
+		dataType: string
+		lineageTag: ee77ba26-bbe3-4d7b-8921-4ba0356d7b4c
+		summarizeBy: none
+		sourceColumn: nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigla_partido
+		dataType: string
+		lineageTag: 4ca36788-5490-46bc-ba96-aed51aebdb93
+		summarizeBy: none
+		sourceColumn: sigla_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf
+		dataType: string
+		lineageTag: 5589c9c9-6897-4940-9334-e038171f4a5d
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column url_foto
+		dataType: string
+		lineageTag: 6b6afc8a-d738-4fb0-be80-cc2d80c2a270
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: url_foto
+
+		annotation SummarizationSetBy = Automatic
+
+	column sexo
+		dataType: string
+		lineageTag: 530753df-3923-474e-862e-f8a9d8930316
+		summarizeBy: none
+		sourceColumn: sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column idade
+		dataType: int64
+		formatString: 0
+		lineageTag: 518c05c5-99ee-481b-ba31-226697c6674f
+		summarizeBy: none
+		sourceColumn: idade
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf_nascimento
+		dataType: string
+		lineageTag: 6ee90e24-e776-4a4d-a778-b851aadf7697
+		summarizeBy: none
+		sourceColumn: uf_nascimento
+
+		annotation SummarizationSetBy = Automatic
+
+	column escolaridade
+		dataType: string
+		lineageTag: 1f2a4560-f8ca-43a1-b0cd-4c52537db8bb
+		summarizeBy: none
+		sourceColumn: escolaridade
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim__deputados-3f428e3e-5b60-4f5a-8b12-731c09ac356a = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("dpg-cpmrvpg8fa8c73anins0-a.oregon-postgres.render.com", "dados_abertos"),
+				    dbt_gold_dim__deputados = Fonte{[Schema="dbt_gold",Item="dim__deputados"]}[Data]
+				in
+				    dbt_gold_dim__deputados
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

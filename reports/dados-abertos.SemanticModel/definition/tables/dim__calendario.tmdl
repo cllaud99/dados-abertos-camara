@@ -1,0 +1,135 @@
+table dim__calendario
+	lineageTag: 7c2c74cb-576d-4ccd-91d1-f6fe0eab3221
+	dataCategory: Time
+
+	column id_dim_data
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a07ffc4-d471-4847-a1ac-b3d0a6f5c89c
+		summarizeBy: sum
+		sourceColumn: id_dim_data
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_real
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 9c80f621-17d0-4371-87b1-072ff08ad070
+		summarizeBy: none
+		sourceColumn: data_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column nome_dia
+		dataType: string
+		lineageTag: a22d5710-7a52-4db0-83a4-6d91415a68e1
+		summarizeBy: none
+		sourceColumn: nome_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_da_semana
+		dataType: int64
+		lineageTag: d7513459-52e2-4ff3-9df0-2b7539b38b75
+		summarizeBy: none
+		sourceColumn: dia_da_semana
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dia_do_mes
+		dataType: int64
+		lineageTag: ae2023c2-c970-4abc-9d89-76a126723539
+		summarizeBy: none
+		sourceColumn: dia_do_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dia_do_ano
+		dataType: int64
+		lineageTag: 9a545798-17a7-4633-b77a-cac4c1285acb
+		summarizeBy: none
+		sourceColumn: dia_do_ano
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mes_real
+		dataType: int64
+		lineageTag: bd84b870-97cd-4bb3-8574-8af684a3ee58
+		summarizeBy: none
+		sourceColumn: mes_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nome_mes
+		dataType: string
+		lineageTag: 15cd151e-41af-4929-b9ff-3dc519a163a9
+		summarizeBy: none
+		sourceColumn: nome_mes
+		sortByColumn: mes_real
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column trimestre_real
+		dataType: int64
+		lineageTag: d2f459f3-de18-4785-b24d-5b32ae0ce9f5
+		summarizeBy: none
+		sourceColumn: trimestre_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nome_trimestre
+		dataType: string
+		lineageTag: 45eb9bab-6baf-4af6-906b-c69ae49cbfd1
+		summarizeBy: none
+		sourceColumn: nome_trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano_real
+		dataType: int64
+		lineageTag: f7577d3a-f33d-4c00-8fe8-018e6c034b1b
+		summarizeBy: none
+		sourceColumn: ano_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column indicador_final_de_semana
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8e7fda07-fec8-468a-8de8-ba5598c9dc63
+		summarizeBy: none
+		sourceColumn: indicador_final_de_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim__calendario-c97d7426-52e5-4a55-9687-ffee357da20a = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("dpg-cpmrvpg8fa8c73anins0-a.oregon-postgres.render.com", "dados_abertos"),
+				    dbt_gold_dim__calendario = Fonte{[Schema="dbt_gold",Item="dim__calendario"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(dbt_gold_dim__calendario,{{"id_dim_data", Int64.Type}, {"data_real", type date}, {"nome_dia", type text}, {"dia_da_semana", Int64.Type}, {"dia_do_mes", Int64.Type}, {"dia_do_ano", Int64.Type}, {"mes_real", Int64.Type}, {"nome_mes", type text}, {"trimestre_real", Int64.Type}, {"nome_trimestre", type text}, {"ano_real", Int64.Type}, {"indicador_final_de_semana", type logical}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+
