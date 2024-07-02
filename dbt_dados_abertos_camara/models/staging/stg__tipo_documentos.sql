@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ref("stg__tipo_documentos")}}
+    select * from {{ref("raw__tipo_documentos")}}
 ),
 renamed AS
 (

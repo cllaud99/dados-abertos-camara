@@ -1,23 +1,17 @@
-WITH fato_despesas AS
-(
-SELECT
-	id_deputado,
-	date_trunc('month',
-	dt_despesa) AS mes_ano_despesa,
-	cnpj_fornecedor,
-	SUM(vlr_liquido) AS vlr_liquido,
-	SUM(vlr_documento) AS vlr_documento,
-	SUM(vlr_glosa) AS vlr_glosa,
-	COUNT(1) AS qtd_linhas
-FROM
-	{{ref('stg__despesas')}}  sd
-GROUP BY
-	id_deputado,
-	date_trunc('month',
-	dt_despesa),
-	cnpj_fornecedor
+-- models/fato_despesas.sql
+
+WITH fato_despesas AS (
+    SELECT
+        id_deputado,
+        dt_despesa,
+        cnpj_fornecedor,
+        vlr_liquido AS vlr_liquido,
+        vlr_documento AS vlr_documento,
+        vlr_glosa AS vlr_glosa,
+        sd.cod_tipo_despesa
+    FROM {{ ref('stg__despesas') }} sd
 )
 SELECT
-	*
+    *
 FROM
-	fato_despesas
+    fato_despesas
