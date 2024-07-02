@@ -100,7 +100,7 @@ sources:
   - name: seeds
     schema: dbt
     tables:
-      - name: tipos_documentos
+      - name: seeds__tipos_documentos
         description: "Tabela com informações sobre os tipos de documentos"
         columns:
           - name: id

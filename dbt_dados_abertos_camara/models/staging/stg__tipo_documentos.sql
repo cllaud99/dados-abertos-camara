@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ source('seeds', 'tipos_documentos') }}
+    select * from {{ source('seeds', 'seeds__tipos_documentos') }}
 ),
 renamed AS
 (
