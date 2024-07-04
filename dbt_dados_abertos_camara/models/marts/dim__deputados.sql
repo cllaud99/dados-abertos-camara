@@ -10,7 +10,8 @@ SELECT
 	infos.sexo,
 	infos.idade,
 	infos.uf_nascimento,
-	infos.escolaridade
+	infos.escolaridade,
+	infos.ordem_escolaridade
 FROM
 	{{ref("stg__deputados")}} deputados
 LEFT JOIN

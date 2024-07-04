@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: dados_abertos
-    schema: landing_zone
+    schema: public
     tables:
       - name: lz_deputados
         description: "Tabela com informações sobre os deputados"

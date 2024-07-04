@@ -24,18 +24,18 @@ SELECT
     EXTRACT(DOY FROM datum) AS dia_do_ano,
     EXTRACT(MONTH FROM datum) AS mes_real,
     CASE
-        WHEN EXTRACT(MONTH FROM datum) = 1 THEN 'Janeiro'
-        WHEN EXTRACT(MONTH FROM datum) = 2 THEN 'Fevereiro'
-        WHEN EXTRACT(MONTH FROM datum) = 3 THEN 'Março'
-        WHEN EXTRACT(MONTH FROM datum) = 4 THEN 'Abril'
-        WHEN EXTRACT(MONTH FROM datum) = 5 THEN 'Maio'
-        WHEN EXTRACT(MONTH FROM datum) = 6 THEN 'Junho'
-        WHEN EXTRACT(MONTH FROM datum) = 7 THEN 'Julho'
-        WHEN EXTRACT(MONTH FROM datum) = 8 THEN 'Agosto'
-        WHEN EXTRACT(MONTH FROM datum) = 9 THEN 'Setembro'
-        WHEN EXTRACT(MONTH FROM datum) = 10 THEN 'Outubro'
-        WHEN EXTRACT(MONTH FROM datum) = 11 THEN 'Novembro'
-        WHEN EXTRACT(MONTH FROM datum) = 12 THEN 'Dezembro'
+        WHEN EXTRACT(MONTH FROM datum) = 1 THEN 'Jan'
+        WHEN EXTRACT(MONTH FROM datum) = 2 THEN 'Fev'
+        WHEN EXTRACT(MONTH FROM datum) = 3 THEN 'Mar'
+        WHEN EXTRACT(MONTH FROM datum) = 4 THEN 'Abr'
+        WHEN EXTRACT(MONTH FROM datum) = 5 THEN 'Mai'
+        WHEN EXTRACT(MONTH FROM datum) = 6 THEN 'Jun'
+        WHEN EXTRACT(MONTH FROM datum) = 7 THEN 'Jul'
+        WHEN EXTRACT(MONTH FROM datum) = 8 THEN 'Ago'
+        WHEN EXTRACT(MONTH FROM datum) = 9 THEN 'Set'
+        WHEN EXTRACT(MONTH FROM datum) = 10 THEN 'Out'
+        WHEN EXTRACT(MONTH FROM datum) = 11 THEN 'Nov'
+        WHEN EXTRACT(MONTH FROM datum) = 12 THEN 'Dez'
     END AS nome_mes,
     EXTRACT(QUARTER FROM datum) AS trimestre_real,
     CASE

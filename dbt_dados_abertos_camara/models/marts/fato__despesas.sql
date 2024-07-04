@@ -4,6 +4,7 @@ WITH fato_despesas AS (
     SELECT
         id_deputado,
         dt_despesa,
+        tipo_despesa,
         cnpj_fornecedor,
         vlr_liquido AS vlr_liquido,
         vlr_documento AS vlr_documento,
