@@ -67,6 +67,14 @@ table fato__despesas
 
 		annotation SummarizationSetBy = Automatic
 
+	column tipo_despesa
+		dataType: string
+		lineageTag: daf29c1c-a953-4625-be16-2b321be05576
+		summarizeBy: none
+		sourceColumn: tipo_despesa
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fato__despesas-209c87eb-9919-4495-9eaf-ab9a5aecf13c = m
 		mode: import
 		source =
@@ -75,8 +83,6 @@ table fato__despesas
 				    dbt_gold_fato__despesas = Fonte{[Schema="dbt_gold",Item="fato__despesas"]}[Data]
 				in
 				    dbt_gold_fato__despesas
-
-	changedProperty = Name
 
 	annotation PBI_ResultType = Table
 

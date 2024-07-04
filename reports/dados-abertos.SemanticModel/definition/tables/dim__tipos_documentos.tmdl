@@ -27,7 +27,5 @@ table dim__tipos_documentos
 				in
 				    dbt_gold_dim__tipos_documentos
 
-	changedProperty = Name
-
 	annotation PBI_ResultType = Table
 

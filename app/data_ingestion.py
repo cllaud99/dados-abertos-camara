@@ -4,6 +4,7 @@ import pandas as pd
 import json
 from db_operations import (
     build_external_database_url,
+    create_postgres_schema,
     drop_all_tables_in_schema,
     insert_data_to_postgres,
     validate_postgresql_connection,
@@ -39,7 +40,7 @@ def download_data():
         url_despesas = (
             f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/despesas"
         )
-        params_despesas = {"ano": "2024"}
+        params_despesas = {"idLegislatura": 57}
         data_despesas = fetch_all_data(url_despesas, params=params_despesas)
         file_path_despesas = f"data/landing_zone/despesas/{id}_despesas.json"
         save_to_raw(data_despesas, file_path_despesas)
@@ -53,6 +54,7 @@ def normalize_and_save(json_folder, model, table_name, engine):
                 validated_items = read_and_validate_json(file_path, model)
                 if validated_items:
                     data_to_insert = []
+                    print(f"Dados válidos no arquivo {file_path}:")
 
                     for item in validated_items:
                         # Serializar UltimoStatus para JSON
@@ -65,7 +67,6 @@ def normalize_and_save(json_folder, model, table_name, engine):
 
                     df = pd.DataFrame(data_to_insert)
 
-                    print(f"Dados válidos no arquivo {file_path}:")
                     insert_data_to_postgres(df, table_name, engine)
                     print(f"Dados do arquivo {file_path} foram inseridos com sucesso na tabela {table_name}.")
 
@@ -77,8 +78,10 @@ def normalize_and_save(json_folder, model, table_name, engine):
 
 
 if __name__ == "__main__":
-    download_data()
-    drop_all_tables_in_schema(engine, "landing_zone")
+    # download_data()
+    create_postgres_schema(engine, 'public')
+    print('criou')
+    drop_all_tables_in_schema(engine, "public")
     normalize_and_save(Path("data/landing_zone"), Deputado, "lz_deputados", engine)
     normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "lz_despesas", engine)
     normalize_and_save(Path("data/landing_zone/infos"), DadosDeputado, "lz_infos_extras", engine)

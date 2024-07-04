@@ -65,7 +65,5 @@ table dim__fornecedores
 				in
 				    dbt_gold_dim__fornecedores
 
-	changedProperty = Name
-
 	annotation PBI_ResultType = Table
 

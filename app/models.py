@@ -77,7 +77,7 @@ class DadosDeputado(BaseModel):
     dataNascimento: date
     dataFalecimento: Optional[str]
     ufNascimento: str
-    municipioNascimento: str
+    municipioNascimento: Optional[str]
     escolaridade: Optional[str]
 
 

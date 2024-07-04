@@ -1,29 +1,95 @@
 table Medidas
 	lineageTag: 229ef1b3-f370-49c1-8534-71260fa10b92
 
-	measure 'Total Liquido' =
+	measure 'Vlr liquido' =
 			
 			SUM(fato__despesas[vlr_liquido])
+		displayFolder: basicas
 		lineageTag: 5a0cacaf-4b7f-45f6-b38a-e8244d554c2b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure Deputados =
+	measure 'Qtd deputados' =
 			
 			COUNTROWS(dim__deputados)
 		formatString: 0
+		displayFolder: basicas
 		lineageTag: 8cd32498-c9d9-4d05-b3af-a864f5b0890d
 
 	measure 'Média Despesas por Deputado' =
 			
-			DIVIDE( [Total Liquido] , [Deputados] )
+			DIVIDE( [Vlr liquido] , [Qtd deputados] )
+		displayFolder: estatisticas
 		lineageTag: 59980e2f-7388-4ee8-b173-da582366872a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Partidos = DISTINCTCOUNT( dim__deputados[sigla_partido] )
 		formatString: 0
+		displayFolder: basicas
 		lineageTag: 8534ad06-8658-46ea-93d6-75da00e430b3
+
+	measure '% Representação' = ```
+			
+			
+			VAR _TotalDeputados =
+			CALCULATE(
+			    COUNTROWS(dim__deputados),
+			    ALLSELECTED(dim__deputados)
+			)
+			
+			
+			RETURN
+			DIVIDE( [Qtd deputados] , _TotalDeputados )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: estatisticas
+		lineageTag: c72bf780-fc8e-4fc6-869e-b61332ef2c37
+
+	measure '% Representação vlr' =
+			
+			
+			VAR _Total =
+			CALCULATE(
+			    SUM(fato__despesas[vlr_liquido]),
+			    ALLSELECTED(fato__despesas)
+			)
+			
+			
+			RETURN
+			DIVIDE( [Vlr liquido] , _Total )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: estatisticas
+		lineageTag: 95a85b91-8641-47d0-93bc-f4b0f80fbb92
+
+	measure Escolaridade = 0
+		displayFolder: DataViz
+		lineageTag: 5747df3c-5f80-47d7-bcf7-38cf2b37034a
+
+		formatStringDefinition =
+				VAR _nome = SELECTEDVALUE(dim__deputados[escolaridade])
+				
+				RETURN
+				"""" & _nome &  """"
+
+	measure Faltante =
+			
+			1 - [% Representação]
+		displayFolder: DataViz
+		lineageTag: 7558ec01-f7f3-434f-ac90-4aa51877e505
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure LM =
+			
+			CALCULATE(
+			    [Vlr liquido],
+			    DATEADD(dim__calendario[data_real], -1, MONTH )
+			)
+		lineageTag: 81920625-66ec-47fe-a6d7-efc4e3fc1ed0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Coluna 1'
 		dataType: string

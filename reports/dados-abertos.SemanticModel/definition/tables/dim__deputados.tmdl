@@ -73,6 +73,26 @@ table dim__deputados
 		lineageTag: 1f2a4560-f8ca-43a1-b0cd-4c52537db8bb
 		summarizeBy: none
 		sourceColumn: escolaridade
+		sortByColumn: ordem_escolaridade
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordem_escolaridade
+		dataType: int64
+		formatString: 0
+		lineageTag: 08aab1a4-7c8e-4828-bf3c-7f83f537b324
+		summarizeBy: none
+		sourceColumn: ordem_escolaridade
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais_regiao = "BRAZIL - " & dim__deputados[uf]
+		dataType: string
+		lineageTag: 7168d605-66d9-4e26-9892-eba708a89f4a
+		summarizeBy: none
+		isDataTypeInferred
 
 		annotation SummarizationSetBy = Automatic
 
@@ -84,8 +104,6 @@ table dim__deputados
 				    dbt_gold_dim__deputados = Fonte{[Schema="dbt_gold",Item="dim__deputados"]}[Data]
 				in
 				    dbt_gold_dim__deputados
-
-	changedProperty = Name
 
 	annotation PBI_ResultType = Table
 

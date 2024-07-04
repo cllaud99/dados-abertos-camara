@@ -2,8 +2,3114 @@ cultureInfo en-US
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
-			  "Language": "en-US"
+			  "Version": "3.5.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_calendario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim calendario": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim__calendario": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.id_dim_data": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "id_dim_data"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id dim data": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_dim_data": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "data": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "dim data": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "id dim information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "id dim fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "id dim info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "id dim statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "dim information": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "dim fact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "dim info": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "dim statistic": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "id dim document": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "id dim figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.data_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "data_real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "data real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "data_real": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "real": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "information real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "fact real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "info real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "statistic real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "document real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "figure real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "record real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "actual": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "physical": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "material": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dim_calendario.nome_dia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "nome_dia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome dia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nome_dia": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.dia_da_semana": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "dia_da_semana"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia da semana": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dia_da_semana": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.dia_do_me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "dia_do_mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia do me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dia_do_mes": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.dia_do_ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "dia_do_ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia do ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dia_do_ano": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.mes_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "mes_real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mes real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "me real": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "mes_real": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.nome_me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "nome_mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nome_mes": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.trimestre_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "trimestre_real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "trimestre_real": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.nome_trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "nome_trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nome_trimestre": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.ano_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "ano_real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ano real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ano_real": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.indicador_final_de_semana": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__calendario",
+			          "ConceptualProperty": "indicador_final_de_semana"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "indicador final de semana": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "indicador_final_de_semana": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim deputado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim__deputados": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.id_deputado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "id_deputado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id deputado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_deputado": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.nome": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "nome"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.sigla_partido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "sigla_partido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sigla partido": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "sigla_partido": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.uf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "uf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "uf": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.url_foto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "url_foto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "url foto": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "url_foto": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "website foto": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "site foto": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "web address foto": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.471
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.sexo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "sexo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sexo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.idade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "idade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "idade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.uf_nascimento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "uf_nascimento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "uf nascimento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "uf_nascimento": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.escolaridade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "escolaridade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "escolaridade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_fornecedore": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__fornecedores"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim fornecedore": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim__fornecedores": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_fornecedore.cnpj_fornecedor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__fornecedores",
+			          "ConceptualProperty": "cnpj_fornecedor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cnpj fornecedor": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cnpj_fornecedor": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_fornecedore.nome_fornecedor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__fornecedores",
+			          "ConceptualProperty": "nome_fornecedor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nome fornecedor": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "nome_fornecedor": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_fornecedore.qtd_referencia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__fornecedores",
+			          "ConceptualProperty": "qtd_referencias"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "qtd referencia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "qtd_referencias": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_fornecedore.total_liquido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__fornecedores",
+			          "ConceptualProperty": "total_liquido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total liquido": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total_liquido": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate liquido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall liquido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_fornecedore.total_glosa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__fornecedores",
+			          "ConceptualProperty": "total_glosa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total glosa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total_glosa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate glosa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall glosa": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_fornecedore.total_documento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__fornecedores",
+			          "ConceptualProperty": "total_documento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total documento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total_documento": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate documento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall documento": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tipos_documento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__tipos_documentos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim tipos documento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim tipo documento": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "dim__tipos_documentos": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tipos_documento.id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__tipos_documentos",
+			          "ConceptualProperty": "id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "dim_tipos_documento.tipo_documento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__tipos_documentos",
+			          "ConceptualProperty": "tipo_documento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo documento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo_documento": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fato despesa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fato__despesas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa.id_deputado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "id_deputado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "id deputado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_deputado": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential deputado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa.dt_despesa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "dt_despesa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dt despesa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dt_despesa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "fato_despesa.cnpj_fornecedor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "cnpj_fornecedor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "cnpj fornecedor": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cnpj_fornecedor": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa.vlr_liquido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "vlr_liquido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vlr liquido": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "vlr_liquido": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa.vlr_documento": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "vlr_documento"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vlr documento": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "vlr_documento": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa.vlr_glosa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "vlr_glosa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vlr glosa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "vlr_glosa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa.cod_tipo_despesa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "cod_tipo_despesa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "cod tipo despesa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cod_tipo_despesa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "medida": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "medida": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.coluna_1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Coluna 1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "coluna 1": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.total_liquido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Vlr liquido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total liquido": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate liquido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall liquido": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "medida.deputados": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Qtd deputados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "deputados": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.média_despesas_por_deputado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Média Despesas por Deputado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "média despesas por deputado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Média Por Deputado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medida.partidos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Partidos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "partidos": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.representação": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "% Representação"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% representação": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage representação": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "pct representação": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "medida.representação_vlr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "% Representação vlr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% representação vlr": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage representação vlr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct representação vlr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "fato_despesa_has_dim_fornecedore": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "dim_fornecedore": {
+			          "Target": {
+			            "Entity": "dim_fornecedore"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "dim_fornecedore"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_dim_fornecedores"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fornecedore"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fornecedores_have_fato_despesas"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_medida_representação_vlr": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "medida.representação_vlr": {
+			          "Target": {
+			            "Entity": "medida.representação_vlr"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "medida.representação_vlr"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have__representação_vlr"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_medida_representação": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "medida.representação": {
+			          "Target": {
+			            "Entity": "medida.representação"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "medida.representação"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have__representação"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_medida_partidos": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "medida.partidos": {
+			          "Target": {
+			            "Entity": "medida.partidos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "medida.partidos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_partidos"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_medida_média_despesas_por_deputado": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "medida.média_despesas_por_deputado": {
+			          "Target": {
+			            "Entity": "medida.média_despesas_por_deputado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "medida.média_despesas_por_deputado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_média_despesas_por_deputado"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_medida_média_despesas_por_deputado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "medida.média_despesas_por_deputado": {
+			          "Target": {
+			            "Entity": "medida.média_despesas_por_deputado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "medida.média_despesas_por_deputado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_média_despesas_por_deputado"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_medida_deputados": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "medida.deputados": {
+			          "Target": {
+			            "Entity": "medida.deputados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "medida.deputados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_deputados"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_medida_total_liquido": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "medida.total_liquido": {
+			          "Target": {
+			            "Entity": "medida.total_liquido"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "medida.total_liquido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_total_liquido"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_vlr_glosa": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "fato_despesa.vlr_glosa": {
+			          "Target": {
+			            "Entity": "fato_despesa.vlr_glosa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa.vlr_glosa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_vlr_glosas"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_vlr_documento": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "fato_despesa.vlr_documento": {
+			          "Target": {
+			            "Entity": "fato_despesa.vlr_documento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa.vlr_documento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_vlr_documentos"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_vlr_liquido": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "fato_despesa.vlr_liquido": {
+			          "Target": {
+			            "Entity": "fato_despesa.vlr_liquido"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa.vlr_liquido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_vlr_liquidos"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_dt_despesa": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "fato_despesa.dt_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa.dt_despesa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa.dt_despesa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_dt_despesas"
+			        }
+			      ]
+			    },
+			    "dim_tipos_documento_has_tipo_documento": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__tipos_documentos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_tipos_documento": {
+			          "Target": {
+			            "Entity": "dim_tipos_documento"
+			          }
+			        },
+			        "dim_tipos_documento.tipo_documento": {
+			          "Target": {
+			            "Entity": "dim_tipos_documento.tipo_documento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tipos_documento"
+			            },
+			            "Object": {
+			              "Role": "dim_tipos_documento.tipo_documento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tipos_documentos_have_tipo_documentos"
+			        }
+			      ]
+			    },
+			    "dim_tipos_documento_has_id": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__tipos_documentos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_tipos_documento": {
+			          "Target": {
+			            "Entity": "dim_tipos_documento"
+			          }
+			        },
+			        "dim_tipos_documento.id": {
+			          "Target": {
+			            "Entity": "dim_tipos_documento.id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tipos_documento"
+			            },
+			            "Object": {
+			              "Role": "dim_tipos_documento.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tipos_documentos_have_ids"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "dim_tipos_documento"
+			            },
+			            "Name": {
+			              "Role": "dim_tipos_documento.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ids_are_names_IDs_of_dim_tipos_documentos"
+			        }
+			      ]
+			    },
+			    "dim_fornecedore_has_total_documento": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__fornecedores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fornecedore": {
+			          "Target": {
+			            "Entity": "dim_fornecedore"
+			          }
+			        },
+			        "dim_fornecedore.total_documento": {
+			          "Target": {
+			            "Entity": "dim_fornecedore.total_documento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fornecedore"
+			            },
+			            "Object": {
+			              "Role": "dim_fornecedore.total_documento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fornecedores_have_total_documentos"
+			        }
+			      ]
+			    },
+			    "dim_fornecedore_has_total_glosa": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__fornecedores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fornecedore": {
+			          "Target": {
+			            "Entity": "dim_fornecedore"
+			          }
+			        },
+			        "dim_fornecedore.total_glosa": {
+			          "Target": {
+			            "Entity": "dim_fornecedore.total_glosa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fornecedore"
+			            },
+			            "Object": {
+			              "Role": "dim_fornecedore.total_glosa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fornecedores_have_total_glosas"
+			        }
+			      ]
+			    },
+			    "dim_fornecedore_has_total_liquido": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__fornecedores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fornecedore": {
+			          "Target": {
+			            "Entity": "dim_fornecedore"
+			          }
+			        },
+			        "dim_fornecedore.total_liquido": {
+			          "Target": {
+			            "Entity": "dim_fornecedore.total_liquido"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fornecedore"
+			            },
+			            "Object": {
+			              "Role": "dim_fornecedore.total_liquido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fornecedores_have_total_liquidos"
+			        }
+			      ]
+			    },
+			    "dim_fornecedore_has_qtd_referencia": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__fornecedores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fornecedore": {
+			          "Target": {
+			            "Entity": "dim_fornecedore"
+			          }
+			        },
+			        "dim_fornecedore.qtd_referencia": {
+			          "Target": {
+			            "Entity": "dim_fornecedore.qtd_referencia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fornecedore"
+			            },
+			            "Object": {
+			              "Role": "dim_fornecedore.qtd_referencia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fornecedores_have_qtd_referencias"
+			        }
+			      ]
+			    },
+			    "dim_fornecedore_has_nome_fornecedor": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__fornecedores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fornecedore": {
+			          "Target": {
+			            "Entity": "dim_fornecedore"
+			          }
+			        },
+			        "dim_fornecedore.nome_fornecedor": {
+			          "Target": {
+			            "Entity": "dim_fornecedore.nome_fornecedor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fornecedore"
+			            },
+			            "Object": {
+			              "Role": "dim_fornecedore.nome_fornecedor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fornecedores_have_nome_fornecedors"
+			        }
+			      ]
+			    },
+			    "dim_fornecedore_has_cnpj_fornecedor": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__fornecedores"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_fornecedore": {
+			          "Target": {
+			            "Entity": "dim_fornecedore"
+			          }
+			        },
+			        "dim_fornecedore.cnpj_fornecedor": {
+			          "Target": {
+			            "Entity": "dim_fornecedore.cnpj_fornecedor"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_fornecedore"
+			            },
+			            "Object": {
+			              "Role": "dim_fornecedore.cnpj_fornecedor"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_fornecedores_have_cnpj_fornecedors"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_pais__região": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.pais__região": {
+			          "Target": {
+			            "Entity": "dim_deputado.pais__região"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.pais__região"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_pais__regiãos"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_escolaridade": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.escolaridade": {
+			          "Target": {
+			            "Entity": "dim_deputado.escolaridade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.escolaridade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_escolaridades"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_uf_nascimento": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.uf_nascimento": {
+			          "Target": {
+			            "Entity": "dim_deputado.uf_nascimento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.uf_nascimento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_uf_nascimentos"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_idade": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.idade": {
+			          "Target": {
+			            "Entity": "dim_deputado.idade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.idade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_idades"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_sexo": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.sexo": {
+			          "Target": {
+			            "Entity": "dim_deputado.sexo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.sexo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_sexos"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_url_foto": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.url_foto": {
+			          "Target": {
+			            "Entity": "dim_deputado.url_foto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.url_foto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_url_fotos"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_uf": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.uf": {
+			          "Target": {
+			            "Entity": "dim_deputado.uf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.uf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_ufs"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_sigla_partido": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.sigla_partido": {
+			          "Target": {
+			            "Entity": "dim_deputado.sigla_partido"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.sigla_partido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_sigla_partidos"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_nome": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.nome": {
+			          "Target": {
+			            "Entity": "dim_deputado.nome"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.nome"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_nome"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_id_deputado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.id_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado.id_deputado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.id_deputado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_id_deputados"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_indicador_final_de_semana": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.indicador_final_de_semana": {
+			          "Target": {
+			            "Entity": "dim_calendario.indicador_final_de_semana"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.indicador_final_de_semana"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_indicador_final_de_semanas"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_ano_real": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.ano_real": {
+			          "Target": {
+			            "Entity": "dim_calendario.ano_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.ano_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_ano_reals"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_nome_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.nome_trimestre": {
+			          "Target": {
+			            "Entity": "dim_calendario.nome_trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.nome_trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_nome_trimestres"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_trimestre_real": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.trimestre_real": {
+			          "Target": {
+			            "Entity": "dim_calendario.trimestre_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.trimestre_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_trimestre_reals"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_nome_me": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.nome_me": {
+			          "Target": {
+			            "Entity": "dim_calendario.nome_me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.nome_me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_nome_me"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_mes_real": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.mes_real": {
+			          "Target": {
+			            "Entity": "dim_calendario.mes_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.mes_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_mes_reals"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_dia_do_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.dia_do_ano": {
+			          "Target": {
+			            "Entity": "dim_calendario.dia_do_ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.dia_do_ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_dia_do_anos"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_dia_do_me": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.dia_do_me": {
+			          "Target": {
+			            "Entity": "dim_calendario.dia_do_me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.dia_do_me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_dia_do_me"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_dia_da_semana": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.dia_da_semana": {
+			          "Target": {
+			            "Entity": "dim_calendario.dia_da_semana"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.dia_da_semana"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_dia_da_semanas"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_nome_dia": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.nome_dia": {
+			          "Target": {
+			            "Entity": "dim_calendario.nome_dia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.nome_dia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_nome_dias"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_data_real": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.data_real": {
+			          "Target": {
+			            "Entity": "dim_calendario.data_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.data_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_data_reals"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_id_dim_data": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.id_dim_data": {
+			          "Target": {
+			            "Entity": "dim_calendario.id_dim_data"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.id_dim_data"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_id_dim_data"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_dim_tipos_documento": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "dim_tipos_documento": {
+			          "Target": {
+			            "Entity": "dim_tipos_documento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "dim_tipos_documento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_dim_tipos_documentos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tipos_documento"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tipos_documentos_have_fato_despesas"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_dim_deputado": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_dim_deputados"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_fato_despesas"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_dim_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_dim_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_fato_despesas"
+			        }
+			      ]
+			    }
+			  }
 			}
 		contentType: json
 

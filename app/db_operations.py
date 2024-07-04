@@ -95,11 +95,11 @@ def create_postgres_schema(engine, schema):
         schema (str): Nome do esquema a ser criado.
     """
     with engine.connect() as connection:
-        # Usar a conexão para executar diretamente a criação do esquema
-        connection.execute(f"CREATE SCHEMA IF NOT EXISTS {schema}")
+        # Usar a conexão para executar diretamente a criação do esquema com SQLAlchemy text
+        connection.execute(text(f"CREATE SCHEMA IF NOT EXISTS {schema}"))
 
 
-def insert_data_to_postgres(dataframe, table_name, engine, schema="landing_zone"):
+def insert_data_to_postgres(dataframe, table_name, engine, schema="public"):
     """
     Insere dados de um DataFrame em uma tabela no PostgreSQL usando pandas e sqlalchemy.
 
@@ -116,40 +116,3 @@ def insert_data_to_postgres(dataframe, table_name, engine, schema="landing_zone"
         print(f"Dados inseridos com sucesso na tabela {schema}.{table_name}")
     except Exception as e:
         print("Erro ao inserir dados no PostgreSQL:", e)
-
-
-
-if __name__ == "__main__":
-
-    dataframe = pd.DataFrame({"col1": [1, 2], "col2": [3, 4]})
-    env_path = ".env"
-
-    external_database_url = build_external_database_url(env_path)
-
-    # Criar o engine fora do loop
-    engine = create_engine(external_database_url)
-    Base = declarative_base(bind=engine)
-
-    class DadosDeputado(Base):
-        __tablename__ = 'infos_deputados'
-
-        id = Column(Integer, primary_key=True)
-        uri = Column(String)
-        nomeCivil = Column(String)
-        ultimoStatus = Column(JSON)  # Armazenará o JSON inteiro do campo 'ultimoStatus'
-        cpf = Column(String)
-        sexo = Column(String)
-        urlWebsite = Column(String, nullable=True)
-        redeSocial = Column(ARRAY(String))
-        dataNascimento = Column(String)
-        dataFalecimento = Column(String, nullable=True)
-        ufNascimento = Column(String)
-        municipioNascimento = Column(String)
-        escolaridade = Column(String)
-    
-
-    # Validar a conexão uma vez
-    if validate_postgresql_connection(engine):
-        insert_data_to_postgres(dataframe, "nome_da_tabela", engine)
-    else:
-        print("Falha na validação da conexão com o PostgreSQL.")
