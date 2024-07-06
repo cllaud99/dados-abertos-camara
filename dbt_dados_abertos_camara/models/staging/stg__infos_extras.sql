@@ -29,4 +29,21 @@ with source as (
     FROM
 	    source infos
     )
-SELECT * FROM renamed
+SELECT 
+    id_deputado,
+    sexo,
+    idade,
+    uf_nascimento,
+    naturalidade,
+    escolaridade,
+    ordem_escolaridade,
+    CASE
+        WHEN idade <= 21 THEN '21-'
+        WHEN idade > 20 AND idade <= 30 THEN '21-30'
+        WHEN idade > 30 AND idade <= 40 THEN '31-40'
+        WHEN idade > 40 AND idade <= 50 THEN '41-50'
+        WHEN idade > 50 AND idade <= 60 THEN '51-60'
+        WHEN idade > 60 THEN '61+'
+        ELSE 'Idade desconhecida'
+    END AS faixa_idade
+FROM renamed

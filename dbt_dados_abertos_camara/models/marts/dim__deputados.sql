@@ -11,7 +11,8 @@ SELECT
 	infos.idade,
 	infos.uf_nascimento,
 	infos.escolaridade,
-	infos.ordem_escolaridade
+	infos.ordem_escolaridade,
+	infos.faixa_idade
 FROM
 	{{ref("stg__deputados")}} deputados
 LEFT JOIN

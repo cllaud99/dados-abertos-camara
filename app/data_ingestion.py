@@ -78,12 +78,9 @@ def normalize_and_save(json_folder, model, table_name, engine):
 
 
 if __name__ == "__main__":
-    # download_data()
+    download_data()
     create_postgres_schema(engine, 'public')
-    print('criou')
     drop_all_tables_in_schema(engine, "public")
     normalize_and_save(Path("data/landing_zone"), Deputado, "lz_deputados", engine)
     normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "lz_despesas", engine)
     normalize_and_save(Path("data/landing_zone/infos"), DadosDeputado, "lz_infos_extras", engine)
-
-

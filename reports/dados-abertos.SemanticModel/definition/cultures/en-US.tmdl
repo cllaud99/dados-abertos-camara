@@ -656,6 +656,16 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Partido": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -724,6 +734,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.471
+			          }
+			        },
+			        {
+			          "Deputado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -1395,34 +1415,14 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Vlr liquido"
+			          "ConceptualProperty": "Gastos totais"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "total liquido": {
+			          "gastos totais": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "aggregate liquido": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "overall liquido": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
 			          }
 			        }
 			      ]
@@ -1437,7 +1437,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "deputados": {
+			          "qtd deputados": {
 			            "State": "Generated"
 			          }
 			        }
@@ -1556,9 +1556,277 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "dim_deputado.ordem_escolaridade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "ordem_escolaridade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ordem escolaridade": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ordem_escolaridade": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.pais_regiao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "pais_regiao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "pais regiao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pais_regiao": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "fato_despesa.tipo_despesa": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato__despesas",
+			          "ConceptualProperty": "tipo_despesa"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo despesa": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo_despesa": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "medida.escolaridade": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Escolaridade"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "escolaridade": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.faltante": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Faltante"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "faltante": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.lm": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "LM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "lm": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.v_Escolaridade_FormatString_escolaridade_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "_Escolaridade FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_escolaridade FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "medida.ranking": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Ranking"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "status": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "classification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "position": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "place": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "grade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "standing": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "level": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fato_despesa_has_dim_tipos_documento": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "dim_tipos_documento": {
+			          "Target": {
+			            "Entity": "dim_tipos_documento"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "dim_tipos_documento"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_dim_tipos_documentos"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_tipos_documento"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_tipos_documentos_have_fato_despesas"
+			        }
+			      ]
+			    },
 			    "fato_despesa_has_dim_fornecedore": {
 			      "Binding": {
 			        "ConceptualEntity": "fato__despesas"
@@ -1602,6 +1870,237 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_fornecedores_have_fato_despesas"
+			        }
+			      ]
+			    },
+			    "medida_has_ranking": {
+			      "Binding": {
+			        "ConceptualEntity": "Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida": {
+			          "Target": {
+			            "Entity": "medida"
+			          }
+			        },
+			        "medida.ranking": {
+			          "Target": {
+			            "Entity": "medida.ranking"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "medida"
+			            },
+			            "Object": {
+			              "Role": "medida.ranking"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "medidas_have_ranking"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_medida_lm": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "medida.lm": {
+			          "Target": {
+			            "Entity": "medida.lm"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "medida.lm"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_lm"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_medida_faltante": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "medida.faltante": {
+			          "Target": {
+			            "Entity": "medida.faltante"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "medida.faltante"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_faltante"
+			        }
+			      ]
+			    },
+			    "medida_has_escolaridade": {
+			      "Binding": {
+			        "ConceptualEntity": "Medidas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "medida": {
+			          "Target": {
+			            "Entity": "medida"
+			          }
+			        },
+			        "medida.escolaridade": {
+			          "Target": {
+			            "Entity": "medida.escolaridade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "medida"
+			            },
+			            "Object": {
+			              "Role": "medida.escolaridade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "medidas_have_escolaridade"
+			        }
+			      ]
+			    },
+			    "fato_despesa_has_tipo_despesa": {
+			      "Binding": {
+			        "ConceptualEntity": "fato__despesas"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fato_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa"
+			          }
+			        },
+			        "fato_despesa.tipo_despesa": {
+			          "Target": {
+			            "Entity": "fato_despesa.tipo_despesa"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fato_despesa"
+			            },
+			            "Object": {
+			              "Role": "fato_despesa.tipo_despesa"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fato_despesas_have_tipo_despesas"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_pais_regiao": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.pais_regiao": {
+			          "Target": {
+			            "Entity": "dim_deputado.pais_regiao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.pais_regiao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_pais_regiaos"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_ordem_escolaridade": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.ordem_escolaridade": {
+			          "Target": {
+			            "Entity": "dim_deputado.ordem_escolaridade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.ordem_escolaridade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_ordem_escolaridades"
 			        }
 			      ]
 			    },
@@ -1799,7 +2298,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_deputados_have_deputados"
+			          "ID": "dim_deputados_have_qtd_deputados"
 			        }
 			      ]
 			    },
@@ -1832,7 +2331,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fato_despesas_have_total_liquido"
+			          "ID": "fato_despesas_have_gastos_totais"
 			        }
 			      ]
 			    },
@@ -2242,39 +2741,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_fornecedores_have_cnpj_fornecedors"
-			        }
-			      ]
-			    },
-			    "dim_deputado_has_pais__região": {
-			      "Binding": {
-			        "ConceptualEntity": "dim__deputados"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_deputado": {
-			          "Target": {
-			            "Entity": "dim_deputado"
-			          }
-			        },
-			        "dim_deputado.pais__região": {
-			          "Target": {
-			            "Entity": "dim_deputado.pais__região"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_deputado"
-			            },
-			            "Object": {
-			              "Role": "dim_deputado.pais__região"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_deputados_have_pais__regiãos"
 			        }
 			      ]
 			    },
@@ -2968,52 +3434,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_calendarios_have_id_dim_data"
-			        }
-			      ]
-			    },
-			    "fato_despesa_has_dim_tipos_documento": {
-			      "Binding": {
-			        "ConceptualEntity": "fato__despesas"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fato_despesa": {
-			          "Target": {
-			            "Entity": "fato_despesa"
-			          }
-			        },
-			        "dim_tipos_documento": {
-			          "Target": {
-			            "Entity": "dim_tipos_documento"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fato_despesa"
-			            },
-			            "Object": {
-			              "Role": "dim_tipos_documento"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fato_despesas_have_dim_tipos_documentos"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_tipos_documento"
-			            },
-			            "Object": {
-			              "Role": "fato_despesa"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_tipos_documentos_have_fato_despesas"
 			        }
 			      ]
 			    },

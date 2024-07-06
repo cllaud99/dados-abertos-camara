@@ -98,7 +98,7 @@ sources:
           - name: file_name
             description: "Nome do arquivo"
   - name: seeds
-    schema: dbt
+    schema: dbt_seeds
     tables:
       - name: seeds__tipos_documentos
         description: "Tabela com informações sobre os tipos de documentos"

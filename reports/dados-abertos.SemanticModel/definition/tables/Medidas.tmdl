@@ -1,13 +1,14 @@
 table Medidas
 	lineageTag: 229ef1b3-f370-49c1-8534-71260fa10b92
 
-	measure 'Vlr liquido' =
+	measure 'Gastos totais' =
 			
 			SUM(fato__despesas[vlr_liquido])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: basicas
 		lineageTag: 5a0cacaf-4b7f-45f6-b38a-e8244d554c2b
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure 'Qtd deputados' =
 			
@@ -18,11 +19,12 @@ table Medidas
 
 	measure 'Média Despesas por Deputado' =
 			
-			DIVIDE( [Vlr liquido] , [Qtd deputados] )
+			DIVIDE( [Gastos totais] , [Qtd deputados] )
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: estatisticas
 		lineageTag: 59980e2f-7388-4ee8-b173-da582366872a
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	measure Partidos = DISTINCTCOUNT( dim__deputados[sigla_partido] )
 		formatString: 0
@@ -58,7 +60,7 @@ table Medidas
 			
 			
 			RETURN
-			DIVIDE( [Vlr liquido] , _Total )
+			DIVIDE( [Gastos totais] , _Total )
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: estatisticas
 		lineageTag: 95a85b91-8641-47d0-93bc-f4b0f80fbb92
@@ -84,12 +86,28 @@ table Medidas
 	measure LM =
 			
 			CALCULATE(
-			    [Vlr liquido],
+			    [Gastos totais],
 			    DATEADD(dim__calendario[data_real], -1, MONTH )
 			)
 		lineageTag: 81920625-66ec-47fe-a6d7-efc4e3fc1ed0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Ranking =
+			
+			IF(
+			    ISINSCOPE(dim__deputados[nome]),
+			    RANKX(
+			        ALL(dim__deputados),
+			        [Gastos totais],
+			        ,
+			        DESC
+			    ),
+			    BLANK()
+			)
+		formatString: 0
+		displayFolder: DataViz
+		lineageTag: 19388796-1812-477c-8582-67da08595374
 
 	column 'Coluna 1'
 		dataType: string
