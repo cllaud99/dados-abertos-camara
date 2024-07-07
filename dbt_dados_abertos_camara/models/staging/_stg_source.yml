@@ -57,7 +57,7 @@ sources:
           - name: valorLiquido
             description: "Valor líquido"
           - name: valorGlosa
-            description: "Valor da glosa"
+            description: "Valor retido, isto é, não coberto pela CEAP, por qualquer razão (impedimento legal, insuficiência de comprovação, etc)"
           - name: numRessarcimento
             description: "Número do ressarcimento"
           - name: codLote

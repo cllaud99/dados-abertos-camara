@@ -96,6 +96,14 @@ table dim__deputados
 
 		annotation SummarizationSetBy = Automatic
 
+	column faixa_idade
+		dataType: string
+		lineageTag: 2b993833-ae0a-48c7-8f06-9cd7ef30c529
+		summarizeBy: none
+		sourceColumn: faixa_idade
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim__deputados-3f428e3e-5b60-4f5a-8b12-731c09ac356a = m
 		mode: import
 		source =

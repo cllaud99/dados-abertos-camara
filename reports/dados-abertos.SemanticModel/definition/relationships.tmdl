@@ -10,7 +10,7 @@ relationship 2924c123-eaf4-4019-9c2f-6c00d994a344
 	fromColumn: fato__despesas.id_deputado
 	toColumn: dim__deputados.id_deputado
 
-relationship 14cae7ce-ec5e-48b0-8aeb-cb63e1795ad9
+relationship 14fb70e3-8ca5-9243-5069-105f8db5ccf7
 	fromColumn: fato__despesas.dt_despesa
-	toColumn: dim__calendario.data_real
+	toColumn: dim__calendario.Date
 

@@ -1,133 +1,196 @@
 table dim__calendario
-	lineageTag: 7c2c74cb-576d-4ccd-91d1-f6fe0eab3221
+	lineageTag: f7826c8e-2a59-4d21-8fa4-77cc506c1823
 	dataCategory: Time
 
-	column id_dim_data
-		dataType: int64
-		formatString: 0
-		lineageTag: 2a07ffc4-d471-4847-a1ac-b3d0a6f5c89c
-		summarizeBy: sum
-		sourceColumn: id_dim_data
-
-		annotation SummarizationSetBy = Automatic
-
-	column data_real
+	column Date
 		dataType: dateTime
 		isKey
-		formatString: Long Date
-		lineageTag: 9c80f621-17d0-4371-87b1-072ff08ad070
+		formatString: General Date
+		lineageTag: 9cfeb89a-53b9-4198-9ead-d774077fa03b
 		summarizeBy: none
-		sourceColumn: data_real
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Date]
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
+	column Dia
+		dataType: int64
+		formatString: 0
+		lineageTag: e9bc0b5a-3dca-4d7a-8a89-53832cf95a13
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Dia]
 
-	column nome_dia
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia nome'
 		dataType: string
-		lineageTag: a22d5710-7a52-4db0-83a4-6d91415a68e1
+		lineageTag: 22e35459-90d8-4b56-8dbb-774f04383801
 		summarizeBy: none
-		sourceColumn: nome_dia
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Dia nome]
 
 		annotation SummarizationSetBy = Automatic
 
-	column dia_da_semana
+	column 'Dia da Semana'
 		dataType: int64
-		lineageTag: d7513459-52e2-4ff3-9df0-2b7539b38b75
+		formatString: 0
+		lineageTag: 78165df6-7f15-42dd-b4b8-ca20b15a84a8
 		summarizeBy: none
-		sourceColumn: dia_da_semana
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Dia da Semana]
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column dia_do_mes
+	column 'Semana Num'
 		dataType: int64
-		lineageTag: ae2023c2-c970-4abc-9d89-76a126723539
+		formatString: 0
+		lineageTag: 49037580-48a7-4ec8-9bb4-1af414202a54
 		summarizeBy: none
-		sourceColumn: dia_do_mes
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Semana Num]
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column dia_do_ano
+	column 'Mês Num'
 		dataType: int64
-		lineageTag: 9a545798-17a7-4633-b77a-cac4c1285acb
+		formatString: 0
+		lineageTag: 949f4df0-19a9-4a34-8901-2ed6b4a0e320
 		summarizeBy: none
-		sourceColumn: dia_do_ano
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Mês Num]
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column mes_real
-		dataType: int64
-		lineageTag: bd84b870-97cd-4bb3-8574-8af684a3ee58
-		summarizeBy: none
-		sourceColumn: mes_real
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column nome_mes
+	column Mês
 		dataType: string
-		lineageTag: 15cd151e-41af-4929-b9ff-3dc519a163a9
+		lineageTag: e3687d54-8019-4aab-941b-8d0316e1dc72
 		summarizeBy: none
-		sourceColumn: nome_mes
-		sortByColumn: mes_real
-
-		changedProperty = SortByColumn
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Mês]
+		sortByColumn: 'Mês Num'
 
 		annotation SummarizationSetBy = Automatic
 
-	column trimestre_real
-		dataType: int64
-		lineageTag: d2f459f3-de18-4785-b24d-5b32ae0ce9f5
-		summarizeBy: none
-		sourceColumn: trimestre_real
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column nome_trimestre
+	column 'Mês Abreviado'
 		dataType: string
-		lineageTag: 45eb9bab-6baf-4af6-906b-c69ae49cbfd1
+		lineageTag: f0217e0c-14b2-43d9-b7d0-f01bb7e7afc1
 		summarizeBy: none
-		sourceColumn: nome_trimestre
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Mês Abreviado]
+		sortByColumn: 'Mês Num'
 
 		annotation SummarizationSetBy = Automatic
 
-	column ano_real
+	column Trimestre
 		dataType: int64
-		lineageTag: f7577d3a-f33d-4c00-8fe8-018e6c034b1b
+		formatString: 0
+		lineageTag: 650d9e26-92d3-4600-8c9b-cd6e57dd538e
 		summarizeBy: none
-		sourceColumn: ano_real
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Trimestre]
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column indicador_final_de_semana
-		dataType: boolean
-		formatString: """TRUE"";""TRUE"";""FALSE"""
-		lineageTag: 8e7fda07-fec8-468a-8de8-ba5598c9dc63
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 06928753-d08b-4716-90bb-4c902a49a777
 		summarizeBy: none
-		sourceColumn: indicador_final_de_semana
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Ano]
 
 		annotation SummarizationSetBy = Automatic
 
-	partition dim__calendario-c97d7426-52e5-4a55-9687-ffee357da20a = m
+	column Tipo
+		dataType: string
+		lineageTag: 3aa7a767-e425-4e01-b6b3-3095d34f9b38
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Tipo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column OffsetMes
+		dataType: int64
+		formatString: 0
+		lineageTag: 790bd1bf-45e5-4dd9-9372-5fe719699262
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [OffsetMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Seleção'
+		dataType: string
+		lineageTag: a36fe757-d48c-4d14-a3bc-f2f5dc542a63
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Mês Seleção]
+		sortByColumn: 'Mês Num'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoMes
+		dataType: int64
+		formatString: 0
+		lineageTag: fb090955-6d21-4b2b-82d7-b4f7253b04a8
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [AnoMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim__calendario = calculated
 		mode: import
-		source =
-				let
-				    Fonte = PostgreSQL.Database("dpg-cpmrvpg8fa8c73anins0-a.oregon-postgres.render.com", "dados_abertos"),
-				    dbt_gold_dim__calendario = Fonte{[Schema="dbt_gold",Item="dim__calendario"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(dbt_gold_dim__calendario,{{"id_dim_data", Int64.Type}, {"data_real", type date}, {"nome_dia", type text}, {"dia_da_semana", Int64.Type}, {"dia_do_mes", Int64.Type}, {"dia_do_ano", Int64.Type}, {"mes_real", Int64.Type}, {"nome_mes", type text}, {"trimestre_real", Int64.Type}, {"nome_trimestre", type text}, {"ano_real", Int64.Type}, {"indicador_final_de_semana", type logical}})
-				in
-				    #"Tipo Alterado"
+		source = ```
+				
+				
+				    ADDCOLUMNS(
+				        CALENDAR(
+				                    DATE(
+				                        YEAR(
+				                                MIN(fato__despesas[dt_despesa])
+				                                ),1,1
+				                        ),
+				                    DATE(YEAR(TODAY()),12,31)
+				                ),
+				        "Dia", DAY([date]),
+				        "Dia nome", FORMAT([date], "dddd","pt-BR"),
+				        "Dia da Semana", WEEKDAY([date]),
+				        "Semana Num", WEEKNUM([date]),
+				        "Mês Num", MONTH([date]),
+				        "Mês", FORMAT([Date], "mmmm","pt-BR"),
+				        "Mês Abreviado", FORMAT([Date], "mmm","pt-BR"),
+				        "Trimestre", QUARTER([Date]),
+				        "Ano", YEAR([Date]),
+				        "AnoMes", YEAR([Date]) * 100 + MONTH([date]),
+				        "Tipo", SWITCH(
+				                        TRUE(),
+				                        [Date]>TODAY(),
+				                        "Futuro",
+				                        "Passado"
+				        ),
+				        "OffsetMes",
+				                (YEAR([Date])-YEAR(MIN(fato__despesas[dt_despesa])))*12+MONTH([Date]),
+				        "Mês Seleção",
+				                IF(MONTH([Date])=MONTH(TODAY()) && YEAR([Date])=YEAR(TODAY()) ,"mês atual",FORMAT([date], "mmmm","pt-BR"))
+				    )
+				```
 
-	annotation PBI_ResultType = Table
+	annotation PBI_Id = 93d93361c48e4f119535a50726c7b23f
 
