@@ -122,4 +122,4 @@ A imagem abaixo descreve a arquitetura escolhida para o projeto:
 - **Visualização**: Os dados transformados são utilizados para gerar visualizações em um dashboard.
 
 [def]: https://dadosabertos.camara.leg.br/swagger/api.html
-[pics_arquitetura]: pics/arquitetura.png
+[pics_arquitetura]: pics/arquitetura/arquitetura.png
