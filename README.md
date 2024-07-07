@@ -20,12 +20,12 @@ Este projeto visa realizar a extração, carga e transformação de dados aberto
 
 ### Especificação de Requisitos para Dashboard - Matriz Dimensão-Indicador
 
-Este documento detalha a especificação de requisitos para o desenvolvimento de um dashboard destinado a analisar os gastos e o perfil dos deputados. O objetivo é criar uma ferramenta interativa que permita uma compreensão detalhada dos dados financeiros e demográficos dos deputados.
+Este documento detalha a especificação de requisitos para o desenvolvimento de um dashboard destinado a simular uma análise dos gastos e o perfil dos deputados. O objetivo é criar uma ferramenta interativa que permita uma compreensão detalhada dos dados financeiros e demográficos. Seguindo os requisitos estipulados abaixo
 
 ### Dimensão e Indicadores
 
 ### Deputado
-- **Total de gastos por deputado:** Deve exibir a soma dos gastos realizados por cada deputado, permitindo identificar quais deputados possuem maiores e menores despesas.
+- **Total de gastos por deputado:** Deve exibir a soma dos gastos realizados por cada deputado.
 - **Média de gastos por deputado:** Deve calcular a média dos gastos realizados pelos deputados, oferecendo uma visão geral do comportamento de despesas.
 - **Total de despesas por tipo:** Necessário somar as despesas categorizadas por tipo (ex: passagens aéreas, manutenção de veículos), facilitando a identificação de onde os recursos são mais utilizados.
  **Sexo dos deputados (distribuição por gênero):** Proporção de deputados do sexo masculino e feminino, crucial para análises de diversidade de gênero.
