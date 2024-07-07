@@ -5,98 +5,101 @@ sources:
     schema: public
     tables:
       - name: lz_deputados
-        description: "Tabela com informações sobre os deputados"
+        description: "Tabela com informações sobre os deputados da Câmara dos Deputados"
         columns:
           - name: id
-            description: "Identificador único do deputado"
+            description: "Identificador único do deputado na Câmara dos Deputados"
           - name: uri
-            description: "URI do deputado"
+            description: "URI do deputado na Câmara dos Deputados"
           - name: nome
-            description: "Nome do deputado"
+            description: "Nome do deputado na Câmara dos Deputados"
           - name: siglaPartido
-            description: "Sigla do partido do deputado"
+            description: "Sigla do partido do deputado na Câmara dos Deputados"
           - name: uriPartido
-            description: "URI do partido do deputado"
+            description: "URI do partido do deputado na Câmara dos Deputados"
           - name: siglaUf
-            description: "Sigla da unidade federativa do deputado"
+            description: "Sigla da unidade federativa (estado) do deputado na Câmara dos Deputados"
           - name: idLegislatura
-            description: "Identificador único da legislatura"
+            description: "Identificador único da legislatura na qual o deputado está atuando"
           - name: uriFoto
-            description: "URI da foto do deputado"
+            description: "URI da foto oficial do deputado na Câmara dos Deputados"
           - name: email
-            description: "Email do deputado"
+            description: "Endereço de email do deputado na Câmara dos Deputados"
           - name: file_name
-            description: "Nome do arquivo"
+            description: "Nome do arquivo que contém as informações"
+
       - name: lz_despesas
-        description: "Tabela com informações sobre as despesas dos deputados"
+        description: "Tabela com informações sobre as despesas dos deputados registradas pela CEAP"
         columns:
           - name: ano
-            description: "Ano da despesa"
+            description: "Ano de competência financeira do documento comprobatório da despesa"
           - name: mes
-            description: "Mês da despesa"
+            description: "Mês de competência financeira do documento comprobatório da despesa"
           - name: tipoDespesa
-            description: "Tipo de despesa"
+            description: "Código numérico da categoria de despesa à qual o registro é pertinente"
           - name: codDocumento
-            description: "Código do documento"
+            description: "Identificador numérico do documento comprobatório da despesa"
           - name: tipoDocumento
-            description: "Tipo do documento"
+            description: "Indicador numérico do tipo de documento fiscal associado à despesa"
           - name: codTipoDocumento
-            description: "Código do tipo do documento"
+            description: "Código numérico do tipo de documento fiscal associado à despesa"
           - name: dataDocumento
-            description: "Data do documento"
+            description: "Data de emissão do documento comprobatório da despesa"
           - name: numDocumento
-            description: "Número do documento"
+            description: "Número de face do documento fiscal comprovante da despesa"
           - name: valorDocumento
-            description: "Valor do documento"
+            description: "Valor de face do documento comprobatório da despesa"
           - name: urlDocumento
-            description: "URL do documento"
+            description: "URL do documento comprobatório da despesa"
           - name: nomeFornecedor
-            description: "Nome do fornecedor"
+            description: "Nome da pessoa física ou empresa fornecedora do serviço ou produto ao qual se refere o registro de despesa"
           - name: cnpjCpfFornecedor
-            description: "CNPJ/CPF do fornecedor"
+            description: "Número de Cadastro de Pessoa Física (CPF) ou de Cadastro Nacional de Pessoas Jurídicas (CNPJ) da pessoa ou empresa fornecedora do serviço ou produto ao qual se refere o registro de despesa"
           - name: valorLiquido
-            description: "Valor líquido"
+            description: "Valor da despesa efetivamente debitado da Cota Parlamentar"
           - name: valorGlosa
-            description: "Valor retido, isto é, não coberto pela CEAP, por qualquer razão (impedimento legal, insuficiência de comprovação, etc)"
+            description: "Valor retido pela CEAP, não coberto pela Cota Parlamentar"
           - name: numRessarcimento
-            description: "Número do ressarcimento"
+            description: "Identificador numérico do ressarcimento da despesa"
           - name: codLote
-            description: "Código do lote"
+            description: "Identificador numérico do lote de documentos entregues à Câmara para verificação e reembolso pela CEAP"
           - name: parcela
-            description: "Parcela"
+            description: "Valor numérico da parcela de reembolso, se aplicável"
           - name: file_name
-            description: "Nome do arquivo"
+            description: "Nome do arquivo que contém as informações"
+
       - name: lz_infos_extras
-        description: "Tabela com informações extras sobre os deputados"
+        description: "Tabela com informações extras sobre os deputados da Câmara dos Deputados"
         columns:
           - name: id
-            description: "Identificador único do deputado"
+            description: "Identificador único do deputado na Câmara dos Deputados"
           - name: uri
-            description: "URI do deputado"
+            description: "URI do deputado na Câmara dos Deputados"
           - name: nomeCivil
             description: "Nome civil do deputado"
           - name: ultimoStatus
-            description: "Último status do deputado"
+            description: "Último status do deputado na Câmara dos Deputados"
           - name: cpf
-            description: "CPF do deputado"
+            description: "Cadastro de Pessoa Física (CPF) do deputado na Câmara dos Deputados"
           - name: sexo
             description: "Sexo do deputado"
           - name: urlWebsite
-            description: "URL do website do deputado"
+            description: "URL do website pessoal ou institucional do deputado"
           - name: redeSocial
-            description: "Rede social do deputado"
+            description: "Conta de rede social do deputado"
           - name: dataNascimento
             description: "Data de nascimento do deputado"
           - name: dataFalecimento
-            description: "Data de falecimento do deputado"
+            description: "Data de falecimento do deputado, se aplicável"
           - name: ufNascimento
-            description: "Unidade federativa de nascimento do deputado"
+            description: "Sigla da unidade federativa (estado) de nascimento do deputado"
           - name: municipioNascimento
             description: "Município de nascimento do deputado"
           - name: escolaridade
-            description: "Escolaridade do deputado"
+            description: "Nível de escolaridade do deputado"
           - name: file_name
-            description: "Nome do arquivo"
+            description: "Nome do arquivo que contém as informações"
+
   - name: seeds
     schema: dbt_seeds
     tables:
@@ -104,6 +107,6 @@ sources:
         description: "Tabela com informações sobre os tipos de documentos"
         columns:
           - name: id
-            description: "Identificador único do tipo"
+            description: "Identificador único do tipo de documento"
           - name: descricao
-            description: "Tipo do documento"
+            description: "Descrição do tipo de documento"
