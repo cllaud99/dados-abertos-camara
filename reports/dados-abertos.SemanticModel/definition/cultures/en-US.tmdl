@@ -1734,6 +1734,65 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "dim_deputado.situacao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "situacao"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "situacao": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Situação Atual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_deputado.condicao_eleitoral": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim__deputados",
+			          "ConceptualProperty": "condicao_eleitoral"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "condicao eleitoral": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "condicao_eleitoral": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Condição Eleitoral": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -1872,6 +1931,72 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_fornecedores_have_fato_despesas"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_condicao_eleitoral": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.condicao_eleitoral": {
+			          "Target": {
+			            "Entity": "dim_deputado.condicao_eleitoral"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.condicao_eleitoral"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_condicao_eleitorals"
+			        }
+			      ]
+			    },
+			    "dim_deputado_has_situacao": {
+			      "Binding": {
+			        "ConceptualEntity": "dim__deputados"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_deputado": {
+			          "Target": {
+			            "Entity": "dim_deputado"
+			          }
+			        },
+			        "dim_deputado.situacao": {
+			          "Target": {
+			            "Entity": "dim_deputado.situacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_deputado"
+			            },
+			            "Object": {
+			              "Role": "dim_deputado.situacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_deputados_have_situacaos"
 			        }
 			      ]
 			    },

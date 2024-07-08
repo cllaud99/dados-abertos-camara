@@ -81,6 +81,6 @@ if __name__ == "__main__":
     download_data()
     create_postgres_schema(engine, 'public')
     drop_all_tables_in_schema(engine, "public")
-    normalize_and_save(Path("data/landing_zone"), Deputado, "lz_deputados", engine)
+    normalize_and_save(Path("data/landing_zone/"), Deputado, "lz_deputados", engine)
     normalize_and_save(Path("data/landing_zone/despesas"), Despesa, "lz_despesas", engine)
     normalize_and_save(Path("data/landing_zone/infos"), DadosDeputado, "lz_infos_extras", engine)

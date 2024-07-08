@@ -104,6 +104,22 @@ table dim__deputados
 
 		annotation SummarizationSetBy = Automatic
 
+	column situacao
+		dataType: string
+		lineageTag: fc4d9dfb-0c18-4185-8941-0ff5f1c36e96
+		summarizeBy: none
+		sourceColumn: situacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column condicao_eleitoral
+		dataType: string
+		lineageTag: 5d5ea20b-4342-4d6e-8a0d-7bca9cbb256e
+		summarizeBy: none
+		sourceColumn: condicao_eleitoral
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim__deputados-3f428e3e-5b60-4f5a-8b12-731c09ac356a = m
 		mode: import
 		source =

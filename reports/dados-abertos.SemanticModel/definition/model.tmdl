@@ -8,7 +8,7 @@ model Model
 
 annotation PBIDesktopVersion = 2.130.930.0 (24.06)
 
-annotation PBI_QueryOrder = ["dim__deputados","dim__fornecedores","dim__tipos_documentos","fato__despesas","Medidas"]
+annotation PBI_QueryOrder = ["dim__deputados","dim__fornecedores","dim__tipos_documentos","fato__despesas","Medidas","dim__tipo_despesas"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -20,6 +20,7 @@ ref table dim__tipos_documentos
 ref table fato__despesas
 ref table Medidas
 ref table dim__calendario
+ref table dim__tipo_despesas
 
 ref cultureInfo pt-BR
 ref cultureInfo en-US

@@ -15,7 +15,7 @@ table Medidas
 
 	measure Deputados =
 			
-			COUNTROWS(dim__deputados)
+			DISTINCTCOUNT(fato__despesas[id_deputado])
 		formatString: 0
 		displayFolder: basicas
 		lineageTag: 8cd32498-c9d9-4d05-b3af-a864f5b0890d

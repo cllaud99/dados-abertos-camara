@@ -33,7 +33,7 @@ class Deputado(BaseModel):
     siglaUf: str
     idLegislatura: int
     urlFoto: str
-    email: str
+    email: Optional[str]
 
 
 class Gabinete(BaseModel):
@@ -53,10 +53,10 @@ class UltimoStatus(BaseModel):
     uriPartido: str
     siglaUf: str
     idLegislatura: int
-    urlFoto: str
-    email: str
-    data: str
-    nomeEleitoral: str
+    urlFoto: Optional[str]
+    email: Optional[str]
+    data: Optional[str]
+    nomeEleitoral: Optional[str]
     gabinete: Gabinete
     situacao: str
     condicaoEleitoral: str
