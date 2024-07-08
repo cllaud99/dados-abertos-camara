@@ -55,6 +55,9 @@ Este documento detalha a especificação de requisitos para o desenvolvimento de
 - **Distribuição percentual de despesas por tipo:** Porcentagem de cada tipo de despesa em relação ao total de despesas, útil para análises proporcionais.
 - **Valor absoluto de despesas por tipo:** Valores absolutos de despesas para cada tipo de despesa, fornecendo uma visão clara dos montantes gastos.
 
+### Fornecedores
+- **Armazenamento estuturado**  também foi adicionada a tabela de fornecedores para analises futuras
+
 ## Observações Adicionais
 
 - **Visualizações Gráficas:** Os dashboards devem utilizar várias visualizações gráficas, como gráficos de barras, gráficos de rosca, treemaps, e mapas geográficos para representar os dados de forma clara e intuitiva.

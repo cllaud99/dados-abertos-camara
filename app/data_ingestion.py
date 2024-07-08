@@ -24,7 +24,7 @@ def download_data():
     Função que realiza o download de arquivos JSON e armazena em uma landing_zone
     """
     path_deputados_file = "data/landing_zone/deputados_raw.json"
-    deputados = fetch_data("https://dadosabertos.camara.leg.br/api/v2/deputados")
+    deputados = fetch_data("https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=57")
     save_to_raw(deputados, path_deputados_file)
 
     ids = get_ids_deputados(path_deputados_file)

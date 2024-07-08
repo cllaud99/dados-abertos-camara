@@ -25,7 +25,9 @@ with source as (
             WHEN escolaridade = 'Doutorado Incompleto' THEN 10
             WHEN escolaridade = 'Doutorado' THEN 11
             ELSE -1
-        END AS ordem_escolaridade
+        END AS ordem_escolaridade,
+        ("ultimoStatus"::jsonb)->>'situacao' AS situacao,
+        ("ultimoStatus"::jsonb)->>'condicaoEleitoral' AS condicao_eleitoral
     FROM
 	    source infos
     )
@@ -45,5 +47,7 @@ SELECT
         WHEN idade > 50 AND idade <= 60 THEN '51-60'
         WHEN idade > 60 THEN '61+'
         ELSE 'Idade desconhecida'
-    END AS faixa_idade
+    END AS faixa_idade,
+    situacao,
+    condicao_eleitoral
 FROM renamed
