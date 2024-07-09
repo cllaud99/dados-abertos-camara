@@ -1,7 +1,11 @@
 import json
 import os
+from loguru import logger
 
 import requests
+
+log_format = "{time:YYYY-MM-DD_HH-mm-ss}_{level}.log"
+logger.configure(handlers=[{"sink": log_format, "format": "{time} {message}"}])
 
 
 def fetch_data(url, params=None):
@@ -15,11 +19,13 @@ def fetch_data(url, params=None):
         dict or None: Dados da resposta JSON se a requisição for bem-sucedida, None caso contrário.
     """
     headers = {"Accept": "application/json"}
-    response = requests.get(url, headers=headers, params=params)
-    if response.status_code == 200:
+    try:
+        response = requests.get(url, headers=headers, params=params)
+        response.raise_for_status()  # Lança exceção para erros HTTP
+
         return response.json()
-    else:
-        print(f"Erro na requisição: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Erro na requisição para {url}: {e}")
         return None
 
 
@@ -34,7 +40,7 @@ def extract_data(json_response):
     if "dados" in json_response:
         return json_response["dados"]
     else:
-        print("Estrutura de dados inesperada:", json_response)
+        logger.warning("Estrutura de dados inesperada: %s", json_response)
         return None
 
 
@@ -46,9 +52,13 @@ def save_to_raw(data, file_path):
         data (dict): Dados a serem salvos no arquivo.
         file_path (str): Caminho completo do arquivo onde os dados serão salvos.
     """
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-    with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    try:
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+        logger.info(f"Dados salvos em {file_path}")
+    except Exception as e:
+        logger.error(f"Erro ao salvar dados em {file_path}: {e}")
 
 
 def get_ids_deputados(file_path):
@@ -61,11 +71,22 @@ def get_ids_deputados(file_path):
     Returns:
         list: Lista de IDs dos deputados.
     """
-    with open(file_path, "r", encoding="utf-8") as file:
-        data = json.load(file)
-    deputados = data.get("dados", [])
-    ids = {deputado["id"] for deputado in deputados}
-    return ids
+    try:
+        with open(file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+        deputados = data.get("dados", [])
+        ids = {deputado["id"] for deputado in deputados}
+        logger.info(f"IDs dos deputados obtidos com sucesso do arquivo {file_path}")
+        return ids
+    except FileNotFoundError:
+        logger.error(f"Arquivo {file_path} não encontrado.")
+        return []
+    except json.JSONDecodeError as e:
+        logger.error(f"Erro ao decodificar JSON em {file_path}: {e}")
+        return []
+    except Exception as e:
+        logger.error(f"Erro inesperado ao obter IDs dos deputados de {file_path}: {e}")
+        return []
 
 
 def fetch_all_data(base_url, params=None):
@@ -82,17 +103,22 @@ def fetch_all_data(base_url, params=None):
     all_data = []
     url = base_url
 
-    while url:
-        data = fetch_data(url, params)
-        if data:
-            all_data.extend(data["dados"])
-            url = None
-            for link in data["links"]:
-                if link["rel"] == "next":
-                    url = link["href"]
-                    break
-            params = None
-        else:
-            break
+    try:
+        while url:
+            data = fetch_data(url, params)
+            if data:
+                all_data.extend(data.get("dados", []))
+                url = None
+                for link in data.get("links", []):
+                    if link.get("rel") == "next":
+                        url = link.get("href")
+                        break
+                params = None
+            else:
+                break
+    except Exception as e:
+        logger.error(f"Erro ao buscar dados paginados em {url}: {e}")
+        return []
 
+    logger.info(f"Dados paginados obtidos com sucesso de {base_url}")
     return all_data
