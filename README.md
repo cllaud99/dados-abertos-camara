@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-Este projeto tem o intuito exclusivo de estudos e visa demonstrar o uso de ferramentas modernas de engenharia de dados e técnicas de visualização de dados. Não é objetivo fazer qualquer juízo de valor sobre os deputados ou suas atividades. Como o projeto é utilizado para testar técnicas e recursos pode sofrer alterações a todos momentos e não deve ser utilizado para acompanhamento dos deputados viso que não necessáriamente estara atualizado e/ou finalizado
+Este projeto tem o intuito exclusivo de estudos e visa demonstrar o uso de ferramentas modernas de engenharia de dados e técnicas de visualização de dados. Não é objetivo fazer qualquer juízo de valor sobre os deputados ou suas atividades. Como o projeto é utilizado para testar técnicas e recursos pode sofrer alterações a todo momento e não deve ser utilizado para acompanhamento dos deputados visto que não necessáriamente estara atualizado e/ou finalizado
 
 
 ## Objetivos do Projeto

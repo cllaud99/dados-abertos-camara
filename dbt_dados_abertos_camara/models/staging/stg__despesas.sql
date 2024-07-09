@@ -4,7 +4,7 @@ with source as (
 renamed AS
 (
 SELECT
-	substring(file_name FROM '^[^_]+') AS id_deputado,
+	cast( substring(file_name FROM '^[^_]+') as int ) AS id_deputado,
 	"codTipoDocumento" AS cod_tipo_despesa,
 	"tipoDespesa" AS tipo_despesa,
 	"dataDocumento" AS dt_despesa,
