@@ -85,5 +85,19 @@ class Links(BaseModel):
     rel: str
     href: str
 
-
+class DeputadoHistorico(BaseModel):
+    condicaoEleitoral: Optional[str]
+    dataHora: datetime
+    descricaoStatus: Optional[str]
+    email: Optional[str]
+    id: int
+    idLegislatura: int
+    nome: str
+    nomeEleitoral: Optional[str]
+    siglaPartido: str
+    siglaUf: str
+    situacao: Optional[str]
+    uri: Optional[str]
+    uriPartido: Optional[str]
+    urlFoto: Optional[str]
 

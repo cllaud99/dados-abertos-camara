@@ -14,7 +14,7 @@ relationship 14fb70e3-8ca5-9243-5069-105f8db5ccf7
 	fromColumn: fato__despesas.dt_despesa
 	toColumn: dim__calendario.Date
 
-relationship AutoDetected_0bbcda10-6c85-4735-b2d5-85afa0300134
-	fromColumn: fato__despesas.tipo_despesa
-	toColumn: dim__tipo_despesas.tipo_despesa
+relationship AutoDetected_cbea884d-1c2a-4fd1-8668-82d103f20246
+	fromColumn: fato__despesas.id_tipo_despesa
+	toColumn: dim__tipo_despesas.id_tipo_despesa
 

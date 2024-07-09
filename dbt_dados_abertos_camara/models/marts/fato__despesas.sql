@@ -8,10 +8,10 @@ WITH fato_despesas AS (
         sd.vlr_documento AS vlr_documento,
         sd.vlr_glosa AS vlr_glosa,
         sd.cod_tipo_despesa,
-        td.id as id_tipo_despesa
+        td.id_tipo_despesa
     FROM {{ ref('stg__despesas') }} sd
     LEFT JOIN
-        {{ref('stg_tipos_despesas')}} td ON
+        {{ref('stg__tipos_despesas')}} td ON
         td.tipo_despesa = sd.tipo_despesa
 )
 SELECT

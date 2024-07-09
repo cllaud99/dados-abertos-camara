@@ -13,16 +13,16 @@ table Medidas
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
-	measure Deputados =
+	measure 'Deputados com Despesas' =
 			
 			DISTINCTCOUNT(fato__despesas[id_deputado])
 		formatString: 0
 		displayFolder: basicas
 		lineageTag: 8cd32498-c9d9-4d05-b3af-a864f5b0890d
 
-	measure 'Despesas / Deputado' =
+	measure 'Despesas / Deputado com Despesas' =
 			
-			DIVIDE( [Despesas] , [Deputados] )
+			DIVIDE( [Despesas] , [Deputados com Despesas] )
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: estatisticas
 		lineageTag: 59980e2f-7388-4ee8-b173-da582366872a
@@ -131,7 +131,7 @@ table Medidas
 			
 			MAXX( 
 			    VALUES( dim__deputados[faixa_idade] ),
-			    [Deputados]
+			    [Deputados com Despesas]
 			) * 1.30
 			```
 		displayFolder: DataViz
@@ -143,7 +143,7 @@ table Medidas
 			
 			MAXX( 
 			    VALUES( dim__deputados[uf] ),
-			    MAX( [Despesas / Deputado] , [Despesas Medianas por Deputado] )
+			    MAX( [Despesas / Deputado com Despesas] , [Despesas Medianas por Deputado] )
 			) * 1.20
 			```
 		displayFolder: DataViz
@@ -192,7 +192,7 @@ table Medidas
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Despesas Dept Float' = [Despesas / Deputado]
+	measure 'Despesas Dept Float' = [Despesas / Deputado com Despesas]
 		displayFolder: DataViz
 		lineageTag: c6a2850e-a24f-4979-a644-1227e221f37e
 
@@ -216,24 +216,19 @@ table Medidas
 				RETURN
 				"""" &  _icon & " " & _num_format & """"
 
-	column 'Coluna 1'
-		dataType: string
-		isHidden
-		lineageTag: 69bf4b61-6054-4664-8544-f736ebaaa5f3
-		summarizeBy: none
-		sourceColumn: Coluna 1
-
-		changedProperty = IsHidden
-
-		annotation SummarizationSetBy = Automatic
+	measure Deputados = COUNTROWS( dim__deputados )
+		formatString: 0
+		displayFolder: basicas
+		lineageTag: 248d5056-7332-4bcf-b805-67d36cfdaf5a
 
 	partition Medidas-63ff680f-fab3-4499-9d8e-d63ef7bdb292 = m
 		mode: import
 		source =
 				let
-				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t])
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Colunas Removidas" = Table.RemoveColumns(Fonte,{"Coluna 1"})
 				in
-				    Fonte
+				    #"Colunas Removidas"
 
 	annotation PBI_ResultType = Table
 

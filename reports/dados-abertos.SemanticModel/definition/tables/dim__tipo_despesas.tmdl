@@ -1,15 +1,6 @@
 table dim__tipo_despesas
 	lineageTag: cbf60dbf-42ae-4d2a-94f4-b170b9d1093b
 
-	column id
-		dataType: int64
-		formatString: 0
-		lineageTag: 327bf65b-2e09-423b-8cde-99b46a730817
-		summarizeBy: none
-		sourceColumn: id
-
-		annotation SummarizationSetBy = Automatic
-
 	column tipo_despesa
 		dataType: string
 		lineageTag: 7b262e94-de3b-4e48-9401-3a39f5394cc5
@@ -23,6 +14,15 @@ table dim__tipo_despesas
 		lineageTag: 57e20928-dbc8-4f01-8358-58f8fbebc3dd
 		summarizeBy: none
 		sourceColumn: agrupamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tipo_despesa
+		dataType: int64
+		formatString: 0
+		lineageTag: ec1c0c95-edf0-40bd-9798-fa430575c1eb
+		summarizeBy: none
+		sourceColumn: id_tipo_despesa
 
 		annotation SummarizationSetBy = Automatic
 

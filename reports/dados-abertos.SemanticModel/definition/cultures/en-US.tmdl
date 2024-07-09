@@ -710,25 +710,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "medida.coluna_1": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Coluna 1"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "coluna 1": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "medida.total_liquido": {
 			      "Definition": {
 			        "Binding": {
@@ -749,7 +730,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Deputados"
+			          "ConceptualProperty": "Deputados com Despesas"
 			        }
 			      },
 			      "State": "Generated",
@@ -765,7 +746,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Despesas / Deputado"
+			          "ConceptualProperty": "Despesas / Deputado com Despesas"
 			        }
 			      },
 			      "State": "Generated",
@@ -870,29 +851,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "pais_regiao": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "fato_despesa.tipo_despesa": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fato__despesas",
-			          "ConceptualProperty": "tipo_despesa"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "tipo despesa": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "tipo_despesa": {
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
