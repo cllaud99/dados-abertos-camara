@@ -21,6 +21,7 @@ from tqdm import tqdm
 load_dotenv()
 
 sample_run = os.getenv('SAMPLE_RUN')
+print(sample_run)
 ID_LEGISLATURA = 57
 
 external_database_url = build_external_database_url()
@@ -36,7 +37,8 @@ def download_data():
     save_to_raw(deputados, path_deputados_file)
 
     ids = get_ids_deputados(path_deputados_file)
-    if sample_run:
+    if sample_run != "False":
+
         ids = ids[:5]
     print(ids)
 

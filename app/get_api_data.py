@@ -64,7 +64,7 @@ def get_ids_deputados(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         data = json.load(file)
     deputados = data.get("dados", [])
-    ids = [deputado["id"] for deputado in deputados]
+    ids = {deputado["id"] for deputado in deputados}
     return ids
 
 
