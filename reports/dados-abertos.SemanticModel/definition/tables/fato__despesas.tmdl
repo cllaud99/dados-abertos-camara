@@ -68,15 +68,6 @@ table fato__despesas
 
 		annotation SummarizationSetBy = Automatic
 
-	column id_tipo_despesa
-		dataType: int64
-		formatString: 0
-		lineageTag: 04d5b39e-efa0-4f71-b76f-7d0596277cf6
-		summarizeBy: none
-		sourceColumn: id_tipo_despesa
-
-		annotation SummarizationSetBy = Automatic
-
 	column sk_deputado
 		dataType: string
 		lineageTag: 315111d5-cdb2-40a0-a445-ba87ee2d5dff
@@ -95,3 +86,5 @@ table fato__despesas
 				    dbt_gold_fato__despesas
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação

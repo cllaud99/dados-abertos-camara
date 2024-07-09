@@ -135,7 +135,7 @@ def insert_data_to_postgres(dataframe, table_name, engine, schema="public"):
     """
     try:
         dataframe.to_sql(
-            table_name, con=engine, schema=schema, if_exists="replace", index=False
+            table_name, con=engine, schema=schema, if_exists="append", index=False
         )
         logger.info(f"Dados inseridos com sucesso na tabela {schema}.{table_name}")
     except Exception as e:

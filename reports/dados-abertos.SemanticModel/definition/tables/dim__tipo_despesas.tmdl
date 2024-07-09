@@ -17,12 +17,21 @@ table dim__tipo_despesas
 
 		annotation SummarizationSetBy = Automatic
 
-	column id_tipo_despesa
+	column total
 		dataType: int64
 		formatString: 0
-		lineageTag: ec1c0c95-edf0-40bd-9798-fa430575c1eb
+		lineageTag: 9c8e2a07-a826-4f46-a991-cc9f447b42fa
 		summarizeBy: none
-		sourceColumn: id_tipo_despesa
+		sourceColumn: total
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_tipo_despesa
+		dataType: int64
+		formatString: 0
+		lineageTag: 178896e0-5261-41c7-95fe-ee851e454c01
+		summarizeBy: none
+		sourceColumn: cod_tipo_despesa
 
 		annotation SummarizationSetBy = Automatic
 

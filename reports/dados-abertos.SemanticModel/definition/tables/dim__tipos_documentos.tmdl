@@ -1,20 +1,20 @@
 table dim__tipos_documentos
 	lineageTag: 3393fcaf-5562-489b-a372-109ad3e640c4
 
-	column id
-		dataType: int64
-		formatString: 0
-		lineageTag: 56debc8e-1cce-4fb5-8509-01d4e0a843f8
-		summarizeBy: none
-		sourceColumn: id
-
-		annotation SummarizationSetBy = Automatic
-
 	column tipo_documento
 		dataType: string
 		lineageTag: f14092ae-5e6a-4b48-996a-6e5cbe2f5c81
 		summarizeBy: none
 		sourceColumn: tipo_documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tipo_documento
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f853008-1ef2-4a02-8d4b-b56472a794fe
+		summarizeBy: sum
+		sourceColumn: id_tipo_documento
 
 		annotation SummarizationSetBy = Automatic
 
@@ -28,4 +28,3 @@ table dim__tipos_documentos
 				    dbt_gold_dim__tipos_documentos
 
 	annotation PBI_ResultType = Table
-

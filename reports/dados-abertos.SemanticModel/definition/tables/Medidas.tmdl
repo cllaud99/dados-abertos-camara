@@ -1,12 +1,10 @@
 table Medidas
 	lineageTag: 229ef1b3-f370-49c1-8534-71260fa10b92
 
-	measure Despesas =
+	measure Despesas = ```
 
-			COALESCE(
-			    SUM(fato__despesas[vlr_liquido]),
-			    0
-			)
+			    SUM(fato__despesas[vlr_liquido])
+			```
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: basicas
 		lineageTag: 5a0cacaf-4b7f-45f6-b38a-e8244d554c2b
@@ -42,8 +40,8 @@ table Medidas
 
 			VAR _TotalDeputados =
 			CALCULATE(
-			    COUNTROWS(dim__deputados),
-			    ALLSELECTED(dim__deputados)
+			    DISTINCTCOUNT( fato__despesas[id_deputado] ),
+			    ALLSELECTED(fato__despesas)
 			)
 
 

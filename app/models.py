@@ -47,11 +47,11 @@ class Gabinete(BaseModel):
 
 class UltimoStatus(BaseModel):
     id: int
-    uri: str
-    nome: str
-    siglaPartido: str
-    uriPartido: str
-    siglaUf: str
+    uri: Optional[str]
+    nome: Optional[str]
+    siglaPartido: Optional[str]
+    uriPartido: Optional[str]
+    siglaUf: Optional[str]
     idLegislatura: int
     urlFoto: Optional[str]
     email: Optional[str]
@@ -59,7 +59,7 @@ class UltimoStatus(BaseModel):
     nomeEleitoral: Optional[str]
     gabinete: Gabinete
     situacao: str
-    condicaoEleitoral: str
+    condicaoEleitoral: Optional[str]
     descricaoStatus: Optional[str]
 
     def to_dict(self):

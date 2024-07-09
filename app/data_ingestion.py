@@ -27,7 +27,6 @@ logger.add(
 load_dotenv()
 
 sample_run = os.getenv("SAMPLE_RUN")
-print(sample_run)
 ANOS = "2023,2024"
 ID_LEGISLATURA = "57"
 
@@ -50,9 +49,11 @@ def download_data(sample_run="False"):
         save_to_raw(deputados, path_deputados_file)
 
         ids = get_ids_deputados(path_deputados_file)
-        if sample_run != "False":
-            ids = ids[:5]
 
+        if sample_run == "True":
+            ids = list(ids)[:5]
+            logger.info(f"Rodando amostragem dos dados: {sample_run}")
+        logger.info(f"IDs de deputados a serem processados: {sample_run}")
         logger.info(f"IDs de deputados a serem processados: {ids}")
 
         for id in tqdm(ids, desc="Downloading data"):
@@ -143,7 +144,7 @@ def normalize_and_save(json_folder, model, table_name, engine):
 
 if __name__ == "__main__":
     delete_folder("data")
-    download_data()
+    download_data(sample_run)
     create_postgres_schema(engine, "public")
     drop_all_tables_in_schema(engine, "public")
     normalize_and_save(Path("data/landing_zone/"), Deputado, "lz_deputados", engine)
