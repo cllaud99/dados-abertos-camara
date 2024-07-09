@@ -100,6 +100,39 @@ sources:
           - name: file_name
             description: "Nome do arquivo que contém as informações"
 
+      - name: lz_historico_deputado
+        description: |
+          Tabela contendo dados históricos dos deputados.
+        columns:
+          - name: condicao_eleitoral
+            description: Condição eleitoral do deputado.
+          - name: data_hora
+            description: Data e hora do registro histórico.
+          - name: descricao_status
+            description: Descrição do status (se disponível).
+          - name: email
+            description: Endereço de e-mail do deputado (se disponível).
+          - name: id
+            description: Identificador único do registro do deputado.
+          - name: id_legislatura
+            description: Identificador da legislatura.
+          - name: nome
+            description: Nome do deputado.
+          - name: nome_eleitoral
+            description: Nome eleitoral do deputado (se disponível).
+          - name: sigla_partido
+            description: Sigla do partido político.
+          - name: sigla_uf
+            description: Sigla do estado (UF) que o deputado representa.
+          - name: situacao
+            description: Situação do deputado (se disponível).
+          - name: uri
+            description: Identificador URI do deputado (se disponível).
+          - name: uri_partido
+            description: Identificador URI do partido político (se disponível).
+          - name: url_foto
+            description: URL da foto do deputado (se disponível).
+
   - name: seeds
     schema: dbt_seeds
     tables:
