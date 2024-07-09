@@ -1,11 +1,17 @@
 import json
+import shutil
 from pathlib import Path
-from typing import Type, List
+from typing import List, Type
 
-from loguru import logger
 import pandas as pd
-from models import Despesa
+from loguru import logger
 from pydantic import BaseModel, ValidationError
+
+log_format = "logs/app_{time:YYYY-MM-DD}.log"
+logger.add(sink=log_format, format="{time} {level} {message}", level="INFO")
+logger.add(
+    sink=log_format, format="{time} {level} {message}", level="ERROR", rotation="1 week"
+)
 
 
 def read_and_validate_json(file_path: Path, model: Type[BaseModel]) -> List[BaseModel]:
@@ -68,12 +74,28 @@ def normalize_columns_with_json(df):
                     df_normalized = pd.json_normalize(df[column])
                     df = pd.concat([df.drop(columns=[column]), df_normalized], axis=1)
             except (json.JSONDecodeError, ValueError) as e:
-                logger.warning(f"Erro ao carregar conteúdo da coluna {column} como JSON: {e}")
+                logger.warning(
+                    f"Erro ao carregar conteúdo da coluna {column} como JSON: {e}"
+                )
                 pass
-        
+
         logger.info("Colunas normalizadas com sucesso.")
         return df
-    
+
     except Exception as e:
         logger.error(f"Erro ao normalizar colunas com JSON: {e}")
         raise
+
+
+def delete_folder(folder_path):
+    """
+    Deletes a folder and all its contents.
+
+    Args:
+    - folder_path (str): Path to the folder to be deleted.
+    """
+    try:
+        shutil.rmtree(folder_path)
+        print(f"Pasta '{folder_path}' e seu conteúdo foram deletados com sucesso.")
+    except Exception as e:
+        print(f"Erro ao deletar a pasta '{folder_path}': {e}")

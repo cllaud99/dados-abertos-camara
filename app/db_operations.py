@@ -1,12 +1,16 @@
 import os
 
-import pandas as pd
-from sqlalchemy.ext.declarative import declarative_base
 from dotenv import load_dotenv
-from sqlalchemy import create_engine, text, Column, Integer, String, JSON, ARRAY
 from loguru import logger
+from sqlalchemy import text
 
 load_dotenv()
+
+log_format = "logs/app_{time:YYYY-MM-DD}.log"
+logger.add(sink=log_format, format="{time} {level} {message}", level="INFO")
+logger.add(
+    sink=log_format, format="{time} {level} {message}", level="ERROR", rotation="1 week"
+)
 
 
 def drop_all_tables_in_schema(engine, schema):
@@ -37,7 +41,9 @@ def drop_all_tables_in_schema(engine, schema):
                         text(f'DROP TABLE IF EXISTS "{schema}"."{table[0]}" CASCADE;')
                     )
 
-            logger.info(f"Todas as tabelas no esquema {schema} foram apagadas com sucesso.")
+            logger.info(
+                f"Todas as tabelas no esquema {schema} foram apagadas com sucesso."
+            )
     except Exception as e:
         logger.error(f"Erro ao apagar as tabelas do esquema {schema}: {e}")
 
@@ -73,7 +79,9 @@ def build_external_database_url(env_path=".env"):
 
         return external_database_url
     except Exception as e:
-        logger.error(f"Erro ao construir a URL do banco de dados externo PostgreSQL: {e}")
+        logger.error(
+            f"Erro ao construir a URL do banco de dados externo PostgreSQL: {e}"
+        )
         raise
 
 

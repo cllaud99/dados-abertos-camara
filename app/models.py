@@ -65,6 +65,7 @@ class UltimoStatus(BaseModel):
     def to_dict(self):
         return self.model_dump()
 
+
 class DadosDeputado(BaseModel):
     id: int
     uri: str
@@ -85,6 +86,7 @@ class Links(BaseModel):
     rel: str
     href: str
 
+
 class DeputadoHistorico(BaseModel):
     condicaoEleitoral: Optional[str]
     dataHora: datetime
@@ -100,4 +102,3 @@ class DeputadoHistorico(BaseModel):
     uri: Optional[str]
     uriPartido: Optional[str]
     urlFoto: Optional[str]
-

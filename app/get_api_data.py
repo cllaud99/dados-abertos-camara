@@ -1,11 +1,14 @@
 import json
 import os
-from loguru import logger
 
 import requests
+from loguru import logger
 
-log_format = "{time:YYYY-MM-DD_HH-mm-ss}_{level}.log"
-logger.configure(handlers=[{"sink": log_format, "format": "{time} {message}"}])
+log_format = "logs/app_{time:YYYY-MM-DD}.log"
+logger.add(sink=log_format, format="{time} {level} {message}", level="INFO")
+logger.add(
+    sink=log_format, format="{time} {level} {message}", level="ERROR", rotation="1 week"
+)
 
 
 def fetch_data(url, params=None):

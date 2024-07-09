@@ -1,10 +1,8 @@
+import json
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-from loguru import logger
 import pandas as pd
-import json
 from db_operations import (
     build_external_database_url,
     create_postgres_schema,
@@ -12,18 +10,26 @@ from db_operations import (
     insert_data_to_postgres,
     validate_postgresql_connection,
 )
+from dotenv import load_dotenv
 from get_api_data import fetch_all_data, fetch_data, get_ids_deputados, save_to_raw
-from landing_zone_data_processing import read_and_validate_json
-from models import DadosDeputado, Deputado, Despesa, DeputadoHistorico
+from landing_zone_data_processing import delete_folder, read_and_validate_json
+from loguru import logger
+from models import DadosDeputado, Deputado, DeputadoHistorico, Despesa
 from sqlalchemy import create_engine
 from tqdm import tqdm
 
+log_format = "logs/app_{time:YYYY-MM-DD}.log"
+logger.add(sink=log_format, format="{time} {level} {message}", level="INFO")
+logger.add(
+    sink=log_format, format="{time} {level} {message}", level="ERROR", rotation="1 week"
+)
 
 load_dotenv()
 
 sample_run = os.getenv("SAMPLE_RUN")
 print(sample_run)
-ID_LEGISLATURA = 57
+ANOS = "2023,2024"
+ID_LEGISLATURA = "57"
 
 external_database_url = build_external_database_url()
 engine = create_engine(external_database_url)
@@ -39,7 +45,7 @@ def download_data(sample_run="False"):
     try:
         path_deputados_file = "data/landing_zone/deputados_raw.json"
         deputados = fetch_data(
-            "https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=57"
+            f"https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura={ID_LEGISLATURA}"
         )
         save_to_raw(deputados, path_deputados_file)
 
@@ -58,7 +64,7 @@ def download_data(sample_run="False"):
             url_despesas = (
                 f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/despesas"
             )
-            params_despesas = {"idLegislatura": ID_LEGISLATURA}
+            params_despesas = {"ano": ANOS}
             data_despesas = fetch_all_data(url_despesas, params=params_despesas)
             file_path_despesas = f"data/landing_zone/despesas/{id}_despesas.json"
             save_to_raw(data_despesas, file_path_despesas)
@@ -136,6 +142,7 @@ def normalize_and_save(json_folder, model, table_name, engine):
 
 
 if __name__ == "__main__":
+    delete_folder("data")
     download_data()
     create_postgres_schema(engine, "public")
     drop_all_tables_in_schema(engine, "public")
