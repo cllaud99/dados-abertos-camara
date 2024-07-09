@@ -26,7 +26,7 @@ dim_deputados AS (
         info.faixa_idade,
         info.situacao,
         info.condicao_eleitoral,
-        COALESCE(scd.dt_inicio, '2023-01-01') AS dt_inicio,
+        COALESCE(scd.dt_inicio, '2000-01-01') AS dt_inicio,
         CONCAT(dep.id_deputado, '_', dep.sigla_partido) AS sk_deputado
     FROM
         {{ ref('stg__deputados') }} dep
