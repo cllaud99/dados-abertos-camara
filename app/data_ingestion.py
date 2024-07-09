@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 from dotenv import load_dotenv
+from loguru import logger
 import pandas as pd
 import json
 from db_operations import (
@@ -28,71 +29,93 @@ external_database_url = build_external_database_url()
 engine = create_engine(external_database_url)
 
 
-def download_data():
+def download_data(sample_run="False"):
     """
-    Função que realiza o download de arquivos JSON e armazena em uma landing_zone
+    Função que realiza o download de arquivos JSON e armazena em uma landing_zone.
+
+    Args:
+        sample_run (str): Se diferente de "False", apenas uma amostra de IDs será processada.
     """
-    path_deputados_file = "data/landing_zone/deputados_raw.json"
-    deputados = fetch_data("https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=57")
-    save_to_raw(deputados, path_deputados_file)
+    try:
+        path_deputados_file = "data/landing_zone/deputados_raw.json"
+        deputados = fetch_data("https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=57")
+        save_to_raw(deputados, path_deputados_file)
 
-    ids = get_ids_deputados(path_deputados_file)
-    if sample_run != "False":
+        ids = get_ids_deputados(path_deputados_file)
+        if sample_run != "False":
+            ids = ids[:5]
 
-        ids = ids[:5]
-    print(ids)
+        logger.info(f"IDs de deputados a serem processados: {ids}")
 
-    for id in tqdm(ids):
+        for id in tqdm(ids, desc="Downloading data"):
+            url_infos = f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}"
+            data_infos = fetch_data(url_infos)
+            file_path_infos = f"data/landing_zone/infos/{id}_infos.json"
+            save_to_raw(data_infos, file_path_infos)
 
-        url_infos = f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}"
-        data_infos = fetch_data(url_infos)
-        file_path_infos = f"data/landing_zone/infos/{id}_infos.json"
-        save_to_raw(data_infos, file_path_infos)
+            url_despesas = f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/despesas"
+            params_despesas = {"idLegislatura": ID_LEGISLATURA}
+            data_despesas = fetch_all_data(url_despesas, params=params_despesas)
+            file_path_despesas = f"data/landing_zone/despesas/{id}_despesas.json"
+            save_to_raw(data_despesas, file_path_despesas)
 
-        url_despesas = (
-            f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/despesas"
-        )
-        params_despesas = {"idLegislatura": ID_LEGISLATURA}
-        data_despesas = fetch_all_data(url_despesas, params=params_despesas)
-        file_path_despesas = f"data/landing_zone/despesas/{id}_despesas.json"
-        save_to_raw(data_despesas, file_path_despesas)
+            url_historico = f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/historico"
+            data_historico = fetch_all_data(url_historico)
+            file_path_historico = f"data/landing_zone/historico/{id}_historico.json"
+            save_to_raw(data_historico, file_path_historico)
 
-        url_historico = (
-            f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/historico"
-        )
-        data_historico = fetch_all_data(url_historico)
-        file_path_historico = f"data/landing_zone/historico/{id}_historico.json"
-        save_to_raw(data_historico, file_path_historico)
+        logger.info("Download de dados concluído com sucesso.")
+
+    except Exception as e:
+        logger.error(f"Erro durante o download de dados: {e}")
+        raise
 
 
 def normalize_and_save(json_folder, model, table_name, engine):
-    if validate_postgresql_connection(engine):
-        for file_path in tqdm(list(json_folder.glob("*.json"))):  # Usar tqdm na lista de arquivos
-            try:
-                validated_items = read_and_validate_json(file_path, model)
-                if validated_items:
-                    data_to_insert = []
-                    print(f"Dados válidos no arquivo {file_path}:")
+    """
+    Normaliza dados de arquivos JSON, valida e salva no PostgreSQL.
 
-                    for item in validated_items:
-                        # Serializar UltimoStatus para JSON
-                        item_dict = item.model_dump()
-                        if 'ultimoStatus' in item_dict and item_dict['ultimoStatus'] is not None:
-                            item_dict['ultimoStatus'] = json.dumps(item_dict['ultimoStatus'])
+    Args:
+        json_folder (Path): Pasta contendo arquivos JSON a serem processados.
+        model (Type[BaseModel]): Classe Pydantic para validar a estrutura dos dados.
+        table_name (str): Nome da tabela onde os dados serão inseridos no PostgreSQL.
+        engine (sqlalchemy.engine.Engine): Objeto Engine do SQLAlchemy para conexão com o PostgreSQL.
+    """
+    try:
+        if validate_postgresql_connection(engine):
+            for file_path in tqdm(list(json_folder.glob("*.json")), desc="Processing files"):
+                try:
+                    validated_items = read_and_validate_json(file_path, model)
+                    if validated_items:
+                        data_to_insert = []
 
-                        item_dict['file_name'] = Path(file_path).name
-                        data_to_insert.append(item_dict)
+                        logger.info(f"Dados válidos no arquivo {file_path}:")
+                        for item in validated_items:
+                            # Serializar UltimoStatus para JSON
+                            item_dict = item.model_dump()
+                            if 'ultimoStatus' in item_dict and item_dict['ultimoStatus'] is not None:
+                                item_dict['ultimoStatus'] = json.dumps(item_dict['ultimoStatus'])
 
-                    df = pd.DataFrame(data_to_insert)
+                            item_dict['file_name'] = Path(file_path).name
+                            data_to_insert.append(item_dict)
 
-                    insert_data_to_postgres(df, table_name, engine)
-                    print(f"Dados do arquivo {file_path} foram inseridos com sucesso na tabela {table_name}.")
+                        df = pd.DataFrame(data_to_insert)
 
-                else:
-                    print(f"Nenhum dado válido no arquivo {file_path}.")
-                    
-            except Exception as e:
-                print(f"Ocorreu um erro ao processar o arquivo {file_path}: {e}")
+                        insert_data_to_postgres(df, table_name, engine)
+                        logger.info(f"Dados do arquivo {file_path} inseridos com sucesso na tabela {table_name}.")
+
+                    else:
+                        logger.warning(f"Nenhum dado válido no arquivo {file_path}.")
+
+                except Exception as e:
+                    logger.error(f"Erro ao processar o arquivo {file_path}: {e}")
+
+        else:
+            logger.error("Falha na conexão com o PostgreSQL. Verifique as configurações de conexão.")
+
+    except Exception as e:
+        logger.error(f"Ocorreu um erro geral: {e}")
+        raise
 
 
 if __name__ == "__main__":
