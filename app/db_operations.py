@@ -4,6 +4,7 @@ import pandas as pd
 from sqlalchemy.ext.declarative import declarative_base
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text, Column, Integer, String, JSON, ARRAY
+from loguru import logger
 
 load_dotenv()
 
@@ -18,11 +19,10 @@ def drop_all_tables_in_schema(engine, schema):
     """
     try:
         with engine.connect() as connection:
-
             with connection.begin():
                 result = connection.execute(
                     text(
-                        f"""
+                        """
                         SELECT tablename FROM pg_tables
                         WHERE schemaname = :schema
                         """
@@ -37,9 +37,9 @@ def drop_all_tables_in_schema(engine, schema):
                         text(f'DROP TABLE IF EXISTS "{schema}"."{table[0]}" CASCADE;')
                     )
 
-            print(f"Todas as tabelas no esquema {schema} foram apagadas com sucesso.")
+            logger.info(f"Todas as tabelas no esquema {schema} foram apagadas com sucesso.")
     except Exception as e:
-        print("Erro ao apagar as tabelas do esquema:", e)
+        logger.error(f"Erro ao apagar as tabelas do esquema {schema}: {e}")
 
 
 def build_external_database_url(env_path=".env"):
@@ -52,19 +52,29 @@ def build_external_database_url(env_path=".env"):
     Returns:
         str: URL do banco de dados externo PostgreSQL.
     """
+    try:
+        load_dotenv(env_path)
 
-    load_dotenv(env_path)
+        hostname = os.getenv("HOSTNAME")
+        port = os.getenv("PORT")
+        database = os.getenv("DATABASE")
+        username = os.getenv("USERNAME")
+        password = os.getenv("PASSWORD")
 
-    hostname = os.getenv("HOSTNAME")
-    port = os.getenv("PORT")
-    database = os.getenv("DATABASE")
-    username = os.getenv("USERNAME")
-    password = os.getenv("PASSWORD")
-    external_database_url = (
-        f"postgresql://{username}:{password}@{hostname}:{port}/{database}"
-    )
+        # Verifica se todas as variáveis de ambiente estão definidas
+        if not all([hostname, port, database, username, password]):
+            raise EnvironmentError("Variáveis de ambiente incompletas")
 
-    return external_database_url
+        external_database_url = (
+            f"postgresql://{username}:{password}@{hostname}:{port}/{database}"
+        )
+
+        logger.info("URL do banco de dados externo PostgreSQL construída com sucesso.")
+
+        return external_database_url
+    except Exception as e:
+        logger.error(f"Erro ao construir a URL do banco de dados externo PostgreSQL: {e}")
+        raise
 
 
 def validate_postgresql_connection(engine):
@@ -79,10 +89,10 @@ def validate_postgresql_connection(engine):
     """
     try:
         with engine.connect():
-            print("Conexão com o PostgreSQL bem-sucedida!")
+            logger.info("Conexão com o PostgreSQL bem-sucedida!")
             return True
     except Exception as e:
-        print(f"Erro na conexão com o PostgreSQL: {e}")
+        logger.error(f"Erro na conexão com o PostgreSQL: {e}")
         return False
 
 
@@ -94,9 +104,15 @@ def create_postgres_schema(engine, schema):
         engine (sqlalchemy.engine.Engine): Objeto Engine do SQLAlchemy.
         schema (str): Nome do esquema a ser criado.
     """
-    with engine.connect() as connection:
-        # Usar a conexão para executar diretamente a criação do esquema com SQLAlchemy text
-        connection.execute(text(f"CREATE SCHEMA IF NOT EXISTS {schema}"))
+    try:
+        with engine.connect() as connection:
+            # Executa a criação do esquema utilizando SQLAlchemy text
+            connection.execute(text(f"CREATE SCHEMA IF NOT EXISTS {schema}"))
+
+        logger.info(f"Esquema {schema} criado com sucesso no PostgreSQL.")
+    except Exception as e:
+        logger.error(f"Erro ao criar o esquema {schema} no PostgreSQL: {e}")
+        raise
 
 
 def insert_data_to_postgres(dataframe, table_name, engine, schema="public"):
@@ -111,8 +127,9 @@ def insert_data_to_postgres(dataframe, table_name, engine, schema="public"):
     """
     try:
         dataframe.to_sql(
-            table_name, con=engine, schema=schema, if_exists="append", index=False
+            table_name, con=engine, schema=schema, if_exists="replace", index=False
         )
-        print(f"Dados inseridos com sucesso na tabela {schema}.{table_name}")
+        logger.info(f"Dados inseridos com sucesso na tabela {schema}.{table_name}")
     except Exception as e:
-        print("Erro ao inserir dados no PostgreSQL:", e)
+        logger.error(f"Erro ao inserir dados no PostgreSQL: {e}")
+        raise
