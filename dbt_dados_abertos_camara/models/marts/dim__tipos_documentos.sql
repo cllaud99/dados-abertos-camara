@@ -1,7 +1,7 @@
 WITH dim_tipos_documentos AS
 (
 SELECT
-	id,
+	id_tipo_documento,
 	initcap(tipo_documento) AS tipo_documento
 FROM
 	{{ref("stg__tipo_documentos")}} rtd

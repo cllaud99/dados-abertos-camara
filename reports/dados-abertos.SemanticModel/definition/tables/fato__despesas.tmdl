@@ -2,9 +2,10 @@ table fato__despesas
 	lineageTag: 17a6eaf0-2908-47de-93b4-434959a8bc79
 
 	column id_deputado
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 606a03d1-95d1-4402-9d44-bd33f5b7e191
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: id_deputado
 
 		annotation SummarizationSetBy = Automatic
@@ -76,6 +77,14 @@ table fato__despesas
 
 		annotation SummarizationSetBy = Automatic
 
+	column sk_deputado
+		dataType: string
+		lineageTag: 315111d5-cdb2-40a0-a445-ba87ee2d5dff
+		summarizeBy: none
+		sourceColumn: sk_deputado
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fato__despesas-209c87eb-9919-4495-9eaf-ab9a5aecf13c = m
 		mode: import
 		source =
@@ -86,6 +95,3 @@ table fato__despesas
 				    dbt_gold_fato__despesas
 
 	annotation PBI_ResultType = Table
-
-	annotation PBI_NavigationStepName = Navegação
-

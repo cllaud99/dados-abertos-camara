@@ -35,7 +35,4 @@ table dim__tipo_despesas
 				in
 				    dbt_gold_dim__tipo_despesas
 
-	annotation PBI_NavigationStepName = Navegação
-
 	annotation PBI_ResultType = Table
-

@@ -120,16 +120,63 @@ table dim__deputados
 
 		annotation SummarizationSetBy = Automatic
 
+	column dt_inicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 223e3cd4-7176-4ea0-83b9-8d4558d7c6eb
+		summarizeBy: none
+		sourceColumn: dt_inicio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column sk_deputado
+		dataType: string
+		lineageTag: 41142fb7-415c-4b2f-8301-58f5585fb2a9
+		summarizeBy: none
+		sourceColumn: sk_deputado
+
+		annotation SummarizationSetBy = Automatic
+
+	column dt_fim
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 23e94594-94e1-4ec0-995e-84eb5147e559
+		summarizeBy: none
+		sourceColumn: dt_fim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column versao
+		dataType: int64
+		formatString: 0
+		lineageTag: ecccf81b-0a59-466b-a576-9f17563af958
+		summarizeBy: none
+		sourceColumn: versao
+
+		annotation SummarizationSetBy = Automatic
+
+	column status_atual
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f8fdef87-b89e-49c0-8035-9d942484999d
+		summarizeBy: none
+		sourceColumn: status_atual
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim__deputados-3f428e3e-5b60-4f5a-8b12-731c09ac356a = m
 		mode: import
 		source =
 				let
 				    Fonte = PostgreSQL.Database("dpg-cpmrvpg8fa8c73anins0-a.oregon-postgres.render.com", "dados_abertos"),
-				    dbt_gold_dim__deputados = Fonte{[Schema="dbt_gold",Item="dim__deputados"]}[Data]
+				    dbt_gold_dim__deputados = Fonte{[Schema="dbt_gold",Item="dim__deputados_SCD2"]}[Data]
 				in
 				    dbt_gold_dim__deputados
 
 	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navegação
-

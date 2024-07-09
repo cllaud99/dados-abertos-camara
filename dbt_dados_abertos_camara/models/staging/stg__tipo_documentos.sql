@@ -4,7 +4,7 @@ with source as (
 renamed AS
 (
 SELECT
-	id,
+	id as id_tipo_documento,
 	initcap(descricao) AS tipo_documento
 FROM
 	source rtd

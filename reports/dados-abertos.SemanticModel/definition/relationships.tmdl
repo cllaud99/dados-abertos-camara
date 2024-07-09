@@ -6,10 +6,6 @@ relationship 0e5a9415-ae1a-4207-8f41-0240e7f93cca
 	fromColumn: fato__despesas.cod_tipo_despesa
 	toColumn: dim__tipos_documentos.id
 
-relationship 2924c123-eaf4-4019-9c2f-6c00d994a344
-	fromColumn: fato__despesas.id_deputado
-	toColumn: dim__deputados.id_deputado
-
 relationship 14fb70e3-8ca5-9243-5069-105f8db5ccf7
 	fromColumn: fato__despesas.dt_despesa
 	toColumn: dim__calendario.Date
@@ -18,3 +14,6 @@ relationship AutoDetected_cbea884d-1c2a-4fd1-8668-82d103f20246
 	fromColumn: fato__despesas.id_tipo_despesa
 	toColumn: dim__tipo_despesas.id_tipo_despesa
 
+relationship 940f44a5-bce2-fdf4-d217-7376c921e727
+	fromColumn: fato__despesas.sk_deputado
+	toColumn: dim__deputados.sk_deputado

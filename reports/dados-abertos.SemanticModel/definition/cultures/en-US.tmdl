@@ -746,7 +746,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Despesas / Deputado com Despesas"
+			          "ConceptualProperty": "Despesas / Deputado com Despesas / Mês"
 			        }
 			      },
 			      "State": "Generated",
@@ -3934,4 +3934,3 @@ cultureInfo en-US
 			  }
 			}
 		contentType: json
-

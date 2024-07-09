@@ -20,10 +20,12 @@ top_despesas AS (
 )
 
 SELECT
-    ROW_NUMBER() OVER () AS id_tipo_despesa, -- Adicionando índice como chave primária
+    ranking,
+    total::bigint as total,
+    ROW_NUMBER() OVER () AS cod_tipo_despesa, -- Adicionando índice como chave primária
     td.tipo_despesa,
-    CASE 
-        WHEN td.ranking <= 8 THEN td.tipo_despesa
+    CASE
+        WHEN td.ranking <= 10 THEN td.tipo_despesa
         ELSE 'OUTROS'
     END AS agrupamento
 FROM
