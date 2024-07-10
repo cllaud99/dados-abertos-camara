@@ -30,6 +30,15 @@ sample_run = os.getenv("SAMPLE_RUN")
 ANOS = "2023,2024"
 ID_LEGISLATURA = "57"
 
+if sample_run == "True":
+    params = {
+        "idLegislatura": ID_LEGISLATURA,
+        "itens": 5,
+    }
+else:
+    params = {"idLegislatura": ID_LEGISLATURA}
+
+
 external_database_url = build_external_database_url()
 engine = create_engine(external_database_url)
 
@@ -44,15 +53,12 @@ def download_data(sample_run="False"):
     try:
         path_deputados_file = "data/landing_zone/deputados_raw.json"
         deputados = fetch_data(
-            f"https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura={ID_LEGISLATURA}"
+            "https://dadosabertos.camara.leg.br/api/v2/deputados", params
         )
+
         save_to_raw(deputados, path_deputados_file)
 
         ids = get_ids_deputados(path_deputados_file)
-
-        if sample_run == "True":
-            ids = list(ids)[:5]
-            logger.info(f"Rodando amostragem dos dados: {sample_run}")
         logger.info(f"IDs de deputados a serem processados: {sample_run}")
         logger.info(f"IDs de deputados a serem processados: {ids}")
 
