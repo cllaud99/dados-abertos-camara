@@ -3,7 +3,7 @@
   "artifacts": [
     {
       "report": {
-        "path": "dados-abertos.Report"
+        "path": "dados-camara-deputados.Report"
       }
     }
   ],
