@@ -41,7 +41,6 @@ def read_and_validate_json(file_path: Path, model: Type[BaseModel]) -> List[Base
                 logger.error(f"Estrutura inválida no arquivo {file_path}.")
                 return None
 
-            logger.info(f"Dados lidos e validados com sucesso do arquivo {file_path}.")
             return items
 
     except FileNotFoundError:
