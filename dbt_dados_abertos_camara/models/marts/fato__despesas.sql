@@ -12,10 +12,10 @@ WITH fato_despesas AS (
         dd.sk_deputado
     FROM {{ ref('stg__despesas') }} sd
     LEFT JOIN
-        {{ ref('stg__tipos_despesas') }} td
+        {{ ref('int__tipos_despesas') }} td
         ON sd.tipo_despesa = td.tipo_despesa
     LEFT JOIN
-        {{ ref('dim__deputados_SCD2') }} dd ON
+        {{ ref('int__deputados_scd2') }} dd ON
         dd.id_deputado = sd.id_deputado
         -- Convertendo para tipo date
         AND sd.dt_despesa >= dd.dt_inicio AND sd.dt_despesa < dd.dt_fim::date

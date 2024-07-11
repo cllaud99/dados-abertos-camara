@@ -4,7 +4,7 @@ WITH despesas_totais AS (
         tipo_despesa,
         agrupamento
     FROM
-        {{ ref('stg__tipos_despesas') }}
+        {{ ref('int__tipos_despesas') }}
 )
 
 SELECT * FROM despesas_totais
