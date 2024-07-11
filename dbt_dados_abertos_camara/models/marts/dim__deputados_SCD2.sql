@@ -31,20 +31,31 @@ dim_deputados AS (
     FROM
         {{ ref('stg__deputados') }} dep
     LEFT JOIN
-        {{ ref('stg__infos_extras') }} info ON info.id_deputado = dep.id_deputado
+        {{ ref('stg__infos_extras') }} info
+        ON dep.id_deputado = info.id_deputado
     LEFT JOIN
-        scd_updates scd ON scd.id_deputado = dep.id_deputado
-                         AND scd.sigla_partido = dep.sigla_partido
-    ORDER BY scd.id_deputado, dt_inicio ASC
+        scd_updates scd
+        ON
+            dep.id_deputado = scd.id_deputado
+            AND dep.sigla_partido = scd.sigla_partido
+    ORDER BY scd.id_deputado ASC, dt_inicio ASC
 ),
-tratamento_datas as
-(
-SELECT *,
-COALESCE(LEAD(dt_inicio) OVER (PARTITION BY id_deputado ORDER BY dt_inicio),'2199-01-01') AS dt_fim,
-ROW_NUMBER() OVER (PARTITION BY id_deputado ORDER BY dt_inicio) AS versao,
-CASE
-    WHEN LEAD(dt_inicio) OVER (PARTITION BY id_deputado ORDER BY dt_inicio) is null then true
-    else false
-END AS status_atual
-FROM dim_deputados
-) select * from tratamento_datas
+
+tratamento_datas AS (
+    SELECT
+        *,
+        COALESCE(
+            LEAD(dt_inicio) OVER (PARTITION BY id_deputado ORDER BY dt_inicio),
+            '2199-01-01'
+        ) AS dt_fim,
+        ROW_NUMBER()
+            OVER (PARTITION BY id_deputado ORDER BY dt_inicio)
+        AS versao,
+        COALESCE(LEAD(dt_inicio)
+            OVER (PARTITION BY id_deputado ORDER BY dt_inicio)
+        IS null,
+        false) AS status_atual
+    FROM dim_deputados
+)
+
+SELECT * FROM tratamento_datas

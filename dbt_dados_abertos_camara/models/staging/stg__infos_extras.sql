@@ -1,18 +1,20 @@
-with source as (
-      select * from {{ source('dados_abertos', 'lz_infos_extras') }}
+WITH source AS (
+    SELECT * FROM {{ source('dados_abertos', 'lz_infos_extras') }}
 )
 ,
-    renamed as (
+renamed AS (
     SELECT
-	    id AS id_deputado,
-	    sexo,
-	    EXTRACT( YEAR FROM AGE(CURRENT_DATE, "dataNascimento"))::INTEGER AS idade,
-	    "ufNascimento" AS uf_nascimento,
-	    "municipioNascimento" AS naturalidade,
-	    COALESCE(NULLIF(escolaridade, ''), 'Não Informada') AS escolaridade,
-		CASE
-			WHEN escolaridade = 'Não Informada' THEN -1
-			WHEN escolaridade = 'Ensino Fundamental' THEN 0
+        id AS id_deputado,
+        sexo,
+        EXTRACT(
+            YEAR FROM AGE(CURRENT_DATE, "dataNascimento")
+        )::INTEGER AS idade,
+        "ufNascimento" AS uf_nascimento,
+        "municipioNascimento" AS naturalidade,
+        COALESCE(NULLIF(escolaridade, ''), 'Não Informada') AS escolaridade,
+        CASE
+            WHEN escolaridade = 'Não Informada' THEN -1
+            WHEN escolaridade = 'Ensino Fundamental' THEN 0
             WHEN escolaridade = 'Primário Incompleto' THEN 1
             WHEN escolaridade = 'Secundário' THEN 2
             WHEN escolaridade = 'Ensino Médio Incompleto' THEN 3
@@ -26,12 +28,13 @@ with source as (
             WHEN escolaridade = 'Doutorado' THEN 11
             ELSE -1
         END AS ordem_escolaridade,
-        ("ultimoStatus"::jsonb)->>'situacao' AS situacao,
-        ("ultimoStatus"::jsonb)->>'condicaoEleitoral' AS condicao_eleitoral
+        ("ultimoStatus"::JSONB) ->> 'situacao' AS situacao,
+        ("ultimoStatus"::JSONB) ->> 'condicaoEleitoral' AS condicao_eleitoral
     FROM
-	    source infos
-    )
-SELECT 
+        source
+)
+
+SELECT
     id_deputado,
     sexo,
     idade,
@@ -39,6 +42,8 @@ SELECT
     naturalidade,
     escolaridade,
     ordem_escolaridade,
+    situacao,
+    condicao_eleitoral,
     CASE
         WHEN idade <= 21 THEN '21-'
         WHEN idade > 20 AND idade <= 30 THEN '21-30'
@@ -47,7 +52,5 @@ SELECT
         WHEN idade > 50 AND idade <= 60 THEN '51-60'
         WHEN idade > 60 THEN '61+'
         ELSE 'Idade desconhecida'
-    END AS faixa_idade,
-    situacao,
-    condicao_eleitoral
+    END AS faixa_idade
 FROM renamed

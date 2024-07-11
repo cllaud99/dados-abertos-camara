@@ -1,6 +1,7 @@
 WITH source AS (
     SELECT * FROM {{ source('dados_abertos', 'lz_deputados') }}
 ),
+
 renamed AS (
     SELECT DISTINCT ON (deputados.id, deputados."siglaPartido")
         deputados.id AS id_deputado,
@@ -11,5 +12,6 @@ renamed AS (
     FROM source deputados
     ORDER BY deputados.id, deputados."siglaPartido"
 )
+
 SELECT *
 FROM renamed

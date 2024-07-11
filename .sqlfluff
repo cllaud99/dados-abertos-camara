@@ -1,5 +1,5 @@
 [sqlfluff]
-templater = dbt
+templater = jinja
 dialect = postgres
 runaway_limit = 10
 max_line_length = 80
@@ -16,10 +16,10 @@ spacing_before = touch
 line_position = trailing
 
 [sqlfluff:rules:capitalisation.keywords]
-capitalisation_policy = lower
+capitalisation_policy = upper
 
 [sqlfluff:rules:aliasing.table]
-aliasing = explicit
+aliasing = implicit
 
 [sqlfluff:rules:aliasing.column]
 aliasing = explicit

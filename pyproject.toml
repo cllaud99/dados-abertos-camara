@@ -36,6 +36,7 @@ build-backend = "poetry.core.masonry.api"
 format = """
 isort .
 black .
+sqlfluff fix dbt_dados_abertos_camara/models
 """
 kill = "kill -9 $(lsof -t -i :8000)"
 test = "pytest -v"
