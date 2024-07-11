@@ -71,7 +71,7 @@ def download_data(sample_run="False"):
             url_despesas = (
                 f"https://dadosabertos.camara.leg.br/api/v2/deputados/{id}/despesas"
             )
-            params_despesas = {"ano": ANOS}
+            params_despesas = {"idLegislatura": ID_LEGISLATURA}
             data_despesas = fetch_all_data(url_despesas, params=params_despesas)
             file_path_despesas = f"data/landing_zone/despesas/{id}_despesas.json"
             save_to_raw(data_despesas, file_path_despesas)
