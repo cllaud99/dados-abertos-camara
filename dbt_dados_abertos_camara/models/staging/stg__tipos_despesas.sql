@@ -11,4 +11,4 @@ despesas_totais AS (
 
 )
 
-select * from despesas_totais
+SELECT * FROM despesas_totais

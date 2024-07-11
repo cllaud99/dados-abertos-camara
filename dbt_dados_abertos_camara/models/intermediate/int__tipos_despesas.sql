@@ -4,7 +4,7 @@ WITH source AS (
 
 despesas_totais AS (
     SELECT
-        sd.tipo_despesa AS tipo_despesa,
+        sd.tipo_despesa,
         SUM(valor_liquido) AS total
     FROM
         source sd

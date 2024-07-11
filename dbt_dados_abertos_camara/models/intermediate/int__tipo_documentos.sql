@@ -1,7 +1,7 @@
 WITH documentos AS (
-    SELECT
-        *
+    SELECT *
     FROM
-        {{ref('stg__tipo_documentos')}}
+        {{ ref('stg__tipo_documentos') }}
 )
+
 SELECT * FROM documentos

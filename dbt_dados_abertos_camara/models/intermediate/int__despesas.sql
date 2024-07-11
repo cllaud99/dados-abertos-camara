@@ -1,7 +1,7 @@
 WITH documentos AS (
-    SELECT
-        *
+    SELECT *
     FROM
-        {{ref('stg__despesas')}}
+        {{ ref('stg__despesas') }}
 )
+
 SELECT * FROM documentos

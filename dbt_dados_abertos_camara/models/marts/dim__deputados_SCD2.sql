@@ -1,7 +1,7 @@
 WITH dim_deputados AS (
-    SELECT
-        *
+    SELECT *
     FROM
-        {{ref('int__deputados_scd2')}}
+        {{ ref('int__deputados_scd2') }}
 )
+
 SELECT * FROM dim_deputados
