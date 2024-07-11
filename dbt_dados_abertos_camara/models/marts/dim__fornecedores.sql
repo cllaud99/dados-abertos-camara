@@ -6,7 +6,7 @@ WITH agregado_cnpj AS (
         SUM(vlr_glosa) AS total_glosa,
         SUM(vlr_documento) AS total_documento
     FROM
-        {{ ref('stg__despesas') }}
+        {{ ref('int__despesas') }}
     GROUP BY
         cnpj_fornecedor
 ),
@@ -17,7 +17,7 @@ frequencia_nome AS (
         nome_fornecedor,
         COUNT(*) AS qtd_referencias
     FROM
-        {{ ref('stg__despesas') }}
+        {{ ref('int__despesas') }}
     GROUP BY
         cnpj_fornecedor, nome_fornecedor
 ),

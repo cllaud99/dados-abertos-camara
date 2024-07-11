@@ -10,7 +10,7 @@ WITH fato_despesas AS (
         sd.cod_tipo_documento,
         td.cod_tipo_despesa,
         dd.sk_deputado
-    FROM {{ ref('stg__despesas') }} sd
+    FROM {{ ref('int__despesas') }} sd
     LEFT JOIN
         {{ ref('int__tipos_despesas') }} td
         ON sd.tipo_despesa = td.tipo_despesa
