@@ -1,0 +1,65 @@
+models:
+  - name: dim__deputados_SCD2
+    description: Tabela com SCD2 para deputados e partidos.
+    columns:
+      - name: sk_deputado
+        description: Chave de deputado concatenada com o partido.
+        data_tests:
+          - not_null
+          - unique
+      - name: id_deputado
+        description: chave natural dos deputados.
+        data_tests:
+          - not_null
+      - name: nome
+        description: Nome do deputado.
+        data_tests:
+          - not_null
+      - name: sigla_partido
+        description: Partido do deputado.
+        data_tests:
+          - not_null
+      - name: uf
+        description: UF do deputado.
+        data_tests:
+          - not_null
+      - name: url_foto
+        description: Imagem do deputado.
+        data_tests:
+          - not_null
+      - name: sexo
+        description: Sexo do deputado.
+        data_tests:
+          - not_null
+      - name: idade
+        description: Idade do deputado.
+        data_tests:
+          - not_null
+      - name: escolaridade
+        description: Escolaridade do deputado.
+        data_tests:
+          - not_null
+      - name: ordem_escolaridade
+        description: Coluna com fim de ordenar escolaridade em ordem lógica
+        data_tests:
+          - not_null
+      - name: faixa_idade
+        description: Coluna com fim agrupar idades.
+        data_tests:
+          - not_null
+      - name: situacao
+        description: situacao do deputado.
+        data_tests:
+          - not_null
+      - name: condicao_eleitoral
+        description: Condicao eleitoral do deputado.
+        data_tests:
+          - not_null
+      - name: versao
+        description: Versão de alterações do deputado.
+        data_tests:
+          - not_null
+      - name: status_atual
+        description: Boleano que indica se estamos na versão atual do deputado.
+        data_tests:
+          - not_null

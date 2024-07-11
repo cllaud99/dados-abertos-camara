@@ -13,6 +13,7 @@ WITH scd_updates AS (
 
 dim_deputados AS (
     SELECT
+        CONCAT(dep.id_deputado, '_', dep.sigla_partido) AS sk_deputado
         dep.id_deputado,
         dep.nome,
         dep.sigla_partido,
@@ -20,14 +21,12 @@ dim_deputados AS (
         dep.url_foto,
         info.sexo,
         info.idade,
-        info.uf_nascimento,
         info.escolaridade,
         info.ordem_escolaridade,
         info.faixa_idade,
         info.situacao,
         info.condicao_eleitoral,
-        COALESCE(scd.dt_inicio, '2000-01-01') AS dt_inicio,
-        CONCAT(dep.id_deputado, '_', dep.sigla_partido) AS sk_deputado
+        COALESCE(scd.dt_inicio, '2000-01-01') AS dt_inicio
     FROM
         {{ ref('stg__deputados') }} dep
     LEFT JOIN
