@@ -31,10 +31,15 @@ models:
         description: Sexo do deputado.
         data_tests:
           - not_null
+          - accepted_values:
+              values: ["M", "F"]
       - name: idade
         description: Idade do deputado.
         data_tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+             min_value: 21
+             max_value: 120
       - name: escolaridade
         description: Escolaridade do deputado.
         data_tests:
@@ -43,6 +48,9 @@ models:
         description: Coluna com fim de ordenar escolaridade em ordem lógica
         data_tests:
           - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+             min_value: -1
+             max_value: 120
       - name: faixa_idade
         description: Coluna com fim agrupar idades.
         data_tests:

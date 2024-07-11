@@ -1,0 +1,13 @@
+models:
+  - name: dim__fornecedores
+    description: Tabela com infos de fornecedores, caso um cnpj tenha mais de um nome associado será considerado o com maior frequencia.
+    columns:
+      - name: cnpj_fornecedor
+        description: Cnpj do Fornecedor.
+        data_tests:
+          - not_null
+          - unique
+      - name: nome_fornecedor
+        description: Nome do Fornecedor.
+        data_tests:
+          - not_null

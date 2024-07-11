@@ -1,0 +1,13 @@
+models:
+  - name: dim__tipos_documentos
+    description: Tabela dos tipos de documentos.
+    columns:
+      - name: id_tipo_documento
+        description: Chave única do tipo de documentos.
+        data_tests:
+          - not_null
+          - unique
+      - name: tipo_documento
+        description: Tipo do documento.
+        data_tests:
+          - not_null

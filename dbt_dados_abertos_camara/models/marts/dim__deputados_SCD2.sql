@@ -13,7 +13,7 @@ WITH scd_updates AS (
 
 dim_deputados AS (
     SELECT
-        CONCAT(dep.id_deputado, '_', dep.sigla_partido) AS sk_deputado
+        CONCAT(dep.id_deputado, '_', dep.sigla_partido) AS sk_deputado,
         dep.id_deputado,
         dep.nome,
         dep.sigla_partido,

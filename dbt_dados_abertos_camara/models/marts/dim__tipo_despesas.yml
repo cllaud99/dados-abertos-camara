@@ -1,0 +1,17 @@
+models:
+  - name: dim__tipo_despesas
+    description: Tabela os tipos de despesas.
+    columns:
+      - name: cod_tipo_despesa
+        description: Chave única do tipo de despesas.
+        data_tests:
+          - not_null
+          - unique
+      - name: tipo_despesa
+        description: Tipo da despesa.
+        data_tests:
+          - not_null
+      - name: agrupamento
+        description: Grupo para o dataviz.
+        data_tests:
+          - not_null
