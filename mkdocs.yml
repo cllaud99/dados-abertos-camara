@@ -1,0 +1,17 @@
+site_name: "Projeto de ELT dados abertos camara"
+
+theme:
+  name: "material"
+
+plugins:
+- search
+- mkdocstrings
+- mermaid2
+- mkdocstrings
+
+extra:
+  paths:
+    - pics
+
+extra_css:
+  - assets/css/extra.css

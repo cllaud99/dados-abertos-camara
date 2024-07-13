@@ -17,6 +17,10 @@ psycopg2-binary = "^2.9.9"
 python-dotenv = "^1.0.1"
 dbt-postgres = "^1.8.2"
 loguru = "^0.7.2"
+mkdocs-material = "^9.5.28"
+mkdocstrings = "^0.25.1"
+mkdocs = {extras = ["mermaid2"], version = "^1.6.0"}
+mkdocs-mermaid2-plugin = "^1.1.1"
 
 
 [tool.poetry.group.dev.dependencies]
