@@ -148,7 +148,7 @@ def normalize_and_save(json_folder, model, table_name, engine):
         raise
 
 
-if __name__ == "__main__":
+def main():
     delete_folder("data")
     download_data(sample_run)
     create_postgres_schema(engine, "public")
@@ -166,3 +166,6 @@ if __name__ == "__main__":
         "lz_historico_deputado",
         engine,
     )
+
+
+main()

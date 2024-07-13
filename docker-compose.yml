@@ -1,0 +1,20 @@
+version: '3'
+services:
+
+  postgresql:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${DATABASE}
+      POSTGRES_USER: ${USERNAME}
+      POSTGRES_PASSWORD: ${PASSWORD}
+    ports:
+      - "${PORT}:5432"
+
+  dados-abertos-camara:
+    image: dados-abertos-camara
+    env_file:
+      - .env
+    depends_on:
+      - postgresql
+    links:
+      - postgresql

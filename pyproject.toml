@@ -16,6 +16,7 @@ sqlalchemy = "^2.0.30"
 psycopg2-binary = "^2.9.9"
 python-dotenv = "^1.0.1"
 dbt-postgres = "^1.8.2"
+taskipy = "^1.12.2"
 loguru = "^0.7.2"
 mkdocs-material = "^9.5.28"
 mkdocstrings = "^0.25.1"
@@ -26,7 +27,6 @@ mkdocs-mermaid2-plugin = "^1.1.1"
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
 isort = "^5.13.2"
-taskipy = "^1.12.2"
 mkdocs = "^1.6.0"
 openpyxl = "^3.1.4"
 pre-commit = "^3.7.1"
@@ -45,6 +45,13 @@ sqlfluff fix dbt_dados_abertos_camara/models
 kill = "kill -9 $(lsof -t -i :8000)"
 test = "pytest -v"
 run = """
-python3 app/main.py
+python3 app/data_injestion.py
+"""
+docker_run = """
+python3 app/data_ingestion.py
+cd dbt_dados_abertos_camara
+dbt seed
+dbt run
+dbt test
 """
 doc = "mkdocs serve"
