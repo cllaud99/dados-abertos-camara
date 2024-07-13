@@ -79,6 +79,7 @@ Este documento detalha a especificação de requisitos para o desenvolvimento de
 ## Arquitetura do Projeto
 
 A imagem abaixo descreve a arquitetura escolhida para o projeto:
+e pode ser acessada  [aqui][link_excalidraw]
 
 ![Arquitetura do Projeto][pics_arquitetura]
 
@@ -126,3 +127,4 @@ A imagem abaixo descreve a arquitetura escolhida para o projeto:
 
 [def]: https://dadosabertos.camara.leg.br/swagger/api.html
 [pics_arquitetura]: pics/arquitetura/arquitetura.png
+[link_excalidraw]: https://excalidraw.com/#json=NKgR1G1AzJzyYPe7QJzPV,XC42PV_brRMLC4sPSCVezQ
