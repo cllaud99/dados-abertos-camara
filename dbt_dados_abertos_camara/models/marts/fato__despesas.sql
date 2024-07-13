@@ -5,8 +5,6 @@ WITH fato_despesas AS (
         sd.tipo_despesa,
         sd.cnpj_fornecedor,
         sd.vlr_liquido,
-        sd.vlr_documento,
-        sd.vlr_glosa,
         sd.cod_tipo_documento,
         td.cod_tipo_despesa,
         dd.sk_deputado
@@ -26,8 +24,6 @@ SELECT
     dt_despesa,
     cnpj_fornecedor,
     vlr_liquido,
-    vlr_documento,
-    vlr_glosa,
     cod_tipo_despesa,
     sk_deputado
 FROM

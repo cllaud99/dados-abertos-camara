@@ -34,14 +34,18 @@ models:
     staging:
       +materialized: view
       +docs:
-        node_color: "#2e2e2e"
+        node_color: "#CD7F32"
+    intermediate:
+      +materialized: view
+      +docs:
+        node_color: "#C0C0C0"
     marts:
       +schema: 'gold'
       +materialized: table
       +docs:
-        node_color: "#D3AD36"
+        node_color: "#EEAD2D"
 seeds:
   dados_abertos_camara:
     +schema: seeds
     +docs:
-      node_color: "#cd7f32"
+      node_color: "#993399"

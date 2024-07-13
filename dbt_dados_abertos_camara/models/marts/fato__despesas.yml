@@ -1,0 +1,31 @@
+models:
+  - name: fato__despesas
+    description: Tabela dos tipos de documentos.
+    columns:
+      - name: id_deputado
+        description: Chave natural do deputado.
+        data_tests:
+          - not_null
+      - name: dt_despesa
+        description: Data fiscal do lançamento.
+        data_tests:
+          - not_null
+      - name: vlr_liquido
+        description: Valor liquido.
+        data_tests:
+          - not_null
+      - name: cod_tipo_despesa
+        description: Código do tipo da despesa.
+        data_tests:
+          - not_null
+      - name: sk_deputado
+        description: Chave concatenada de deputado e partido.
+        data_tests:
+          - not_null
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          compare_model: ref("stg_despesas")
+      - dbt_expectations.expect_table_aggregation_to_equal_other_table:
+          expression: sum(vlr_liquido)
+          compare_model: ref("stg_despesas")
+          compare_expression: count(vlr_liquido)
