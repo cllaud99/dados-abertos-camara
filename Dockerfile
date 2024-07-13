@@ -4,6 +4,9 @@ FROM python:3.11.5-slim
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
+# Crie o diretório de logs
+RUN mkdir -p /app/logs
+
 # Copie o arquivo de dependências (poetry.lock e pyproject.toml)
 COPY pyproject.toml poetry.lock /app/
 
@@ -16,4 +19,4 @@ RUN pip install poetry \
 COPY . /app
 
 # Comandos a serem executados ao iniciar o contêiner
-CMD [ "task", "docker_run"]
+CMD ["task", "docker_run"]
