@@ -558,29 +558,6 @@
                   }
                 ]
               },
-              "dbt_gold_dim__deputados_SCD2.uf_nascimento": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "dim__deputados_SCD2",
-                    "ConceptualProperty": "uf_nascimento"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "uf nascimento": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "uf_nascimento": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  }
-                ]
-              },
               "dbt_gold_dim__deputados_SCD2.url_foto": {
                 "Definition": {
                   "Binding": {
@@ -812,42 +789,6 @@
                   }
                 ]
               },
-              "dbt_gold_dim__tipo_despesa.total": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "dim__tipo_despesas",
-                    "ConceptualProperty": "total"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "total": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "aggregate": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.714
-                    }
-                  },
-                  {
-                    "overall": {
-                      "Source": {
-                        "Agent": "Thesaurus"
-                      },
-                      "State": "Suggested",
-                      "Type": "Noun",
-                      "Weight": 0.714
-                    }
-                  }
-                ]
-              },
               "dbt_gold_fato__despesa": {
                 "Definition": {
                   "Binding": {
@@ -1040,52 +981,6 @@
                 "Visibility": {
                   "Value": "Hidden"
                 }
-              },
-              "dbt_gold_fato__despesa.vlr_documento": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "fato__despesas",
-                    "ConceptualProperty": "vlr_documento"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "vlr documento": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "vlr_documento": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  }
-                ]
-              },
-              "dbt_gold_fato__despesa.vlr_glosa": {
-                "Definition": {
-                  "Binding": {
-                    "ConceptualEntity": "fato__despesas",
-                    "ConceptualProperty": "vlr_glosa"
-                  }
-                },
-                "State": "Generated",
-                "Terms": [
-                  {
-                    "vlr glosa": {
-                      "State": "Generated"
-                    }
-                  },
-                  {
-                    "vlr_glosa": {
-                      "State": "Generated",
-                      "Type": "Noun",
-                      "Weight": 0.99
-                    }
-                  }
-                ]
               },
               "dbt_gold_fato__despesa.vlr_liquido": {
                 "Definition": {
@@ -4628,19 +4523,6 @@
             "summarizeBy": "sum"
           },
           {
-            "name": "uf_nascimento",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "e73d073b-4540-487a-bbb8-fbc99c0dd4e3",
-            "sourceColumn": "uf_nascimento",
-            "summarizeBy": "none"
-          },
-          {
             "name": "escolaridade",
             "annotations": [
               {
@@ -4885,7 +4767,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Table"
+            "value": "Exception"
           }
         ],
         "columns": [
@@ -4901,20 +4783,6 @@
             "formatString": "0",
             "lineageTag": "2a5d83a5-415c-4821-bb6c-3c60c86dd898",
             "sourceColumn": "cod_tipo_despesa",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "total",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "df56332a-7343-43b1-8c43-dee02ce9b1b1",
-            "sourceColumn": "total",
             "summarizeBy": "none"
           },
           {
@@ -4967,7 +4835,7 @@
         "annotations": [
           {
             "name": "PBI_ResultType",
-            "value": "Table"
+            "value": "Exception"
           }
         ],
         "columns": [
@@ -5031,40 +4899,6 @@
             "dataType": "double",
             "lineageTag": "73ea072f-1628-4caa-9534-efa2cb30b983",
             "sourceColumn": "vlr_liquido",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "vlr_documento",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "bedac4cc-3926-4cdf-995f-358e7e2b5e61",
-            "sourceColumn": "vlr_documento",
-            "summarizeBy": "sum"
-          },
-          {
-            "name": "vlr_glosa",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "dataType": "double",
-            "lineageTag": "8ddf2e71-1f4a-440e-93a8-363409c0165a",
-            "sourceColumn": "vlr_glosa",
             "summarizeBy": "sum"
           },
           {
