@@ -19,5 +19,8 @@ RUN pip install poetry \
 # Copie o restante do código para o diretório de trabalho
 COPY . /app
 
+RUN cd dbt_dados_abertos_camara \
+    && dbt deps
+
 # Comandos a serem executados ao iniciar o contêiner
 CMD ["task", "docker_run"]
