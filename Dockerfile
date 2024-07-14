@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Crie o diretório de logs
 RUN mkdir -p /app/logs
+RUN mkdir -p /app/data
 
 # Copie o arquivo de dependências (poetry.lock e pyproject.toml)
 COPY pyproject.toml poetry.lock /app/
