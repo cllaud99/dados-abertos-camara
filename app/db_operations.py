@@ -60,8 +60,10 @@ def build_external_database_url(env_path=".env"):
     """
     try:
         load_dotenv(env_path)
-
-        hostname = os.getenv("HOSTNAME")
+        if os.getenv("DBT_CONTEXT") == 'host':
+            hostname = os.getenv("HOSTNAME")
+        else:
+            hostname = 'db'
         port = os.getenv("PORT")
         database = os.getenv("DATABASE")
         username = os.getenv("USERNAME")

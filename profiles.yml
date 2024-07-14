@@ -2,7 +2,7 @@ dbt_dados_abertos_camara:
   outputs:
     dev:
       dbname: "{{env_var('DATABASE')}}"
-      host: "{{env_var('HOSTNAME')}}"
+      host: "{% if env_var('DBT_CONTEXT') == 'host' %}{{env_var('HOSTNAME')}}{% elif env_var('DBT_CONTEXT') == 'network' %}{{'db'}}{% endif %}"
       pass: "{{env_var('PASSWORD')}}"
       port: "{{env_var('PORT') | int}}"
       schema: "{{env_var('SCHEMA')}}"

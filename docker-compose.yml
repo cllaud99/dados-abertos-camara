@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  db:
+  postgres:
     container_name: db
     image: postgres:latest
     environment:
@@ -12,7 +12,7 @@ services:
       - postgresql_bin:/usr/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - ${PORT}:${PORT}
     networks:
       - db
 
@@ -28,7 +28,6 @@ services:
       - postgresql_bin:/usr/lib/postgresql
       - pgadmin_root_prefs:/root/.pgadmin
       - pgadmin_working_dir:/var/lib/pgadmin
-      - ./files:/files
     ports:
       - 5050:5050
     networks:
@@ -39,6 +38,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
+      DBT_CONTEXT: ${DBT_CONTEXT}
       HOSTNAME: ${HOSTNAME}
       PORT: ${PORT}
       DATABASE: ${DATABASE}

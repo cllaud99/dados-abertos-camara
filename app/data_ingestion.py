@@ -33,7 +33,7 @@ ID_LEGISLATURA = "57"
 if sample_run == "True":
     params = {
         "idLegislatura": ID_LEGISLATURA,
-        "itens": 5,
+        "itens": 2,
     }
 else:
     params = {"idLegislatura": ID_LEGISLATURA}
