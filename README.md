@@ -19,6 +19,8 @@ A imagem abaixo descreve a arquitetura escolhida para o projeto e pode ser acess
 
 # Como rodar o projeto
 
+**Para o projeto funcionar depende da disponibilidade da API da camara dos deputadaos voce pode fazer uma verificação rápida se ela ainda está disponível clicando [aqui][test_api], o retorno deve ser um objeto json com varios infos de deputados**
+
 ## Via Docker
 
 ### Pré-requisitos: Docker instalado
@@ -106,6 +108,7 @@ ou para visualizar um relatório de amostra [aqui][link_powerbi]
 
 
 [def]: https://dadosabertos.camara.leg.br/swagger/api.html
+[test_api]: https://dadosabertos.camara.leg.br/api/v2/deputados
 [pics_arquitetura]: docs/pics/arquitetura/arquitetura.png
 [link_excalidraw]: https://excalidraw.com/#json=NKgR1G1AzJzyYPe7QJzPV,XC42PV_brRMLC4sPSCVezQ
 [link_powerbi]: https://app.powerbi.com/view?r=eyJrIjoiYTljODAxNWItNWIwOS00MjJjLWFjNjctNWM0ODVlN2I4YjczIiwidCI6IjJkODU1YTc1LWYxMzgtNDM5Yy04MzUyLTY2MWU3NzRkZjI2YiJ9&pageName=8570c08e16ae2c8c9962
