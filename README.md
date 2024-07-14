@@ -19,7 +19,7 @@ A imagem abaixo descreve a arquitetura escolhida para o projeto e pode ser acess
 
 # Como rodar o projeto
 
-**Para o projeto funcionar depende da disponibilidade da API da camara dos deputadaos voce pode fazer uma verificação rápida se ela ainda está disponível clicando [aqui][test_api], o retorno deve ser um objeto json com varios infos de deputados**
+**ATENÇÃO** - Como para o projeto funcionar depende da disponibilidade da API da camara dos deputadaos voce pode fazer uma verificação rápida se ela ainda está disponível clicando [aqui][test_api], o retorno deve ser um objeto json com varios infos de deputados
 
 ## Via Docker
 
