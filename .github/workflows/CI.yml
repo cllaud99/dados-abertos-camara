@@ -28,7 +28,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_PATH }}
       run: |
-      poetry run mkdocs gh-deploy --force
+        poetry run mkdocs gh-deploy --force
 
     - name: Set up dbt profile
       run: |
