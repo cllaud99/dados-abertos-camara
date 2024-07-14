@@ -30,13 +30,13 @@ jobs:
           outputs:
             dev:
               type: postgres
-              host: ${{ secrets.DB_HOST_PROD }}
-              port: ${{ secrets.DB_PORT_PROD }}
-              user: ${{ secrets.DB_USER_PROD }}
-              password: ${{ secrets.DB_PASS_PROD }}
-              dbname: ${{ secrets.DB_NAME_PROD }}
-              schema: ${{ secrets.DB_SCHEMA_PROD }}
-              threads: ${{ secrets.DB_THREADS_PROD }}
+              host: ${{ secrets.HOSTNAME }}
+              port: ${{ secrets.PORT }}
+              user: ${{ secrets.USERNAME }}
+              password: ${{ secrets.PASSWORD }}
+              dbname: ${{ secrets.DATABASE }}
+              schema: ${{ secrets.SCHEMA }}
+              threads: ${{ secrets.TREADS }}
         " > ~/.dbt/profiles.yml
 
     - name: Install dependencies and generate docs
