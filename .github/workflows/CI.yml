@@ -21,6 +21,10 @@ jobs:
     - name: Install dbt
       run: pip install dbt-postgres
 
+    - run: pip install mkdocs-material
+    - run: pip install pillow cairosvg
+    - run: mkdocs gh-deploy --force
+
     - name: Set up dbt profile
       run: |
         mkdir -p ~/.dbt
