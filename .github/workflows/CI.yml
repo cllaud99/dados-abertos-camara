@@ -1,4 +1,4 @@
-name: Deploy dbt docs to GitHub Pages
+name: Deploy dbt and MkDocs docs to GitHub Pages
 
 on:
   push:
@@ -21,10 +21,11 @@ jobs:
     - name: Install dbt
       run: pip install dbt-postgres
 
-    - run: pip install poetry
-    - run: poetry install
+    - name: Install Poetry
+      run: pip install poetry
 
-    - run: poetry run mkdocs gh-deploy --force
+    - name: Install project dependencies
+      run: poetry install
 
     - name: Set up dbt profile
       run: |
@@ -41,17 +42,30 @@ jobs:
               password: ${{ secrets.PASSWORD }}
               dbname: ${{ secrets.DATABASE }}
               schema: ${{ secrets.SCHEMA }}
-              threads: ${{ secrets.TREADS }}
+              threads: ${{ secrets.THREADS }}
         " > ~/.dbt/profiles.yml
 
-    - name: Install dependencies and generate docs
+    - name: Install dbt dependencies and generate docs
       run: |
         cd dbt_dados_abertos_camara
         dbt deps
         dbt docs generate
 
+    - name: Copy dbt docs to public directory
+      run: |
+        mkdir -p public/dbt
+        cp -r dbt_dados_abertos_camara/target/* public/dbt
+
+    - name: Generate MkDocs site
+      run: poetry run mkdocs build
+
+    - name: Copy MkDocs site to public directory
+      run: |
+        mkdir -p public/mkdocs
+        cp -r site/* public/mkdocs
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GH_PATH }}
-        publish_dir: ./dbt_dados_abertos_camara/dbt/target
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: public
