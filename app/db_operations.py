@@ -64,6 +64,7 @@ def build_external_database_url(env_path=".env"):
             hostname = os.getenv("HOSTNAME")
         else:
             hostname = 'db'
+        logger.info(f"Projeto rodando no contexto de:  {os.getenv("DBT_CONTEXT")}.")
         port = os.getenv("PORT")
         database = os.getenv("DATABASE")
         username = os.getenv("USERNAME")
@@ -76,7 +77,6 @@ def build_external_database_url(env_path=".env"):
         external_database_url = (
             f"postgresql://{username}:{password}@{hostname}:{port}/{database}"
         )
-
         logger.info("URL do banco de dados externo PostgreSQL construída com sucesso.")
 
         return external_database_url
