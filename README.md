@@ -1,5 +1,7 @@
 # Projeto de Análise de Despesas dos Deputados
 
+**Acesse a documentação completa clicando [aqui][link_docs]**
+
 ## Disclaimer
 
 Este projeto tem o intuito exclusivo de estudos e visa demonstrar o uso de ferramentas modernas de engenharia de dados e técnicas de visualização de dados. Não é objetivo fazer qualquer juízo de valor sobre os deputados ou suas atividades. Como o projeto é utilizado para testar técnicas e recursos pode sofrer alterações a todo momento e não deve ser utilizado para acompanhamento dos deputados visto que não necessáriamente estara atualizado e/ou finalizado
@@ -76,13 +78,15 @@ Preencha o `Host name/address` com `“db”` e o restante com suas variáveis d
 
 Você pode acessar o projeto Power BI abrindo o arquivo `reports/dados-camara-deputados.pbip` com o Power BI Desktop.
 
+ou para visualizar um relatório de amostra [aqui][link_powerbi]
+
 ## Gerar a documentação dbt com a data lineage
 
 1. Gere a documentação:
     ```bash
     dbt docs generate
     ```
-2. Sirva a documentação:
+2. Rode a documentação:
     ```bash
     dbt docs serve
     ```
@@ -104,3 +108,5 @@ Você pode acessar o projeto Power BI abrindo o arquivo `reports/dados-camara-de
 [def]: https://dadosabertos.camara.leg.br/swagger/api.html
 [pics_arquitetura]: docs/pics/arquitetura/arquitetura.png
 [link_excalidraw]: https://excalidraw.com/#json=NKgR1G1AzJzyYPe7QJzPV,XC42PV_brRMLC4sPSCVezQ
+[link_powerbi]: https://app.powerbi.com/view?r=eyJrIjoiYTljODAxNWItNWIwOS00MjJjLWFjNjctNWM0ODVlN2I4YjczIiwidCI6IjJkODU1YTc1LWYxMzgtNDM5Yy04MzUyLTY2MWU3NzRkZjI2YiJ9&pageName=8570c08e16ae2c8c9962
+[link_docs]: https://cllaud99.github.io/dados-abertos-camara/
