@@ -11,8 +11,7 @@ Este projeto visa realizar a extração, carga e transformação de dados aberto
 
 ## Arquitetura do Projeto
 
-A imagem abaixo descreve a arquitetura escolhida para o projeto:
-e pode ser acessada  [aqui][link_excalidraw]
+A imagem abaixo descreve a arquitetura escolhida para o projeto e pode ser acessada  [aqui][link_excalidraw]
 
 ![Arquitetura do Projeto][pics_arquitetura]
 
