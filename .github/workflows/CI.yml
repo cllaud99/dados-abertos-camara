@@ -23,20 +23,7 @@ jobs:
 
     - run: pip install poetry
     - run: poetry install
-
-    - name: Generate MkDocs site
-      run: poetry run mkdocs build
-
-    - name: Copy MkDocs site to public directory
-      run: |
-        mkdir -p public/mkdocs
-        cp -r site/* public/mkdocs
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GH_PATH }}
-        publish_dir: public
+    - run: mkdocs gh-deploy --force
 
     - name: Set up dbt profile
       run: |
@@ -55,15 +42,3 @@ jobs:
               schema: ${{ secrets.SCHEMA }}
               threads: ${{ secrets.TREADS }}
         " > ~/.dbt/profiles.yml
-
-    - name: Install dependencies and generate docs
-      run: |
-        cd dbt_dados_abertos_camara
-        dbt deps
-        dbt docs generate
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GH_PATH }}
-        publish_dir: ./dbt_dados_abertos_camara/target
