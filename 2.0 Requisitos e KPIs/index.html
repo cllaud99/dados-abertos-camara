@@ -1,0 +1,687 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../3.0%20Arquitetura/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+    
+    
+      
+        <title>2.0 Requisitos e KPIs - Projeto de ELT dados abertos camara</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#20-requisitos-e-kpis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Projeto de ELT dados abertos camara" class="md-header__button md-logo" aria-label="Projeto de ELT dados abertos camara" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Projeto de ELT dados abertos camara
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.0 Requisitos e KPIs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Projeto de ELT dados abertos camara" class="md-nav__button md-logo" aria-label="Projeto de ELT dados abertos camara" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Projeto de ELT dados abertos camara
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.0 Objetivos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2.0 Requisitos e KPIs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2.0 Requisitos e KPIs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-matriz-dimensao-indicador" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Matriz Dimensão-Indicador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-dimensao-e-indicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Dimensão e Indicadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#231-deputado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 Deputado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#232-partido" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 Partido
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#233-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 Estado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#234-formacao-dos-deputados" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 Formação dos Deputados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#235-tipo-de-despesa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5 Tipo de Despesa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#236-fornecedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6 Fornecedores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#237-observacoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.7 Observações Adicionais
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.0%20Arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.0 Arquitetura do Projeto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.0%20etapas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.0 Fluxo das Etapas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.0%20Resultados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.0 Visualizações Power BI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.0%20Contratos%20de%20dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6.0 Contratos de dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-matriz-dimensao-indicador" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Matriz Dimensão-Indicador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-dimensao-e-indicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Dimensão e Indicadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#231-deputado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 Deputado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#232-partido" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 Partido
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#233-estado" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 Estado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#234-formacao-dos-deputados" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.4 Formação dos Deputados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#235-tipo-de-despesa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.5 Tipo de Despesa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#236-fornecedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.6 Fornecedores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#237-observacoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.7 Observações Adicionais
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="20-requisitos-e-kpis"><strong>2.0 Requisitos e KPIs</strong></h1>
+<h4 id="21-matriz-dimensao-indicador">2.1 Matriz Dimensão-Indicador</h4>
+<p>Este documento detalha a especificação de requisitos para o desenvolvimento de um dashboard destinado a simular uma análise dos gastos e o perfil dos deputados. O objetivo é criar uma ferramenta interativa que permita uma compreensão detalhada dos dados financeiros e demográficos. Seguindo os requisitos estipulados abaixo</p>
+<h4 id="22-dimensao-e-indicadores">2.2 Dimensão e Indicadores</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Dimensão</strong></th>
+<th style="text-align: left;"><strong>Indicadores</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Deputado</strong></td>
+<td style="text-align: left;">- Total de gastos por deputado <br> - Média de gastos por deputado <br> - Total de despesas por tipo <br> - Sexo dos deputados (distribuição por gênero) <br> - Distribuição por faixa etária <br> - Ranking de deputados por despesas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Partido</strong></td>
+<td style="text-align: left;">- Total de gastos por partido <br> - Média de gastos por deputado no partido <br> - Número de deputados por partido <br> - Média de idade dos deputados no partido <br> - Distribuição por gênero dos deputados <br> - Distribuição educacional dos deputados no partido</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estado</strong></td>
+<td style="text-align: left;">- Total de gastos por estado <br> - Média de gastos por deputado no estado <br> - Número total de despesas por estado <br> - Número de deputados por estado <br> - Distribuição por gênero dos deputados no estado <br> - Distribuição educacional dos deputados no estado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Formação dos Deputados</strong></td>
+<td style="text-align: left;">- Distribuição educacional dos deputados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tipo de Despesa</strong></td>
+<td style="text-align: left;">- Valor absoluto de despesas por tipo</td>
+</tr>
+</tbody>
+</table>
+<h4 id="231-deputado">2.3.1 Deputado</h4>
+<ul>
+<li><strong>Total de gastos por deputado:</strong> Deve exibir a soma dos gastos realizados por cada deputado.</li>
+<li><strong>Média de gastos por deputado:</strong> Deve calcular a média dos gastos realizados pelos deputados, oferecendo uma visão geral do comportamento de despesas.</li>
+<li><strong>Total de despesas por tipo:</strong> Necessário somar as despesas categorizadas por tipo (ex: passagens aéreas, manutenção de veículos), facilitando a         identificação de onde os recursos são mais utilizados.</li>
+<li><strong>Sexo dos deputados (distribuição por gênero):</strong> Proporção de deputados do sexo masculino e feminino, crucial para análises de diversidade de gênero.</li>
+<li><strong>Idade dos deputados (distribuição por faixa etária e média de idade):</strong> Distribuição dos deputados por faixas etárias e cálculo da média de idade, fornecendo entendimento sobre a faixa etária predominante.</li>
+<li><strong>Ranking de deputados por despesas:</strong> Listagem dos deputados ordenados pelo total de despesas, do maior para o menor.</li>
+</ul>
+<h4 id="232-partido">2.3.2 Partido</h4>
+<ul>
+<li><strong>Total de gastos por partido:</strong> Soma dos gastos realizados pelos deputados de cada partido, permitindo comparações entre os partidos.</li>
+<li><strong>Média de gastos por deputado no partido:</strong> Média dos gastos realizados pelos deputados dentro de cada partido, proporcionando uma visão do comportamento de despesas dentro de cada grupo político.</li>
+<li><strong>Número de deputados por partido:</strong> Quantidade de deputados em atividade que fazem parte de cada partido.</li>
+<li><strong>Média de idade dos deputados no partido:</strong> Média de idade dos deputados em cada partido</li>
+<li><strong>Distribuição por gênero dos deputados:</strong> Proporção de deputados do sexo masculino e feminino em cada partido, importante para análises de diversidade.</li>
+<li><strong>Distribuição educacional dos deputados no partido:</strong> Formação educacional dos deputados por partido, permitindo entender o nível de instrução dentro dos grupos políticos.</li>
+</ul>
+<h4 id="233-estado">2.3.3 Estado</h4>
+<ul>
+<li><strong>Total de gastos por estado:</strong> Soma dos gastos realizados pelos deputados de cada estado, ajudando a identificar onde os recursos são mais gastos.</li>
+<li><strong>Média de gastos por deputado no estado:</strong> Média dos gastos realizados pelos deputados dentro de cada estado, oferecendo uma visão regional do comportamento de despesas.</li>
+<li><strong>Número de deputados por estado:</strong> Quantidade de deputados pertencentes a cada estado, crucial para dimensionar a representação política.</li>
+<li><strong>Distribuição por gênero dos deputados no estado:</strong> Proporção de deputados do sexo masculino e feminino em cada estado, importante para análises de diversidade regional.</li>
+<li><strong>Distribuição educacional dos deputados no estado:</strong> Formação educacional dos deputados por estado, permitindo entender o nível de instrução regional.</li>
+</ul>
+<h4 id="234-formacao-dos-deputados">2.3.4 Formação dos Deputados</h4>
+<ul>
+<li><strong>Distribuição educacional dos deputados:</strong> Nível de formação educacional dos deputados, distribuídos por diferentes categorias (ex: Ensino Fundamental, Médio, Superior, Pós-Graduação, Mestrado, Doutorado), fornecendo insights sobre o perfil educacional.</li>
+</ul>
+<h4 id="235-tipo-de-despesa">2.3.5 Tipo de Despesa</h4>
+<ul>
+<li><strong>Total de despesas por tipo:</strong> Soma dos gastos realizados pelos deputados por cada tipo de despesa, essencial para identificar as categorias de maior consumo.</li>
+<li><strong>Distribuição percentual de despesas por tipo:</strong> Porcentagem de cada tipo de despesa em relação ao total de despesas, útil para análises proporcionais.</li>
+<li><strong>Valor absoluto de despesas por tipo:</strong> Valores absolutos de despesas para cada tipo de despesa, fornecendo uma visão clara dos montantes gastos.</li>
+</ul>
+<h4 id="236-fornecedores">2.3.6 Fornecedores</h4>
+<ul>
+<li><strong>Armazenamento estuturado</strong>  também foi adicionada a tabela de fornecedores para analises futuras</li>
+</ul>
+<h4 id="237-observacoes-adicionais">2.3.7 Observações Adicionais</h4>
+<ul>
+<li><strong>Visualizações Gráficas:</strong> Os dashboards devem utilizar várias visualizações gráficas, como gráficos de barras, gráficos de rosca, treemaps, e mapas geográficos para representar os dados de forma clara e intuitiva.</li>
+<li><strong>Filtros Dinâmicos:</strong> Deve haver a possibilidade de filtrar dados por UF (Unidade Federativa) e partido para análises específicas.</li>
+<li><strong>Comparações Temporais:</strong> Deve ser possível realizar a análise das despesas por períodos (mensais) para identificar tendências e picos de gastos.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
